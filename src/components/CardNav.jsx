@@ -2,7 +2,7 @@ import { useLayoutEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { HiArrowUpRight } from 'react-icons/hi2';
 import './CardNav.css';
-const CardNav = ({ logo, logoAlt = 'Logo', items, className = '', ease = 'power3.out', baseColor = '#fff', menuColor, buttonBgColor, buttonTextColor, onLoginClick, onSignupClick, scrolled, isLightNavbar }) => {
+const CardNav = ({ logo, logoAlt = 'Logo', items, className = '', ease = 'power3.out', baseColor = '#fff', menuColor, buttonBgColor, buttonTextColor, onLoginClick, onSignupClick, scrolled, isLightNavbar, activeSection }) => {
     const [isHamburgerOpen, setIsHamburgerOpen] = useState(false);
     const [isExpanded, setIsExpanded] = useState(false);
     const navRef = useRef(null);
@@ -123,7 +123,7 @@ const CardNav = ({ logo, logoAlt = 'Logo', items, className = '', ease = 'power3
             {typeof logo === 'string' ? (<img src={logo} alt={logoAlt} className="logo"/>) : (logo)}
           </div>
 
-          <button type="button" className="card-nav-cta-button" style={{ backgroundColor: buttonBgColor, color: buttonTextColor }}>
+          <button type="button" className="card-nav-cta-button" style={{ backgroundColor: buttonBgColor, color: buttonTextColor }} onClick={onSignupClick}>
             Get Started
           </button>
         </div>
@@ -132,10 +132,14 @@ const CardNav = ({ logo, logoAlt = 'Logo', items, className = '', ease = 'power3
           {(items || []).slice(0, 3).map((item, idx) => (<div key={`${item.label}-${idx}`} className="nav-card" ref={setCardRef(idx)} style={{ backgroundColor: item.bgColor, color: item.textColor }}>
               <div className="nav-card-label">{item.label}</div>
               <div className="nav-card-links">
-                {item.links?.map((lnk, i) => (<a key={`${lnk.label}-${i}`} className="nav-card-link" href={lnk.href} aria-label={lnk.ariaLabel}>
+                {item.links?.map((lnk, i) => {
+                  const isActive = activeSection === lnk.href.substring(1);
+                  return (
+                  <a key={`${lnk.label}-${i}`} className="nav-card-link" href={lnk.href} aria-label={lnk.ariaLabel} style={{ color: isActive ? '#d946ef' : 'inherit', fontWeight: isActive ? 'bold' : 'normal' }}>
                     <HiArrowUpRight className="nav-card-link-icon" aria-hidden="true" size={16}/>
                     {lnk.label}
-                  </a>))}
+                  </a>
+                )})}
               </div>
             </div>))}
             
