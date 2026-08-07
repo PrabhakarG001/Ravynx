@@ -1,1 +1,123 @@
 /* Landing styles */
+
+/* HERO SECTION - Responsive Horizon Glow */
+.hero-glow-container {
+  position: relative;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  pointer-events: none;
+}
+
+.hero-glow {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  background-image: linear-gradient(to right, rgba(217, 70, 239, 0.4), rgba(147, 51, 234, 0.4));
+  border-radius: 9999px;
+  pointer-events: none;
+}
+
+/* Base (Mobile) */
+.hero-glow-container { min-height: 150px; }
+.hero-glow {
+  bottom: -10px;
+  width: 150%;
+  max-width: 800px;
+  height: 200px;
+  filter: blur(60px);
+}
+
+/* Tablet (481px+) */
+@media (min-width: 481px) {
+  .hero-glow-container { min-height: 200px; }
+  .hero-glow {
+    bottom: -30px;
+    width: 120%;
+    height: 250px;
+    filter: blur(80px);
+  }
+}
+
+/* Small Laptop / Desktop (769px+) */
+@media (min-width: 769px) {
+  .hero-glow-container { min-height: 400px; }
+  .hero-glow {
+    bottom: -50px;
+    width: 80%;
+    height: 300px;
+    filter: blur(100px);
+  }
+}
+
+/* FEATURES SECTION - Responsive Grid */
+.features-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+/* Base (Mobile) */
+.features-grid { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+
+/* Tablet */
+@media (min-width: 481px) {
+  .features-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+/* Desktop */
+@media (min-width: 1025px) {
+  .features-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+/* TRUST SECTION - Responsive Layout */
+.trust-metrics {
+  display: grid;
+  gap: 1px;
+}
+
+/* Base (Mobile) */
+.trust-metrics { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+
+@media (min-width: 769px) {
+  .trust-metrics {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* FOOTER - Responsive Alignment */
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.footer-socials {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.footer-links {
+  text-align: center;
+}
+
+@media (min-width: 769px) {
+  .footer-brand {
+    align-items: flex-start;
+    text-align: left;
+  }
+  .footer-socials {
+    justify-content: flex-start;
+  }
+  .footer-links {
+    text-align: left;
+  }
+}

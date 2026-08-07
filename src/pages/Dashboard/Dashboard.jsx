@@ -55,14 +55,14 @@ export const Dashboard = () => {
   const [activeChart, setActiveChart] = useState('distribution');
 
   return (
-    <div className="p-8 md:p-12 max-w-[1200px] mx-auto w-full">
+    <div className="dashboard-container">
       {/* Top Header */}
       <div className="flex items-center justify-between mb-8">
         <h1 className="text-[24px] font-bold text-[#1a1f36]">Workspace Overview</h1>
       </div>
 
       {/* Hero Banner */}
-      <div className="relative w-full h-[220px] rounded-2xl overflow-hidden mb-12 shadow-sm flex items-center px-10 border border-[#1a1f36]/10">
+      <div className="dashboard-hero">
         <img 
           src="/assets/dashboard_hero.jpg" 
           alt="Hero Background" 
@@ -70,9 +70,9 @@ export const Dashboard = () => {
         />
         <div className="absolute inset-0 bg-gradient-to-r from-[#001b33]/90 to-transparent pointer-events-none"></div>
         
-        <div className="relative z-10 text-white max-w-xl">
-          <h1 className="text-[32px] font-bold mb-3 tracking-tight">Automate Document Verification</h1>
-          <p className="text-[16px] text-gray-200 mb-6 font-medium leading-relaxed">
+        <div className="dashboard-hero-content">
+          <h1 className="dashboard-hero-title">Automate Document Verification</h1>
+          <p className="dashboard-hero-text">
             Instantly scan documents, flag fraudulent activity, and clear your review queue with the Ravynx Aegis Core. Process your first 500 documents for free.
           </p>
           <div className="flex items-center gap-4">
@@ -83,9 +83,9 @@ export const Dashboard = () => {
         </div>
       </div>
 
-      {/* Overview Stats Grid - Moved below Hero Banner */}
+      {/* Overview Stats Grid */}
       <h2 className="text-[18px] font-semibold text-[#1a1f36] mb-4">Overview</h2>
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-10">
+      <div className="dashboard-grid dashboard-grid-cols-4">
         <div className="bg-white border border-[#e3e8ee] rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow">
           <div className="flex items-center gap-3 mb-3">
             <div className="w-8 h-8 rounded-lg bg-gray-100 flex items-center justify-center">

@@ -241,10 +241,10 @@ export default function Landing() {
              </div>
 
              {/* 3D Animated Surface (Glowing Horizon) */}
-             <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.4 }} className="relative w-full mx-auto mt-auto flex-1 flex flex-col items-center justify-end pointer-events-none min-h-[400px]">
+             <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.4 }} className="hero-glow-container">
                <div className="absolute inset-0 w-full h-full overflow-hidden flex items-end justify-center" style={{ perspective: "1000px" }}>
                  {/* Horizon glow */}
-                 <div className="absolute bottom-[-50px] left-1/2 -translate-x-1/2 w-[80%] max-w-[800px] h-[300px] bg-gradient-to-r from-fuchsia-500/40 to-purple-600/40 blur-[100px] rounded-full pointer-events-none"></div>
+                 <div className="hero-glow"></div>
                </div>
                <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/30 z-20"></div>
              </motion.div>
@@ -276,7 +276,7 @@ export default function Landing() {
                 <h2 className="text-3xl font-bold text-slate-900 mb-3">Core Capabilities</h2>
                 <p className="text-slate-500 text-base">An advanced suite of AI tools designed to automate your underwriting process and eliminate document fraud at the source.</p>
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="features-grid">
                 {features.map(({ icon: Icon, title, desc }) => (<div key={title} className="bg-white border border-slate-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
                     <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
                       <Icon size={18} className="text-primary"/>
@@ -531,7 +531,7 @@ export default function Landing() {
             </div>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-px bg-white/5 rounded-2xl overflow-hidden border border-white/10">
+          <div className="trust-metrics bg-white/5 rounded-2xl overflow-hidden border border-white/10">
             {[
               {
                 icon: Landmark,
@@ -623,12 +623,12 @@ export default function Landing() {
       <footer className="bg-[#030213] border-t border-white/10 pt-20 pb-10">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="grid grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-8 mb-16">
-            <div className="col-span-2 lg:col-span-2 flex flex-col items-center sm:items-start text-center sm:text-left">
+            <div className="col-span-2 lg:col-span-2 footer-brand">
               <Logo className="text-[28px] text-white mb-4 block" />
               <p className="text-white/60 text-sm leading-relaxed mb-6 max-w-sm sm:max-w-md px-4 sm:px-0 sm:pr-4">
                 Government-grade AI underwriting and document fraud detection for modern financial institutions.
               </p>
-              <div className="flex items-center justify-center sm:justify-start gap-4">
+              <div className="footer-socials w-full">
                 <a href="#" className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/60 hover:text-white hover:bg-white/10 transition-colors">
                   <FiGithub className="w-5 h-5"/>
                 </a>
@@ -638,7 +638,7 @@ export default function Landing() {
               </div>
             </div>
             
-            <div className="text-left">
+            <div className="footer-links">
               <h4 className="text-white font-semibold mb-6">Platform</h4>
               <ul className="space-y-3">
                 <li><a href="#how-it-works" className="text-white/60 hover:text-white text-sm transition-colors">How it Works</a></li>
@@ -648,7 +648,7 @@ export default function Landing() {
               </ul>
             </div>
             
-            <div>
+            <div className="footer-links">
               <h4 className="text-white font-semibold mb-6">Company</h4>
               <ul className="space-y-3">
                 <li><a href="#team" className="text-white/60 hover:text-white text-sm transition-colors">About Us</a></li>
@@ -658,7 +658,7 @@ export default function Landing() {
               </ul>
             </div>
             
-            <div>
+            <div className="footer-links">
               <h4 className="text-white font-semibold mb-6">Legal</h4>
               <ul className="space-y-3">
                 <li><a href="#" onClick={(e) => handleFooterClick(e, 'Privacy Policy', 'Legal')} className="text-white/60 hover:text-white text-sm transition-colors">Privacy Policy</a></li>
