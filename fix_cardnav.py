@@ -1,4 +1,6 @@
-import { useLayoutEffect, useRef, useState } from 'react';
+import codecs
+
+content = '''import { useLayoutEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 // use your own icon import if react-icons is not available
 import { GoArrowUpRight } from 'react-icons/go';
@@ -139,11 +141,11 @@ const CardNav = ({
   };
 
   return (
-    <div className={`card-nav-container ${className}`}>
-      <nav ref={navRef} className={`card-nav ${isExpanded ? 'open' : ''}`} style={{ backgroundColor: baseColor }}>
+    <div className={card-nav-container \}>
+      <nav ref={navRef} className={card-nav \} style={{ backgroundColor: baseColor }}>
         <div className="card-nav-top">
           <div
-            className={`hamburger-menu ${isHamburgerOpen ? 'open' : ''}`}
+            className={hamburger-menu \}
             onClick={toggleMenu}
             onKeyDown={e => {
               if (e.key === 'Enter' || e.key === ' ') {
@@ -182,7 +184,7 @@ const CardNav = ({
         <div className="card-nav-content" aria-hidden={!isExpanded}>
           {(items || []).slice(0, 3).map((item, idx) => (
             <div
-              key={`${item.label}-${idx}`}
+              key={\-\}
               className="nav-card"
               ref={setCardRef(idx)}
               style={{ backgroundColor: item.bgColor, color: item.textColor }}
@@ -192,7 +194,7 @@ const CardNav = ({
                 {item.links?.map((lnk, i) => {
                   const isActive = activeSection === lnk.href.substring(1);
                   return (
-                    <a key={`${lnk.label}-${i}`} className="nav-card-link" href={lnk.href} aria-label={lnk.ariaLabel} style={{ color: isActive ? '#d946ef' : 'inherit', fontWeight: isActive ? 'bold' : 'normal' }}>
+                    <a key={\-\} className="nav-card-link" href={lnk.href} aria-label={lnk.ariaLabel} style={{ color: isActive ? '#d946ef' : 'inherit', fontWeight: isActive ? 'bold' : 'normal' }}>
                       <GoArrowUpRight className="nav-card-link-icon" aria-hidden="true" />
                       {lnk.label}
                     </a>
@@ -203,7 +205,8 @@ const CardNav = ({
           ))}
           
           <div 
-            className={`nav-mobile-auth-buttons ${isLightNavbar ? 'light-mode' : ''}`}
+            className={
+av-mobile-auth-buttons \}
             ref={setCardRef(items ? items.length : 3)}
           >
             <button
@@ -228,3 +231,7 @@ const CardNav = ({
 };
 
 export default CardNav;
+'''
+
+with codecs.open(r'C:\Users\Prabh\Downloads\Ravynx\src\components\CardNav\CardNav.jsx', 'w', 'utf-8') as f:
+    f.write(content)
