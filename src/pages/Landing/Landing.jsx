@@ -270,7 +270,7 @@ export default function Landing() {
           </motion.div>
 
           {/* Core Capabilities Revealed */}
-          <motion.div className="landing-cls-27" style={{ opacity: pageOpacity }}>
+          <div className="landing-cls-27">
             <div className={`w-full max-w-6xl mx-auto px-6 md:px-12 ${isLightNavbar ? 'pointer-events-auto' : 'pointer-events-none'}`}>
               <div className="landing-cls-28">
                 <h2 className="landing-cls-29">Core Capabilities</h2>
@@ -286,7 +286,7 @@ export default function Landing() {
                   </div>))}
               </div>
             </div>
-          </motion.div>
+          </div>
           
         </div>
       </div>

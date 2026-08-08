@@ -337,11 +337,11 @@
 }
 
 .landing-cls-35 {
-  @apply text-base font-semibold text-white mb-2;
+  @apply text-base font-semibold text-slate-900 mb-2;
 }
 
 .landing-cls-36 {
-  @apply text-sm text-slate-300 leading-relaxed;
+  @apply text-sm text-slate-500 leading-relaxed;
 }
 
 .landing-cls-37 {
