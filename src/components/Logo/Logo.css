@@ -1,5 +1,5 @@
 @reference "../../styles/index.css";
-.-text {
+.logo-text {
   @apply font-bold bg-transparent;
   font-family: 'Space Grotesk', sans-serif;
   letter-spacing: 1.5px;

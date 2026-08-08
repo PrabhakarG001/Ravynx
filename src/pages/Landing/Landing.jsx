@@ -241,10 +241,10 @@ export default function Landing() {
              </div>
 
              {/* 3D Animated Surface (Glowing Horizon) */}
-             <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.4 }} className="landing-cls-22">
+             <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.4 }} className="landing-cls-22 hero-glow-container">
                <div className="landing-cls-23" style={{ perspective: "1000px" }}>
                  {/* Horizon glow */}
-                 <div className="landing-cls-24"></div>
+                 <div className="landing-cls-24 hero-glow"></div>
                </div>
                <div className="landing-cls-25"></div>
              </motion.div>
@@ -307,7 +307,7 @@ export default function Landing() {
             <div className="landing-cls-45">
               <div className="landing-cls-46">
                 <h3 className="landing-cls-47">Manual Verification</h3>
-                <p className="landing-cls-48">
+                <p className="landing-cls-48 features-grid">
                   High operational costs, slow turnaround times, and sophisticated forgeries that go undetected by the human eye.
                 </p>
               </div>
@@ -337,7 +337,7 @@ export default function Landing() {
             <div className="landing-cls-61">
               <div className="landing-cls-62">
                 <h3 className="landing-cls-63">Ravynx AI Engine</h3>
-                <p className="landing-cls-64">
+                <p className="landing-cls-64 trust-metrics">
                   Instant processing, cross-document data reconciliation, and pixel-level tampering detection.
                 </p>
               </div>

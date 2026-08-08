@@ -1,8 +1,9 @@
 @reference "../../styles/index.css";
+
 /* Landing styles */
 
 /* HERO SECTION - Responsive Horizon Glow */
-. {
+.hero-glow-container {
   position: relative;
   width: 100%;
   margin-left: auto;
@@ -16,7 +17,7 @@
   pointer-events: none;
 }
 
-. {
+.hero-glow {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
@@ -26,8 +27,8 @@
 }
 
 /* Base (Mobile) */
-. { min-height: 150px; }
-. {
+.hero-glow-container { min-height: 150px; }
+.hero-glow {
   bottom: -10px;
   width: 150%;
   max-width: 800px;
@@ -37,8 +38,8 @@
 
 /* Tablet (481px+) */
 @media (min-width: 481px) {
-  . { min-height: 200px; }
-  . {
+  .hero-glow-container { min-height: 200px; }
+  .hero-glow {
     bottom: -30px;
     width: 120%;
     height: 250px;
@@ -48,8 +49,8 @@
 
 /* Small Laptop / Desktop (769px+) */
 @media (min-width: 769px) {
-  . { min-height: 400px; }
-  . {
+  .hero-glow-container { min-height: 400px; }
+  .hero-glow {
     bottom: -50px;
     width: 80%;
     height: 300px;
@@ -58,1033 +59,67 @@
 }
 
 /* FEATURES SECTION - Responsive Grid */
-. {
+.features-grid {
   display: grid;
   gap: 1.5rem;
 }
 
 /* Base (Mobile) */
-. { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+.features-grid { grid-template-columns: repeat(1, minmax(0, 1fr)); }
 
 /* Tablet */
 @media (min-width: 481px) {
-  . { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .features-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 /* Desktop */
 @media (min-width: 1025px) {
-  . { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .features-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 
 /* TRUST SECTION - Responsive Layout */
-. {
+.trust-metrics {
   display: grid;
   gap: 1px;
 }
 
 /* Base (Mobile) */
-. { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+.trust-metrics { grid-template-columns: repeat(1, minmax(0, 1fr)); }
 
 @media (min-width: 769px) {
-  . {
+  .trust-metrics {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
 /* FOOTER - Responsive Alignment */
-. {
+.footer-brand {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
 }
 
-. {
+.footer-socials {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 1rem;
 }
 
-. {
+.footer-links {
   text-align: center;
 }
 
 @media (min-width: 769px) {
-  . {
+  .footer-brand {
     align-items: flex-start;
     text-align: left;
   }
-  . {
+  .footer-socials {
     justify-content: flex-start;
   }
-  . {
+  .footer-links {
     text-align: left;
   }
-}.landing-cls-1 {
-  @apply min-h-screen bg-background font-['Plus_Jakarta_Sans',sans-serif];
-}
-
-.landing-cls-2 {
-  @apply w-full max-w-7xl mx-auto px-6 md:px-12 lg:px-20 flex items-center justify-between;
-}
-
-.landing-cls-3 {
-  @apply flex items-center lg:gap-14 gap-8;
-}
-
-.landing-cls-4 {
-  @apply cursor-pointer;
-}
-
-.landing-cls-5 {
-  @apply hidden md:flex items-center gap-8;
-}
-
-.landing-cls-6 {
-  @apply flex items-center gap-4 sm:gap-6 lg:mr-24 md:mr-16 mr-4;
-}
-
-.landing-cls-7 {
-  @apply relative h-[200vh] bg-black;
-}
-
-.landing-cls-8 {
-  @apply sticky top-0 h-screen overflow-hidden flex flex-col justify-between;
-}
-
-.landing-cls-9 {
-  @apply absolute inset-0 z-0 h-full w-full flex flex-col items-center justify-start pt-24 md:pt-32 overflow-hidden;
-}
-
-.landing-cls-10 {
-  @apply absolute top-[40%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-purple-600/10 rounded-full blur-[150px] pointer-events-none;
-}
-
-.landing-cls-11 {
-  @apply relative z-20 w-full max-w-4xl mx-auto px-6 flex flex-col items-center text-center mt-4;
-}
-
-.landing-cls-12 {
-  @apply text-4xl sm:text-5xl md:text-6xl lg:text-[64px] font-bold tracking-tight leading-[1.1] mb-4 md:mb-6;
-}
-
-.landing-cls-13 {
-  @apply text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-500 to-purple-600;
-}
-
-.landing-cls-14 {
-  @apply text-white;
-}
-
-.landing-cls-15 {
-  @apply text-white/90 text-[16px] sm:text-[18px] md:text-[20px] leading-[1.6] max-w-3xl mx-auto mb-3 md:mb-4 font-medium;
-}
-
-.landing-cls-16 {
-  @apply text-white/60 text-[14px] sm:text-[15px] md:text-[16px] leading-[1.6] max-w-2xl mx-auto mb-6 md:mb-10;
-}
-
-.landing-cls-17 {
-  @apply flex flex-col sm:flex-row items-center gap-4 sm:gap-6 relative z-50 pointer-events-auto;
-}
-
-.landing-cls-18 {
-  @apply px-8 py-2.5 rounded-full border border-purple-500 text-white text-sm font-medium hover:bg-purple-500/10 transition-colors shadow-[0_0_15px_rgba(168,85,247,0.3)] inline-flex items-center justify-center gap-2 cursor-pointer;
-}
-
-.landing-cls-19 {
-  @apply w-4 h-4;
-}
-
-.landing-cls-20 {
-  @apply px-8 py-2.5 rounded-full border border-white/30 text-white text-sm font-medium hover:bg-white/10 transition-colors inline-flex items-center justify-center gap-2 cursor-pointer;
-}
-
-.landing-cls-21 {
-  @apply w-4 h-4;
-}
-
-.landing-cls-22 {
-  
-}
-
-.landing-cls-23 {
-  @apply absolute inset-0 w-full h-full overflow-hidden flex items-end justify-center;
-}
-
-.landing-cls-24 {
-  
-}
-
-.landing-cls-25 {
-  @apply absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/30 z-20;
-}
-
-.landing-cls-26 {
-  @apply flex pointer-events-auto absolute bottom-0 flex-col overflow-hidden origin-bottom;
-}
-
-.landing-cls-27 {
-  @apply absolute inset-0 z-40 pointer-events-none flex items-center justify-center pt-20;
-}
-
-.landing-cls-28 {
-  @apply mb-10 text-center md:text-left;
-}
-
-.landing-cls-29 {
-  @apply text-3xl font-bold text-slate-900 mb-3;
-}
-
-.landing-cls-30 {
-  @apply text-slate-500 text-base;
-}
-
-.landing-cls-31 {
-  
-}
-
-.landing-cls-32 {
-  @apply bg-white border border-slate-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow;
-}
-
-.landing-cls-33 {
-  @apply w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center mb-4;
-}
-
-.landing-cls-34 {
-  @apply text-primary;
-}
-
-.landing-cls-35 {
-  @apply text-base font-semibold text-slate-900 mb-2;
-}
-
-.landing-cls-36 {
-  @apply text-sm text-slate-500 leading-relaxed;
-}
-
-.landing-cls-37 {
-  @apply px-6 md:px-12 py-24 max-w-7xl mx-auto;
-}
-
-.landing-cls-38 {
-  @apply text-center mb-16;
-}
-
-.landing-cls-39 {
-  @apply text-4xl md:text-5xl font-bold text-foreground mb-4 tracking-tight;
-}
-
-.landing-cls-40 {
-  @apply text-muted-foreground max-w-2xl mx-auto text-lg;
-}
-
-.landing-cls-41 {
-  @apply grid md:grid-cols-2 gap-6;
-}
-
-.landing-cls-42 {
-  @apply relative h-[600px] rounded-3xl overflow-hidden;
-}
-
-.landing-cls-43 {
-  @apply absolute inset-0 w-full h-full object-cover transition-transform duration-700 hover:scale-105;
-}
-
-.landing-cls-44 {
-  @apply absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/30;
-}
-
-.landing-cls-45 {
-  @apply relative z-10 h-full flex flex-col p-10;
-}
-
-.landing-cls-46 {
-  @apply text-center mt-8;
-}
-
-.landing-cls-47 {
-  @apply text-3xl font-bold text-white mb-4;
-}
-
-.landing-cls-48 {
-  @apply text-white/80 text-lg max-w-md mx-auto;
-}
-
-.landing-cls-49 {
-  @apply mt-auto mx-auto max-w-sm w-full text-center;
-}
-
-.landing-cls-50 {
-  @apply flex items-center justify-between mb-4 pb-4 border-b border-white/10;
-}
-
-.landing-cls-51 {
-  @apply text-white/80 text-sm font-medium;
-}
-
-.landing-cls-52 {
-  @apply text-red-400 font-bold;
-}
-
-.landing-cls-53 {
-  @apply space-y-3;
-}
-
-.landing-cls-54 {
-  @apply flex items-center gap-3 text-white/90 text-sm text-left;
-}
-
-.landing-cls-55 {
-  @apply w-4 h-4 text-red-400 shrink-0;
-}
-
-.landing-cls-56 {
-  @apply flex items-center gap-3 text-white/90 text-sm text-left;
-}
-
-.landing-cls-57 {
-  @apply w-4 h-4 text-red-400 shrink-0;
-}
-
-.landing-cls-58 {
-  @apply relative h-[600px] rounded-3xl overflow-hidden;
-}
-
-.landing-cls-59 {
-  @apply absolute inset-0 w-full h-full object-cover transition-transform duration-700 hover:scale-105;
-}
-
-.landing-cls-60 {
-  @apply absolute inset-0 bg-gradient-to-t from-blue-900/90 via-black/40 to-black/30;
-}
-
-.landing-cls-61 {
-  @apply relative z-10 h-full flex flex-col p-10;
-}
-
-.landing-cls-62 {
-  @apply text-center mt-8;
-}
-
-.landing-cls-63 {
-  @apply text-3xl font-bold text-white mb-4;
-}
-
-.landing-cls-64 {
-  @apply text-white/80 text-lg max-w-md mx-auto;
-}
-
-.landing-cls-65 {
-  @apply mt-auto mx-auto max-w-sm w-full text-center;
-}
-
-.landing-cls-66 {
-  @apply relative z-10;
-}
-
-.landing-cls-67 {
-  @apply flex items-center justify-between mb-4 pb-4 border-b border-blue-400/20;
-}
-
-.landing-cls-68 {
-  @apply text-blue-200/80 text-sm font-medium;
-}
-
-.landing-cls-69 {
-  @apply text-blue-400 font-bold flex items-center gap-1.5;
-}
-
-.landing-cls-70 {
-  @apply w-4 h-4;
-}
-
-.landing-cls-71 {
-  @apply space-y-3;
-}
-
-.landing-cls-72 {
-  @apply flex items-center gap-3 text-white text-sm font-medium text-left;
-}
-
-.landing-cls-73 {
-  @apply w-4 h-4 text-blue-400 shrink-0;
-}
-
-.landing-cls-74 {
-  @apply flex items-center gap-3 text-white text-sm font-medium text-left;
-}
-
-.landing-cls-75 {
-  @apply w-4 h-4 text-blue-400 shrink-0;
-}
-
-.landing-cls-76 {
-  @apply bg-secondary/50 py-24 border-y border-border overflow-hidden;
-}
-
-.landing-cls-77 {
-  @apply max-w-7xl mx-auto px-6 md:px-12;
-}
-
-.landing-cls-78 {
-  @apply text-center mb-16;
-}
-
-.landing-cls-79 {
-  @apply text-3xl font-bold text-foreground mb-4;
-}
-
-.landing-cls-80 {
-  @apply text-muted-foreground max-w-2xl mx-auto;
-}
-
-.landing-cls-81 {
-  @apply flex flex-col md:flex-row items-center justify-between gap-2 md:gap-0 relative;
-}
-
-.landing-cls-82 {
-  @apply hidden md:block absolute top-12 left-[10%] right-[10%] h-0.5 bg-border z-0;
-}
-
-.landing-cls-83 {
-  @apply h-full bg-primary;
-}
-
-.landing-cls-84 {
-  @apply relative z-10 flex flex-col items-center text-center w-full md:w-48;
-}
-
-.landing-cls-85 {
-  @apply w-24 h-24 rounded-2xl bg-card border border-border shadow-md flex items-center justify-center mb-4 hover:-translate-y-2 transition-transform duration-300 relative overflow-hidden;
-}
-
-.landing-cls-86 {
-  @apply absolute inset-0 bg-primary/5 opacity-0 hover:opacity-100 transition-opacity;
-}
-
-.landing-cls-87 {
-  @apply w-10 h-10 text-primary;
-}
-
-.landing-cls-88 {
-  @apply font-bold text-foreground text-lg;
-}
-
-.landing-cls-89 {
-  @apply text-sm text-muted-foreground mt-1;
-}
-
-.landing-cls-90 {
-  @apply md:hidden flex items-center justify-center py-1;
-}
-
-.landing-cls-91 {
-  @apply w-6 h-6 text-primary;
-}
-
-.landing-cls-92 {
-  @apply px-6 md:px-12 py-24 max-w-4xl mx-auto;
-}
-
-.landing-cls-93 {
-  @apply text-center mb-12;
-}
-
-.landing-cls-94 {
-  @apply text-3xl font-bold text-foreground mb-4;
-}
-
-.landing-cls-95 {
-  @apply text-muted-foreground;
-}
-
-.landing-cls-96 {
-  @apply bg-[#030213] border border-white/10 rounded-xl overflow-hidden shadow-2xl font-mono relative;
-}
-
-.landing-cls-97 {
-  @apply flex items-center justify-between px-4 py-3 border-b border-white/10 bg-black/40 relative;
-}
-
-.landing-cls-98 {
-  @apply flex gap-2 relative z-10;
-}
-
-.landing-cls-99 {
-  @apply w-3 h-3 rounded-full bg-red-500;
-}
-
-.landing-cls-100 {
-  @apply w-3 h-3 rounded-full bg-yellow-500;
-}
-
-.landing-cls-101 {
-  @apply w-3 h-3 rounded-full bg-green-500;
-}
-
-.landing-cls-102 {
-  @apply absolute inset-0 flex items-center justify-center pointer-events-none;
-}
-
-.landing-cls-103 {
-  @apply text-xs text-slate-400 font-semibold tracking-wide;
-}
-
-.landing-cls-104 {
-  @apply p-6 text-sm text-gray-300 h-72 overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none];
-}
-
-.landing-cls-105 {
-  @apply space-y-4;
-}
-
-.landing-cls-106 {
-  @apply flex items-start gap-3;
-}
-
-.landing-cls-107 {
-  @apply text-blue-400 shrink-0;
-}
-
-.landing-cls-108 {
-  @apply flex items-start gap-3;
-}
-
-.landing-cls-109 {
-  @apply text-blue-400 shrink-0;
-}
-
-.landing-cls-110 {
-  @apply w-4 h-4 animate-spin text-muted-foreground mt-0.5;
-}
-
-.landing-cls-111 {
-  @apply flex items-start gap-3;
-}
-
-.landing-cls-112 {
-  @apply text-green-400 shrink-0;
-}
-
-.landing-cls-113 {
-  @apply flex items-start gap-3;
-}
-
-.landing-cls-114 {
-  @apply text-yellow-400 shrink-0;
-}
-
-.landing-cls-115 {
-  @apply flex items-start gap-3;
-}
-
-.landing-cls-116 {
-  @apply text-red-500 font-bold shrink-0;
-}
-
-.landing-cls-117 {
-  @apply text-red-400;
-}
-
-.landing-cls-118 {
-  @apply flex items-start gap-3;
-}
-
-.landing-cls-119 {
-  @apply text-blue-400 shrink-0;
-}
-
-.landing-cls-120 {
-  @apply flex items-start gap-3;
-}
-
-.landing-cls-121 {
-  @apply text-red-500 font-bold shrink-0;
-}
-
-.landing-cls-122 {
-  @apply text-red-400;
-}
-
-.landing-cls-123 {
-  @apply flex items-start gap-3;
-}
-
-.landing-cls-124 {
-  @apply text-green-400 shrink-0;
-}
-
-.landing-cls-125 {
-  @apply font-bold text-foreground;
-}
-
-.landing-cls-126 {
-  @apply absolute bottom-0 left-0 h-1.5 w-full bg-secondary;
-}
-
-.landing-cls-127 {
-  @apply h-full bg-primary shadow-[0_0_15px_rgba(var(--primary),0.8)];
-}
-
-.landing-cls-128 {
-  @apply relative py-32 overflow-hidden;
-}
-
-.landing-cls-129 {
-  @apply absolute inset-0 z-0;
-}
-
-.landing-cls-130 {
-  @apply w-full h-full object-cover;
-}
-
-.landing-cls-131 {
-  @apply absolute inset-0 bg-black/60;
-}
-
-.landing-cls-132 {
-  @apply relative z-10 max-w-7xl mx-auto px-6 md:px-12;
-}
-
-.landing-cls-133 {
-  @apply text-center mb-16 flex flex-col items-center;
-}
-
-.landing-cls-134 {
-  @apply text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight;
-}
-
-.landing-cls-135 {
-  @apply text-white/80 max-w-2xl mx-auto text-lg mb-8;
-}
-
-.landing-cls-136 {
-  @apply max-w-4xl mx-auto text-center mt-12 bg-black/40 backdrop-blur-sm border border-white/10 rounded-2xl p-6 md:p-10;
-}
-
-.landing-cls-137 {
-  @apply text-2xl md:text-3xl font-semibold text-white mb-6;
-}
-
-.landing-cls-138 {
-  @apply text-white/90 text-base md:text-xl leading-relaxed;
-}
-
-.landing-cls-139 {
-  @apply px-6 md:px-12 py-32 max-w-7xl mx-auto;
-}
-
-.landing-cls-140 {
-  @apply text-center mb-20;
-}
-
-.landing-cls-141 {
-  @apply text-3xl font-bold text-foreground mb-4;
-}
-
-.landing-cls-142 {
-  @apply text-muted-foreground max-w-2xl mx-auto text-lg;
-}
-
-.landing-cls-143 {
-  @apply relative;
-}
-
-.landing-cls-144 {
-  @apply absolute inset-0 flex items-center justify-center pointer-events-none opacity-40 hidden md:flex;
-}
-
-.landing-cls-145 {
-  @apply w-[85%] h-px bg-gradient-to-r from-transparent via-primary to-transparent;
-}
-
-.landing-cls-146 {
-  @apply grid grid-cols-1 md:grid-cols-4 gap-8 relative z-10;
-}
-
-.landing-cls-147 {
-  @apply bg-card/80 backdrop-blur-md border border-border rounded-2xl p-8 text-center shadow-lg hover:shadow-[0_0_30px_rgba(var(--primary),0.15)] hover:-translate-y-2 transition-all duration-300 relative;
-}
-
-.landing-cls-148 {
-  @apply absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent opacity-0 hover:opacity-100 transition-opacity rounded-2xl;
-}
-
-.landing-cls-149 {
-  @apply w-16 h-16 rounded-2xl bg-primary/10 mx-auto flex items-center justify-center mb-6 relative z-10;
-}
-
-.landing-cls-150 {
-  @apply w-8 h-8 text-primary;
-}
-
-.landing-cls-151 {
-  @apply font-bold text-foreground text-lg relative z-10;
-}
-
-.landing-cls-152 {
-  @apply text-sm text-muted-foreground mt-2 relative z-10;
-}
-
-.landing-cls-153 {
-  @apply bg-[#030213] text-white py-24 sm:py-32 border-y border-white/10;
-}
-
-.landing-cls-154 {
-  @apply max-w-7xl mx-auto px-6 md:px-12;
-}
-
-.landing-cls-155 {
-  @apply flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16 md:mb-24;
-}
-
-.landing-cls-156 {
-  @apply max-w-2xl;
-}
-
-.landing-cls-157 {
-  @apply flex items-center gap-2 mb-4;
-}
-
-.landing-cls-158 {
-  @apply w-2 h-2 rounded-full bg-fuchsia-500;
-}
-
-.landing-cls-159 {
-  @apply text-sm font-semibold tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-500 to-purple-600 uppercase;
-}
-
-.landing-cls-160 {
-  @apply text-3xl md:text-5xl font-bold tracking-tight text-white leading-tight;
-}
-
-.landing-cls-161 {
-  @apply md:max-w-sm text-white/60 text-base md:text-lg leading-relaxed border-l border-white/10 pl-6;
-}
-
-.landing-cls-162 {
-  @apply bg-white/5 rounded-2xl overflow-hidden border border-white/10;
-}
-
-.landing-cls-163 {
-  @apply bg-[#030213] p-10 lg:p-12 transition-colors hover:bg-white/[0.02] flex flex-col;
-}
-
-.landing-cls-164 {
-  @apply w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center mb-8 text-white/60 hover:text-white transition-colors shadow-sm;
-}
-
-.landing-cls-165 {
-  @apply w-6 h-6;
-}
-
-.landing-cls-166 {
-  @apply text-xl font-semibold mb-4 text-white;
-}
-
-.landing-cls-167 {
-  @apply text-white/60 text-sm md:text-base leading-relaxed flex-grow;
-}
-
-.landing-cls-168 {
-  @apply px-6 md:px-12 py-32 max-w-7xl mx-auto;
-}
-
-.landing-cls-169 {
-  @apply text-center mb-20;
-}
-
-.landing-cls-170 {
-  @apply text-3xl font-bold text-foreground mb-4;
-}
-
-.landing-cls-171 {
-  @apply text-muted-foreground max-w-2xl mx-auto text-lg;
-}
-
-.landing-cls-172 {
-  @apply grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-3xl mx-auto;
-}
-
-.landing-cls-173 {
-  @apply bg-card border border-border rounded-2xl p-8 text-center shadow-sm hover:shadow-[0_0_40px_rgba(var(--primary),0.15)] hover:-translate-y-3 transition-all duration-300 relative overflow-hidden;
-}
-
-.landing-cls-174 {
-  @apply absolute inset-0 bg-gradient-to-b from-primary/10 to-transparent opacity-0 hover:opacity-100 transition-opacity;
-}
-
-.landing-cls-175 {
-  @apply w-20 h-20 rounded-full bg-primary/10 text-primary text-2xl font-bold flex items-center justify-center mx-auto mb-6 relative z-10 hover:bg-primary hover:text-primary-foreground transition-colors shadow-inner;
-}
-
-.landing-cls-176 {
-  @apply text-xl font-bold text-foreground relative z-10;
-}
-
-.landing-cls-177 {
-  @apply text-sm text-primary font-semibold mt-1.5 relative z-10;
-}
-
-.landing-cls-178 {
-  @apply flex items-center justify-center gap-4 mt-6 relative z-10;
-}
-
-.landing-cls-179 {
-  @apply w-8 h-8 rounded-full bg-secondary flex items-center justify-center text-muted-foreground hover:bg-foreground hover:text-background transition-colors;
-}
-
-.landing-cls-180 {
-  @apply w-4 h-4;
-}
-
-.landing-cls-181 {
-  @apply w-8 h-8 rounded-full bg-secondary flex items-center justify-center text-muted-foreground hover:bg-[#0A66C2] hover:text-foreground transition-colors;
-}
-
-.landing-cls-182 {
-  @apply w-4 h-4;
-}
-
-.landing-cls-183 {
-  @apply px-6 md:px-12 py-32 relative overflow-hidden bg-background;
-}
-
-.landing-cls-184 {
-  @apply max-w-5xl mx-auto;
-}
-
-.landing-cls-185 {
-  @apply relative rounded-[2.5rem] overflow-hidden bg-[#030213] border border-white/10 shadow-2xl;
-}
-
-.landing-cls-186 {
-  @apply absolute inset-0 bg-primary/20 z-0;
-}
-
-.landing-cls-187 {
-  @apply absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-white/10 via-transparent to-transparent z-0;
-}
-
-.landing-cls-188 {
-  @apply relative z-10 text-center text-white py-20 px-6;
-}
-
-.landing-cls-189 {
-  @apply text-4xl md:text-5xl font-bold mb-6 tracking-tight leading-tight;
-}
-
-.landing-cls-190 {
-  @apply text-white/80 text-lg mb-10 max-w-2xl mx-auto leading-relaxed;
-}
-
-.landing-cls-191 {
-  @apply flex flex-col sm:flex-row items-center justify-center gap-4;
-}
-
-.landing-cls-192 {
-  @apply w-auto bg-white text-black font-bold text-sm px-6 py-3 rounded-full hover:bg-gray-100 transition-all shadow-lg hover:scale-105 inline-flex items-center justify-center gap-2 cursor-pointer;
-}
-
-.landing-cls-193 {
-  @apply w-4 h-4;
-}
-
-.landing-cls-194 {
-  @apply w-auto bg-white/10 border border-white/20 backdrop-blur-md text-white font-bold text-sm px-6 py-3 rounded-full hover:bg-white/20 transition-all inline-flex items-center justify-center gap-2 cursor-pointer;
-}
-
-.landing-cls-195 {
-  @apply w-4 h-4;
-}
-
-.landing-cls-196 {
-  @apply bg-[#030213] border-t border-white/10 pt-20 pb-10;
-}
-
-.landing-cls-197 {
-  @apply max-w-7xl mx-auto px-6 md:px-12;
-}
-
-.landing-cls-198 {
-  @apply grid grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-8 mb-16;
-}
-
-.landing-cls-199 {
-  @apply col-span-2 lg:col-span-2;
-}
-
-.landing-cls-200 {
-  @apply text-[28px] text-white mb-4 block;
-}
-
-.landing-cls-201 {
-  @apply text-white/60 text-sm leading-relaxed mb-6 max-w-sm sm:max-w-md px-4 sm:px-0 sm:pr-4;
-}
-
-.landing-cls-202 {
-  @apply w-full;
-}
-
-.landing-cls-203 {
-  @apply w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/60 hover:text-white hover:bg-white/10 transition-colors;
-}
-
-.landing-cls-204 {
-  @apply w-5 h-5;
-}
-
-.landing-cls-205 {
-  @apply w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/60 hover:text-[#0A66C2] hover:bg-white/10 transition-colors;
-}
-
-.landing-cls-206 {
-  @apply w-5 h-5;
-}
-
-.landing-cls-207 {
-  
-}
-
-.landing-cls-208 {
-  @apply text-white font-semibold mb-6;
-}
-
-.landing-cls-209 {
-  @apply space-y-3;
-}
-
-.landing-cls-210 {
-  @apply text-white/60 hover:text-white text-sm transition-colors;
-}
-
-.landing-cls-211 {
-  @apply text-white/60 hover:text-white text-sm transition-colors;
-}
-
-.landing-cls-212 {
-  @apply text-white/60 hover:text-white text-sm transition-colors;
-}
-
-.landing-cls-213 {
-  @apply text-white/60 hover:text-white text-sm transition-colors;
-}
-
-.landing-cls-214 {
-  
-}
-
-.landing-cls-215 {
-  @apply text-white font-semibold mb-6;
-}
-
-.landing-cls-216 {
-  @apply space-y-3;
-}
-
-.landing-cls-217 {
-  @apply text-white/60 hover:text-white text-sm transition-colors;
-}
-
-.landing-cls-218 {
-  @apply text-white/60 hover:text-white text-sm transition-colors;
-}
-
-.landing-cls-219 {
-  @apply text-white/60 hover:text-white text-sm transition-colors;
-}
-
-.landing-cls-220 {
-  @apply text-white/60 hover:text-white text-sm transition-colors;
-}
-
-.landing-cls-221 {
-  
-}
-
-.landing-cls-222 {
-  @apply text-white font-semibold mb-6;
-}
-
-.landing-cls-223 {
-  @apply space-y-3;
-}
-
-.landing-cls-224 {
-  @apply text-white/60 hover:text-white text-sm transition-colors;
-}
-
-.landing-cls-225 {
-  @apply text-white/60 hover:text-white text-sm transition-colors;
-}
-
-.landing-cls-226 {
-  @apply text-white/60 hover:text-white text-sm transition-colors;
-}
-
-.landing-cls-227 {
-  @apply border-t border-white/10 pt-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 relative;
-}
-
-.landing-cls-228 {
-  @apply text-white/60 text-sm;
-}
-
-.landing-cls-229 {
-  @apply text-white/60 text-sm md:text-center md:absolute md:left-1/2 md:-translate-x-1/2;
-}
-
-.landing-cls-230 {
-  @apply flex items-center gap-2 text-white/60 text-sm;
-}
-
-.landing-cls-231 {
-  @apply w-2 h-2 rounded-full bg-green-500 animate-pulse;
-}
-
-.landing-cls-232 {
-  @apply fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm p-6;
-}
-
-.landing-cls-233 {
-  @apply bg-card border border-border max-w-lg w-full rounded-2xl p-8 relative shadow-2xl;
-}
-
-.landing-cls-234 {
-  @apply absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full bg-secondary text-muted-foreground hover:text-foreground transition-colors;
-}
-
-.landing-cls-235 {
-  @apply w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-6 border border-primary/20;
-}
-
-.landing-cls-236 {
-  @apply text-2xl;
-}
-
-.landing-cls-237 {
-  @apply text-2xl font-bold text-foreground mb-4;
-}
-
-.landing-cls-238 {
-  @apply text-muted-foreground leading-relaxed mb-4;
-}
-
-.landing-cls-239 {
-  @apply text-foreground leading-relaxed mb-8;
-}
-
-.landing-cls-240 {
-  @apply text-foreground leading-relaxed mb-8;
-}
-
-.landing-cls-241 {
-  @apply text-foreground leading-relaxed mb-8;
-}
-
-.landing-cls-242 {
-  @apply w-full py-3 bg-primary text-primary-foreground font-bold rounded-xl hover:bg-primary/90 transition-colors shadow-[0_0_15px_rgba(var(--primary),0.3)];
 }

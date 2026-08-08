@@ -98,7 +98,11 @@
 }
 
 .sidebar-cls-25 {
-  @apply absolute left-full ml-4 px-2.5 py-1.5 bg-gray-900 text-white text-xs font-semibold rounded shadow-xl opacity-0 invisible hover:opacity-100 hover:visible transition-all whitespace-nowrap z-[100] pointer-events-none border border-gray-700;
+  @apply absolute left-full ml-4 px-2.5 py-1.5 bg-gray-900 text-white text-xs font-semibold rounded shadow-xl opacity-0 invisible transition-all whitespace-nowrap z-[100] pointer-events-none border border-gray-700;
+}
+.group:hover .sidebar-cls-25 {
+  opacity: 1;
+  visibility: visible;
 }
 
 .sidebar-cls-26 {
