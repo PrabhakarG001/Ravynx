@@ -315,11 +315,11 @@
 }
 
 .landing-cls-29 {
-  @apply text-3xl font-bold text-white mb-3;
+  @apply text-3xl font-bold text-slate-900 mb-3;
 }
 
 .landing-cls-30 {
-  @apply text-slate-300 text-base;
+  @apply text-slate-500 text-base;
 }
 
 

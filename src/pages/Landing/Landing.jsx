@@ -274,7 +274,7 @@ export default function Landing() {
       </div>
 
           {/* Core Capabilities Revealed */}
-<section className="py-24 relative z-10 bg-[#0a0c10]">
+<section className="py-24 relative z-10">
 <div className="w-full max-w-6xl mx-auto px-6 md:px-12">
               <div className="landing-cls-28">
                 <h2 className="landing-cls-29">Core Capabilities</h2>
