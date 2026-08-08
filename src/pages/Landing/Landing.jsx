@@ -68,17 +68,11 @@ export default function Landing() {
     const cardLeft = useTransform(() => {
         const m = moveProgress.get();
         const e = expandProgress.get();
-        const isMobile = window.innerWidth < 1024;
-        const cardHalfWidth = isMobile ? 130 : 160;
+        const cardHalfWidth = 160;
         if (e > 0) {
             return `calc((50vw - ${cardHalfWidth}px) * ${1 - e})`;
         }
-        else {
-            if (isMobile) {
-                return `calc(50vw - ${cardHalfWidth}px)`;
-            }
-            return `calc((max(50vw - 560px, 80px) + 484px) * ${1 - m} + (50vw - 160px) * ${m})`;
-        }
+        return `calc((max(50vw - 560px, 80px) + 484px) * ${1 - m} + (50vw - 160px) * ${m})`;
     });
     const cardWidth = useTransform(() => {
         return '100vw';
@@ -269,9 +263,9 @@ export default function Landing() {
 
           </motion.div>
 
-          {/* Core Capabilities Revealed */}
-          <motion.div className="absolute inset-0 z-40 pointer-events-none flex items-center justify-center pt-20" style={{ opacity: pageOpacity }}>
-            <div className={`w-full max-w-6xl mx-auto px-6 md:px-12 ${isLightNavbar ? 'pointer-events-auto' : 'pointer-events-none'}`}>
+          {/* Core Capabilities Revealed — DESKTOP ONLY (sticky animation) */}
+          <motion.div className="absolute inset-0 z-40 hidden md:flex items-start justify-center pt-20 pointer-events-none" style={{ opacity: pageOpacity }}>
+            <div className="w-full max-w-6xl mx-auto px-6 md:px-12 pointer-events-auto">
               <div className="mb-10 text-center md:text-left">
                 <h2 className="text-3xl font-bold text-slate-900 mb-3">Core Capabilities</h2>
                 <p className="text-slate-500 text-base">An advanced suite of AI tools designed to automate your underwriting process and eliminate document fraud at the source.</p>
@@ -287,11 +281,38 @@ export default function Landing() {
               </div>
             </div>
           </motion.div>
+
           
         </div>
       </div>
 
-      {/* Problem vs Solution (Revolut Style Image Cards) */}
+      {/* Core Capabilities — MOBILE ONLY (normal scroll, outside sticky container) */}
+      <section className="md:hidden bg-white px-6 py-16">
+        <div className="mb-10 text-center">
+          <h2 className="text-3xl font-bold text-slate-900 mb-3">Core Capabilities</h2>
+          <p className="text-slate-500 text-base">An advanced suite of AI tools designed to automate your underwriting process and eliminate document fraud at the source.</p>
+        </div>
+        <div className="features-grid">
+          {features.map(({ icon: Icon, title, desc }, idx) => (
+            <motion.div
+              key={title}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false, margin: "-50px" }}
+              transition={{ type: "spring", stiffness: 300, damping: 20, delay: idx * 0.1 }}
+              className="bg-white border border-slate-200 rounded-xl p-6 shadow-sm"
+            >
+              <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                <Icon size={18} className="text-primary"/>
+              </div>
+              <h3 className="text-base font-semibold text-slate-900 mb-2">{title}</h3>
+              <p className="text-sm text-slate-500 leading-relaxed">{desc}</p>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+
       <section className="px-6 md:px-12 py-24 max-w-7xl mx-auto">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, margin: "-50px" }} className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4 tracking-tight">The Underwriting Bottleneck</h2>

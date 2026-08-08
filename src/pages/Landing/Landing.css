@@ -13,6 +13,8 @@
   align-items: center;
   justify-content: flex-end;
   pointer-events: none;
+  /* Prevent any glow overflow from causing horizontal scroll */
+  overflow: hidden;
 }
 
 .hero-glow {
@@ -22,26 +24,30 @@
   background-image: linear-gradient(to right, rgba(217, 70, 239, 0.4), rgba(147, 51, 234, 0.4));
   border-radius: 9999px;
   pointer-events: none;
+  /* Ensure glow never exceeds viewport width */
+  max-width: 100vw;
 }
 
 /* Base (Mobile) */
 .hero-glow-container { min-height: 150px; }
 .hero-glow {
   bottom: -10px;
-  width: 150%;
-  max-width: 800px;
-  height: 200px;
-  filter: blur(60px);
+  /* Use vw instead of % to stay within viewport */
+  width: min(100vw, 600px);
+  height: 160px;
+  filter: blur(50px);
+  /* Clamp opacity so blur doesn't lag on slow devices */
+  will-change: transform;
 }
 
 /* Tablet (481px+) */
 @media (min-width: 481px) {
   .hero-glow-container { min-height: 200px; }
   .hero-glow {
-    bottom: -30px;
-    width: 120%;
-    height: 250px;
-    filter: blur(80px);
+    bottom: -20px;
+    width: min(110vw, 750px);
+    height: 220px;
+    filter: blur(70px);
   }
 }
 
@@ -50,7 +56,7 @@
   .hero-glow-container { min-height: 400px; }
   .hero-glow {
     bottom: -50px;
-    width: 80%;
+    width: min(80vw, 900px);
     height: 300px;
     filter: blur(100px);
   }
@@ -87,6 +93,27 @@
 @media (min-width: 769px) {
   .trust-metrics {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* GLOBAL OVERFLOW GUARD — prevent horizontal scroll from animations */
+/* Landing page wrapper */
+.landing-overflow-guard {
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
+}
+
+/* Sticky hero section — must not leak content horizontally */
+.hero-sticky-shell {
+  overflow: hidden;
+}
+
+/* Mobile catch-all */
+@media (max-width: 768px) {
+  html, body {
+    overflow-x: hidden;
+    max-width: 100vw;
   }
 }
 

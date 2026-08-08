@@ -208,15 +208,13 @@ const CardNav = ({
           >
             <button
               onClick={onLoginClick}
-              className="card-nav-auth-btn"
-              style={{ padding: '8px 16px', background: 'transparent', border: '1px solid currentColor', borderRadius: '6px', cursor: 'pointer' }}
+              className="card-nav-auth-btn login"
             >
               Log in
             </button>
             <button
               onClick={onSignupClick}
-              className="card-nav-auth-btn"
-              style={{ padding: '8px 16px', background: 'currentColor', color: isLightNavbar ? '#fff' : '#000', border: '1px solid currentColor', borderRadius: '6px', cursor: 'pointer', marginLeft: '8px' }}
+              className="card-nav-auth-btn signup"
             >
               Sign up
             </button>
