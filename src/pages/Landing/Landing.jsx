@@ -40,7 +40,16 @@ export default function Landing() {
         e.preventDefault();
         setActiveModal({ title, category });
     };
-    const containerRef = useRef(null);
+        const containerRef = useRef(null);
+    const coreCapabilitiesRef = useRef(null);
+    const { scrollYProgress: coreScroll } = useScroll({
+        target: coreCapabilitiesRef,
+        offset: ["start 95%", "start 10%"]
+    });
+    const coreScale = useTransform(coreScroll, [0, 1], [0.6, 1]);
+    const coreX = useTransform(coreScroll, [0, 1], ["40vw", "0vw"]);
+    const coreY = useTransform(coreScroll, [0, 1], ["40vh", "0vh"]);
+    const coreBorderRadius = useTransform(coreScroll, [0, 1], ["40px", "0px"]);
     const { scrollYProgress } = useScroll({
         target: containerRef,
         offset: ["start start", "end end"]
@@ -184,13 +193,13 @@ export default function Landing() {
           <div className="landing-cls-6">
             <button
               onClick={() => navigate("/login")}
-              className={`font-semibold text-[14px] transition-colors hidden sm:block ${isLightNavbar ? 'text-foreground hover:text-black/70' : 'text-white hover:text-white/80'}`}
+              className={`font-semibold text-[14px] transition-colors hidden sm:block ${isLightNavbar ? 'text-foreground hover:/70' : 'text-white hover:text-white/80'}`}
             >
               Log in
             </button>
             <button
               onClick={() => navigate("/login")}
-              className={`text-[14px] font-bold px-4 py-2 sm:px-5 sm:py-2 rounded-full transition-colors shadow-lg hover:scale-105 ${isLightNavbar ? 'bg-primary text-primary-foreground hover:bg-primary/90' : 'bg-white text-black hover:bg-gray-100'}`}
+              className={`text-[14px] font-bold px-4 py-2 sm:px-5 sm:py-2 rounded-full transition-colors shadow-lg hover:scale-105 ${isLightNavbar ? 'bg-primary text-primary-foreground hover:bg-primary/90' : 'bg-white  hover:bg-gray-100'}`}
             >
               Sign up
             </button>
@@ -201,7 +210,7 @@ export default function Landing() {
 
       {/* CardNav Island Navbar for Mobile */}
       <div className={`md:hidden fixed top-0 left-0 w-full z-50 transition-transform duration-300 ${navVisible ? 'translate-y-0' : '-translate-y-full'}`}>
-        <CardNav logo={<Logo className={`text-[24px] transition-colors ${isLightNavbar ? 'text-black' : 'text-white'}`} />} items={cardNavItems} baseColor={isLightNavbar ? "rgba(255, 255, 255, 0.9)" : scrolled ? "rgba(0, 0, 0, 0.3)" : "transparent"} menuColor={isLightNavbar ? "#000000" : "#ffffff"} buttonBgColor="#2563eb" buttonTextColor="#ffffff" onLoginClick={() => navigate("/login")} onSignupClick={() => navigate("/login")} scrolled={scrolled} isLightNavbar={isLightNavbar} activeSection={activeSection} />
+        <CardNav logo={<Logo className={`text-[24px] transition-colors ${isLightNavbar ? '' : 'text-white'}`} />} items={cardNavItems} baseColor={isLightNavbar ? "rgba(255, 255, 255, 0.9)" : scrolled ? "rgba(0, 0, 0, 0.3)" : "transparent"} menuColor={isLightNavbar ? "#000000" : "#ffffff"} buttonBgColor="#2563eb" buttonTextColor="#ffffff" onLoginClick={() => navigate("/login")} onSignupClick={() => navigate("/login")} scrolled={scrolled} isLightNavbar={isLightNavbar} activeSection={activeSection} />
       </div>
 
       {/* Scroll Transition Container (Hero + Card Expansion) */}
@@ -252,47 +261,57 @@ export default function Landing() {
       </div>
 
           {/* Core Capabilities Revealed */}
-<section className="py-24 relative z-10 overflow-hidden">
-<motion.div 
-  initial={{ opacity: 0, x: 120, y: 120, scale: 0.97 }} 
-  whileInView={{ opacity: 1, x: 0, y: 0, scale: 1 }} 
-  exit={{ opacity: 0, x: -80, y: -80, scale: 0.98, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] } }}
-  transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }} 
-  viewport={{ once: false, margin: "-50px" }} 
-  className="w-full max-w-6xl mx-auto px-6 md:px-12"
+{/* Core Capabilities Background Expansion Wrapper */}
+<motion.section 
+  ref={coreCapabilitiesRef}
+  style={{ 
+    scale: coreScale, 
+    x: coreX, 
+    y: coreY, 
+    borderRadius: coreBorderRadius,
+    backgroundColor: '#000000'
+  }}
+  className="py-24 relative z-20 overflow-hidden"
 >
   <motion.div 
-    initial={{ opacity: 0, y: 20 }} 
-    whileInView={{ opacity: 1, y: 0 }} 
-    transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }} 
+    initial={{ opacity: 0 }} 
+    whileInView={{ opacity: 1 }} 
+    transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }} 
     viewport={{ once: false, margin: "-50px" }} 
-    className="landing-cls-28"
+    className="w-full max-w-6xl mx-auto px-6 md:px-12"
   >
-    <h2 className="landing-cls-29">Core Capabilities</h2>
-    <p className="landing-cls-30">An advanced suite of AI tools designed to automate your underwriting process and eliminate document fraud at the source.</p>
+    <motion.div 
+      initial={{ opacity: 0, y: 20 }} 
+      whileInView={{ opacity: 1, y: 0 }} 
+      transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }} 
+      viewport={{ once: false, margin: "-50px" }} 
+      className="landing-cls-28"
+    >
+      <h2 className="landing-cls-29 ">Core Capabilities</h2>
+      <p className="landing-cls-30 ">An advanced suite of AI tools designed to automate your underwriting process and eliminate document fraud at the source.</p>
+    </motion.div>
+    
+    <div className="landing-cls-31 features-grid">
+      {features.map(({ icon: Icon, title, desc }, index) => (
+        <motion.div 
+          key={title} 
+          initial={{ opacity: 0, y: 25, scale: 0.98 }} 
+          whileInView={{ opacity: 1, y: 0, scale: 1 }} 
+          whileHover={{ scale: 1.03, boxShadow: "0px 10px 30px rgba(0, 0, 0, 0.08)" }}
+          transition={{ duration: 0.6, delay: 0.2 + (index * 0.1), ease: [0.22, 1, 0.36, 1] }} 
+          viewport={{ once: false, margin: "-50px" }} 
+          className="landing-cls-32 cursor-pointer"
+        >
+          <div className="landing-cls-33">
+            <Icon size={18} className="landing-cls-34 transition-all duration-300 opacity-90 scale-95 group-hover:scale-100 group-hover:opacity-100" />
+          </div>
+          <h3 className="landing-cls-35">{title}</h3>
+          <p className="landing-cls-36 ">{desc}</p>
+        </motion.div>
+      ))}
+    </div>
   </motion.div>
-  
-  <div className="landing-cls-31 features-grid">
-    {features.map(({ icon: Icon, title, desc }, index) => (
-      <motion.div 
-        key={title} 
-        initial={{ opacity: 0, y: 25, scale: 0.98 }} 
-        whileInView={{ opacity: 1, y: 0, scale: 1 }} 
-        whileHover={{ scale: 1.02, boxShadow: "0px 10px 30px rgba(0, 0, 0, 0.05)" }}
-        transition={{ duration: 0.6, delay: 0.3 + (index * 0.12), ease: [0.22, 1, 0.36, 1] }} 
-        viewport={{ once: false, margin: "-50px" }} 
-        className="landing-cls-32 cursor-pointer"
-      >
-        <div className="landing-cls-33">
-          <Icon size={18} className="landing-cls-34 transition-all duration-300 opacity-90 scale-95 group-hover:scale-100 group-hover:opacity-100" />
-        </div>
-        <h3 className="landing-cls-35">{title}</h3>
-        <p className="landing-cls-36">{desc}</p>
-      </motion.div>
-    ))}
-  </div>
-</motion.div>
-</section>
+</motion.section>
 
       {/* Problem vs Solution (Revolut Style Image Cards) */}
       <section className="landing-cls-37">
