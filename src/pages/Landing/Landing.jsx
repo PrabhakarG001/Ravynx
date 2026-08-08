@@ -45,13 +45,11 @@ export default function Landing() {
         target: containerRef,
         offset: ["start start", "end end"]
     });
-    useMotionValueEvent(scrollYProgress, "change", (latest) => {
-        setIsLightNavbar(latest > 0.55);
-    });
     const { scrollY } = useScroll();
     useMotionValueEvent(scrollY, "change", (latest) => {
+        setIsLightNavbar(latest > window.innerHeight * 0.85);
         const previous = scrollY.getPrevious() ?? 0;
-        const threshold = window.innerHeight * 1.5;
+        const threshold = window.innerHeight * 0.85;
         if (latest > previous && latest > threshold) {
             setNavVisible(false);
         }
