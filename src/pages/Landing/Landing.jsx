@@ -269,9 +269,13 @@ export default function Landing() {
 
           </motion.div>
 
+          
+        </div>
+      </div>
+
           {/* Core Capabilities Revealed */}
-          <div className="landing-cls-27">
-            <div className={`w-full max-w-6xl mx-auto px-6 md:px-12 ${isLightNavbar ? 'pointer-events-auto' : 'pointer-events-none'}`}>
+<section className="py-24 relative z-10 bg-[#0a0c10]">
+<div className="w-full max-w-6xl mx-auto px-6 md:px-12">
               <div className="landing-cls-28">
                 <h2 className="landing-cls-29">Core Capabilities</h2>
                 <p className="landing-cls-30">An advanced suite of AI tools designed to automate your underwriting process and eliminate document fraud at the source.</p>
@@ -286,10 +290,7 @@ export default function Landing() {
                   </div>))}
               </div>
             </div>
-          </div>
-          
-        </div>
-      </div>
+</section>
 
       {/* Problem vs Solution (Revolut Style Image Cards) */}
       <section className="landing-cls-37">
