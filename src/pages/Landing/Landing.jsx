@@ -254,22 +254,22 @@ export default function Landing() {
       </div>
 
           {/* Core Capabilities Revealed */}
-<section className="py-24 relative z-10">
-<div className="w-full max-w-6xl mx-auto px-6 md:px-12">
-<motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, margin: "-50px" }} className="landing-cls-28">
-                <h2 className="landing-cls-29">Core Capabilities</h2>
-                <p className="landing-cls-30">An advanced suite of AI tools designed to automate your underwriting process and eliminate document fraud at the source.</p>
-              </motion.div>
-              <div className="landing-cls-31 features-grid">
-                {features.map(({ icon: Icon, title, desc }) => (<motion.div key={title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, margin: "-50px" }} className="landing-cls-32">
-                    <div className="landing-cls-33">
-                      <Icon size={18} className="landing-cls-34"/>
-                    </div>
-                    <h3 className="landing-cls-35">{title}</h3>
-                    <p className="landing-cls-36">{desc}</p>
-                  </motion.div>))}
+<section className="py-24 relative z-10 overflow-hidden">
+<motion.div initial={{ opacity: 0, x: 100, y: 100 }} whileInView={{ opacity: 1, x: 0, y: 0 }} transition={{ duration: 0.8, ease: "easeOut" }} viewport={{ once: false, margin: "-50px" }} className="w-full max-w-6xl mx-auto px-6 md:px-12">
+<motion.div initial={{ opacity: 0, x: 50, y: 50 }} whileInView={{ opacity: 1, x: 0, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} viewport={{ once: false, margin: "-50px" }} className="landing-cls-28">
+<h2 className="landing-cls-29">Core Capabilities</h2>
+<p className="landing-cls-30">An advanced suite of AI tools designed to automate your underwriting process and eliminate document fraud at the source.</p>
+</motion.div>
+<div className="landing-cls-31 features-grid">
+{features.map(({ icon: Icon, title, desc }, index) => (<motion.div key={title} initial={{ opacity: 0, x: 50, y: 50 }} whileInView={{ opacity: 1, x: 0, y: 0 }} transition={{ duration: 0.5, delay: 0.3 + (index * 0.1) }} viewport={{ once: false, margin: "-50px" }} className="landing-cls-32">
+<div className="landing-cls-33">
+<Icon size={18} className="landing-cls-34"/>
+</div>
+<h3 className="landing-cls-35">{title}</h3>
+<p className="landing-cls-36">{desc}</p>
+</motion.div>))}
               </div>
-            </div>
+</motion.div>
 </section>
 
       {/* Problem vs Solution (Revolut Style Image Cards) */}
