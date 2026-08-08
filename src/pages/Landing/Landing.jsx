@@ -277,13 +277,13 @@ export default function Landing() {
                 <p className="text-slate-500 text-base">An advanced suite of AI tools designed to automate your underwriting process and eliminate document fraud at the source.</p>
               </div>
               <div className="features-grid">
-                {features.map(({ icon: Icon, title, desc }) => (<div key={title} className="bg-white border border-slate-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                {features.map(({ icon: Icon, title, desc }, idx) => (<motion.div key={title} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, margin: "-50px" }} whileHover={{ scale: 1.03, y: -5 }} transition={{ type: "spring", stiffness: 300, damping: 20, delay: idx * 0.1 }} className="bg-white border border-slate-200 rounded-xl p-6 shadow-sm transition-shadow">
                     <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
                       <Icon size={18} className="text-primary"/>
                     </div>
                     <h3 className="text-base font-semibold text-slate-900 mb-2">{title}</h3>
                     <p className="text-sm text-slate-500 leading-relaxed">{desc}</p>
-                  </div>))}
+                  </motion.div>))}
               </div>
             </div>
           </motion.div>
@@ -384,7 +384,7 @@ export default function Landing() {
             { icon: FiGitMerge, title: "Aegis Core", desc: "Cross-validate facts" },
             { icon: HiSquares2X2, title: "Report", desc: "Actionable insights" }
         ].map((step, i, arr) => (<React.Fragment key={step.title}>
-                <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, margin: "-50px" }} transition={{ duration: 0.5, delay: i * 0.2 }} className="relative z-10 flex flex-col items-center text-center w-full md:w-48 group">
+                <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, margin: "-50px" }} whileHover={{ scale: 1.05 }} transition={{ type: "spring", stiffness: 300, delay: i * 0.2 }} className="relative z-10 flex flex-col items-center text-center w-full md:w-48 group">
                 <div className="w-24 h-24 rounded-2xl bg-card border border-border shadow-md flex items-center justify-center mb-4 group-hover:-translate-y-2 transition-transform duration-300 relative overflow-hidden">
                   <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                   <step.icon className="w-10 h-10 text-primary"/>
@@ -500,7 +500,7 @@ export default function Landing() {
             { icon: HiServerStack, title: "Processing Node", desc: "Scalable OCR & Vision AI clusters" },
             { icon: HiCpuChip, title: "LLM Engine", desc: "Context-aware anomaly detection" },
             { icon: HiLockClosed, title: "Compliance Vault", desc: "Encrypted zero-retention storage" }
-        ].map((node, i) => (<motion.div key={node.title} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, margin: "-50px" }} transition={{ duration: 0.5, delay: i * 0.15 }} className="bg-card/80 backdrop-blur-md border border-border rounded-2xl p-8 text-center shadow-lg hover:shadow-[0_0_30px_rgba(var(--primary),0.15)] hover:-translate-y-2 transition-all duration-300 relative group">
+        ].map((node, i) => (<motion.div key={node.title} initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, margin: "-50px" }} whileHover={{ scale: 1.04, y: -10 }} transition={{ type: "spring", stiffness: 200, delay: i * 0.1 }} className="bg-card/80 backdrop-blur-md border border-border rounded-2xl p-8 text-center shadow-lg hover:shadow-[0_0_30px_rgba(var(--primary),0.15)] transition-all duration-300 relative group">
                 <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl"></div>
                 <div className="w-16 h-16 rounded-2xl bg-primary/10 mx-auto flex items-center justify-center mb-6 relative z-10">
                   <node.icon className="w-8 h-8 text-primary"/>
