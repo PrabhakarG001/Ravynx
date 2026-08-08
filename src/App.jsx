@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router";
-import { DashboardLayout } from "./components/layout/DashboardLayout";
+import { DashboardLayout } from './components/layout/DashboardLayout/DashboardLayout';
 import Landing from "./pages/Landing/Landing";
 import { Login } from "./pages/Login/Login";
 import { Dashboard } from "./pages/Dashboard/Dashboard";

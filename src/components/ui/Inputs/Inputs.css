@@ -1,0 +1,18 @@
+@reference "../../../styles/index.css";
+/* Inputs Styles */
+
+.inputs-cls-1 {
+  @apply absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-white/40;
+}
+
+.inputs-cls-2 {
+  @apply absolute right-3 top-1/2 -translate-y-1/2 text-white/40 hover:text-white/80 transition-colors focus:outline-none;
+}
+
+.inputs-cls-3 {
+  @apply h-4 w-4;
+}
+
+.inputs-cls-4 {
+  @apply h-4 w-4;
+}

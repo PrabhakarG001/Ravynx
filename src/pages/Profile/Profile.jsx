@@ -4,53 +4,53 @@ import { HiOutlineChevronRight } from "react-icons/hi2";
 
 export const Profile = () => {
   return (
-    <div className="p-8 md:p-12 max-w-3xl mx-auto w-full mt-4">
-      <h1 className="text-[32px] font-semibold text-[#1a1f36] mb-10 tracking-tight">
+    <div className="profile-cls-1">
+      <h1 className="profile-cls-2">
         Profile
       </h1>
 
-      <div className="flex flex-col gap-6">
+      <div className="profile-cls-3">
         {/* First Name */}
-        <div className="relative">
-          <label className="absolute -top-[9px] left-3 px-1 bg-white text-[11px] font-medium text-gray-500 tracking-wide z-10">
+        <div className="profile-cls-4">
+          <label className="profile-cls-5">
             First name
           </label>
           <input 
             type="text" 
             defaultValue="Prabhakar"
-            className="w-full bg-white border border-[#d1d5db] rounded-[4px] px-4 py-[14px] text-[15px] text-[#1a1f36] focus:outline-none focus:border-[#635BFF] focus:ring-1 focus:ring-[#635BFF] transition-all relative z-0"
+            className="profile-cls-6"
           />
         </div>
 
         {/* Last Name */}
-        <div className="relative">
-          <label className="absolute -top-[9px] left-3 px-1 bg-white text-[11px] font-medium text-gray-500 tracking-wide z-10">
+        <div className="profile-cls-7">
+          <label className="profile-cls-8">
             Last name
           </label>
           <input 
             type="text" 
             defaultValue="Sahu"
-            className="w-full bg-white border border-[#d1d5db] rounded-[4px] px-4 py-[14px] text-[15px] text-[#1a1f36] focus:outline-none focus:border-[#635BFF] focus:ring-1 focus:ring-[#635BFF] transition-all relative z-0"
+            className="profile-cls-9"
           />
         </div>
 
         {/* Email */}
-        <div className="relative">
-          <label className="absolute -top-[9px] left-3 px-1 bg-white text-[11px] font-medium text-gray-500 tracking-wide z-10">
+        <div className="profile-cls-10">
+          <label className="profile-cls-11">
             Email
           </label>
           <input 
             type="email" 
             defaultValue="agadityag465@gmail.com"
-            className="w-full bg-white border border-[#d1d5db] rounded-[4px] px-4 py-[14px] text-[15px] text-[#1a1f36] focus:outline-none focus:border-[#635BFF] focus:ring-1 focus:ring-[#635BFF] transition-all relative z-0"
+            className="profile-cls-12"
           />
         </div>
 
         {/* Action Button */}
-        <div className="mt-4 flex justify-end">
-          <button className="bg-[#6b7280] hover:bg-[#4b5563] text-white font-medium text-[14px] px-5 py-2.5 rounded flex items-center gap-2 transition-colors">
+        <div className="profile-cls-13">
+          <button className="profile-cls-14">
             Save changes
-            <HiOutlineChevronRight className="w-4 h-4 opacity-80" />
+            <HiOutlineChevronRight className="profile-cls-15" />
           </button>
         </div>
       </div>

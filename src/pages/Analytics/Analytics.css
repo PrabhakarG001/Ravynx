@@ -1,1 +1,153 @@
+@reference "../../styles/index.css";
 /* Analytics styles */
+.analytics-cls-1 {
+  @apply p-8 flex flex-col gap-6 overflow-auto max-w-[1400px] mx-auto w-full;
+}
+
+.analytics-cls-2 {
+  @apply mb-2;
+}
+
+.analytics-cls-3 {
+  @apply text-2xl font-bold text-[#1a1f36];
+}
+
+.analytics-cls-4 {
+  @apply text-[#8792a2] text-sm mt-1;
+}
+
+.analytics-cls-5 {
+  @apply grid grid-cols-2 lg:grid-cols-4 gap-6;
+}
+
+.analytics-cls-6 {
+  @apply grid grid-cols-1 lg:grid-cols-2 gap-6;
+}
+
+.analytics-cls-7 {
+  @apply p-8;
+}
+
+.analytics-cls-8 {
+  @apply text-base font-semibold text-[#1a1f36] mb-6;
+}
+
+.analytics-cls-9 {
+  @apply p-8;
+}
+
+.analytics-cls-10 {
+  @apply text-base font-semibold text-[#1a1f36] mb-6;
+}
+
+.analytics-cls-11 {
+  @apply grid grid-cols-1 lg:grid-cols-3 gap-6;
+}
+
+.analytics-cls-12 {
+  @apply p-8 flex flex-col;
+}
+
+.analytics-cls-13 {
+  @apply text-base font-semibold text-[#1a1f36] mb-6;
+}
+
+.analytics-cls-14 {
+  @apply flex-1 flex flex-col justify-center;
+}
+
+.analytics-cls-15 {
+  @apply flex flex-col gap-3 mt-6;
+}
+
+.analytics-cls-16 {
+  @apply flex items-center justify-between text-sm;
+}
+
+.analytics-cls-17 {
+  @apply flex items-center gap-2;
+}
+
+.analytics-cls-18 {
+  @apply w-3 h-3 rounded-full shrink-0 shadow-sm;
+}
+
+.analytics-cls-19 {
+  @apply text-[#8792a2] font-medium;
+}
+
+.analytics-cls-20 {
+  @apply font-semibold text-[#1a1f36];
+}
+
+.analytics-cls-21 {
+  @apply lg:col-span-2 overflow-hidden flex flex-col;
+}
+
+.analytics-cls-22 {
+  @apply p-8 border-b border-[#e3e8ee];
+}
+
+.analytics-cls-23 {
+  @apply text-base font-semibold text-[#1a1f36];
+}
+
+.analytics-cls-24 {
+  @apply text-xs text-[#8792a2] mt-1;
+}
+
+.analytics-cls-25 {
+  @apply overflow-x-auto flex-1 p-2;
+}
+
+.analytics-cls-26 {
+  @apply w-full text-sm;
+}
+
+.analytics-cls-27 {
+  @apply text-left py-3 px-4 text-[#8792a2] font-semibold uppercase tracking-wider text-xs;
+}
+
+.analytics-cls-28 {
+  @apply border-b border-[#e3e8ee] hover:bg-[#f7f9fc] transition-colors;
+}
+
+.analytics-cls-29 {
+  @apply py-4 px-4 font-bold text-[#1a1f36] flex items-center gap-3;
+}
+
+.analytics-cls-30 {
+  @apply w-8 h-8 rounded-full bg-[#f7f9fc] border border-[#e3e8ee] text-[#635BFF] flex items-center justify-center text-xs;
+}
+
+.analytics-cls-31 {
+  @apply py-4 px-4 font-medium;
+}
+
+.analytics-cls-32 {
+  @apply py-4 px-4 text-[#ef4444] font-bold;
+}
+
+.analytics-cls-33 {
+  @apply py-4 px-4 text-[#10b981] font-bold;
+}
+
+.analytics-cls-34 {
+  @apply py-4 px-4;
+}
+
+.analytics-cls-35 {
+  @apply flex items-center gap-2;
+}
+
+.analytics-cls-36 {
+  @apply w-16 h-2 bg-[#f7f9fc] rounded-full overflow-hidden;
+}
+
+.analytics-cls-37 {
+  @apply h-full bg-[#635BFF] rounded-full;
+}
+
+.analytics-cls-38 {
+  @apply text-xs font-semibold;
+}

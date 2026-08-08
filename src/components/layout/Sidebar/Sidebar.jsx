@@ -1,3 +1,4 @@
+import './Sidebar.css';
 import { useState, useRef, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router";
 import { motion, AnimatePresence } from "framer-motion";
@@ -23,7 +24,7 @@ import {
   HiOutlineArrowsRightLeft,
   HiOutlineBell
 } from "react-icons/hi2";
-import { Logo } from "../Logo";
+import { Logo } from '../../Logo/Logo';
 
 const navGroups = [
   {
@@ -109,7 +110,7 @@ export const Sidebar = ({ open, setOpen }) => {
     return (
       <>
         {/* Mobile Backdrop */}
-        {open && (<div className="fixed inset-0 bg-black/10 backdrop-blur-sm z-20 md:hidden" onClick={() => setOpen(false)}/>)}
+        {open && (<div className="sidebar-cls-1" onClick={() => setOpen(false)}/>)}
         
         {/* Sidebar Container */}
         <motion.aside 
@@ -122,27 +123,27 @@ export const Sidebar = ({ open, setOpen }) => {
           {/* Header */}
           <div className={`px-4 py-4 flex transition-colors ${collapsed ? 'flex-col gap-2 items-center justify-center' : 'items-center justify-between'}`}>
             {!collapsed && (
-              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="flex-1 whitespace-nowrap overflow-hidden ml-2">
-                <Logo className="text-[22px] text-[#1a1f36]" />
+              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="sidebar-cls-2">
+                <Logo className="sidebar-cls-3" />
               </motion.div>
             )}
             
             <button 
                 onClick={() => setCollapsed(!collapsed)}
-                className="flex items-center justify-center w-8 h-8 rounded-md text-gray-400 hover:text-gray-700 hover:bg-gray-100 transition-colors"
+                className="sidebar-cls-4"
                 title={collapsed ? "Expand sidebar" : "Collapse sidebar"}
              >
                 {collapsed ? (
-                   <HiOutlineChevronDoubleRight className="w-5 h-5" />
+                   <HiOutlineChevronDoubleRight className="sidebar-cls-5" />
                 ) : (
-                   <HiOutlineChevronDoubleLeft className="w-5 h-5" />
+                   <HiOutlineChevronDoubleLeft className="sidebar-cls-6" />
                 )}
              </button>
           </div>
 
           {/* Search Bar */}
-          <div className="px-4 py-2 mb-2 relative z-[100]">
-            <div className="relative flex items-center group cursor-text">
+          <div className="sidebar-cls-7">
+            <div className="sidebar-cls-8">
               <HiMagnifyingGlass className={`absolute left-3 w-4 h-4 text-gray-400 group-hover:text-gray-500 transition-colors ${collapsed ? 'left-1/2 -translate-x-1/2' : ''}`} />
               <input 
                 ref={searchInputRef}
@@ -156,7 +157,7 @@ export const Sidebar = ({ open, setOpen }) => {
                 readOnly={collapsed}
               />
               {!collapsed && !searchQuery && (
-                <div className="absolute right-3 text-[10px] text-gray-400 font-medium border border-gray-200 rounded px-1.5 py-0.5 bg-gray-50 flex items-center justify-center">
+                <div className="sidebar-cls-9">
                   /
                 </div>
               )}
@@ -170,10 +171,10 @@ export const Sidebar = ({ open, setOpen }) => {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 5 }}
                   transition={{ duration: 0.15 }}
-                  className="absolute top-full left-4 right-4 mt-1 bg-white border border-[#e3e8ee] rounded-lg shadow-[0_4px_20px_-4px_rgba(0,0,0,0.1)] overflow-hidden"
+                  className="sidebar-cls-10"
                 >
                   {filteredItems.length > 0 ? (
-                    <div className="max-h-[240px] overflow-y-auto py-1 custom-scrollbar">
+                    <div className="sidebar-cls-11">
                       {filteredItems.map(item => (
                         <Link
                           key={item.path}
@@ -182,16 +183,16 @@ export const Sidebar = ({ open, setOpen }) => {
                              setSearchQuery("");
                              setOpen(false);
                           }}
-                          className="flex items-center gap-3 px-3 py-2.5 text-[13px] text-[#3c4257] font-medium hover:bg-[#f2f8ff] hover:text-[#0066cc] transition-colors"
+                          className="sidebar-cls-12"
                         >
-                          <item.icon className="w-[18px] h-[18px] opacity-70" />
+                          <item.icon className="sidebar-cls-13" />
                           {item.label}
                         </Link>
                       ))}
                     </div>
                   ) : (
-                    <div className="px-4 py-4 text-[13px] text-gray-500 text-center bg-gray-50">
-                      No results found for <span className="font-semibold text-gray-700">"{searchQuery}"</span>
+                    <div className="sidebar-cls-14">
+                      No results found for <span className="sidebar-cls-15">"{searchQuery}"</span>
                     </div>
                   )}
                 </motion.div>
@@ -200,15 +201,15 @@ export const Sidebar = ({ open, setOpen }) => {
           </div>
 
           {/* Navigation Links */}
-          <nav className="flex-1 px-3 overflow-visible flex flex-col gap-6 pb-4">
+          <nav className="sidebar-cls-16">
             {navGroups.map((group, idx) => (
-              <div key={idx} className="flex flex-col">
+              <div key={idx} className="sidebar-cls-17">
                 {!collapsed && group.title && (
-                  <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="px-3 mb-2">
-                    <span className="text-[11px] font-bold tracking-wider text-gray-500 uppercase">{group.title}</span>
+                  <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="sidebar-cls-18">
+                    <span className="sidebar-cls-19">{group.title}</span>
                   </motion.div>
                 )}
-                <div className="flex flex-col gap-0.5">
+                <div className="sidebar-cls-20">
                   {group.items.map(({ path, icon: Icon, label }) => {
                     const isNotif = path === "#notifications";
                     const isActive = currentPath.startsWith(path) && !isNotif;
@@ -224,7 +225,7 @@ export const Sidebar = ({ open, setOpen }) => {
                     };
 
                     return (
-                      <div key={path} className="relative" ref={isNotif ? notifRef : null}>
+                      <div key={path} className="sidebar-cls-21" ref={isNotif ? notifRef : null}>
                         <Link 
                           to={path} 
                           onClick={handleClick}
@@ -233,13 +234,13 @@ export const Sidebar = ({ open, setOpen }) => {
                               ? "bg-[#f2f8ff] text-[#0066cc] font-medium"
                               : "text-[#3c4257] hover:bg-gray-100 font-normal"}`}
                         >
-                          <div className="flex items-center justify-center min-w-5 relative">
+                          <div className="sidebar-cls-22">
                             <Icon className={`w-5 h-5 ${isActive ? "text-[#0066cc]" : "text-gray-500 group-hover:text-gray-700"}`}/>
-                            {isNotif && <span className="absolute top-0 right-0 w-1.5 h-1.5 rounded-full bg-red-500 border border-white box-content transform translate-x-0.5 -translate-y-0.5"></span>}
+                            {isNotif && <span className="sidebar-cls-23"></span>}
                           </div>
                           <AnimatePresence>
                             {!collapsed && (
-                              <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="ml-3 whitespace-nowrap flex-1">
+                              <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="sidebar-cls-24">
                                 {label}
                               </motion.span>
                             )}
@@ -247,9 +248,9 @@ export const Sidebar = ({ open, setOpen }) => {
 
                           {/* Custom Tooltip for collapsed state */}
                           {collapsed && (
-                            <div className="absolute left-full ml-4 px-2.5 py-1.5 bg-gray-900 text-white text-xs font-semibold rounded shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all whitespace-nowrap z-[100] pointer-events-none border border-gray-700">
+                            <div className="sidebar-cls-25">
                               {label}
-                              <div className="absolute top-1/2 -left-1 -mt-1 w-2 h-2 bg-gray-900 border-l border-b border-gray-700 transform rotate-45"></div>
+                              <div className="sidebar-cls-26"></div>
                             </div>
                           )}
                         </Link>
@@ -264,16 +265,16 @@ export const Sidebar = ({ open, setOpen }) => {
                                 transition={{ duration: 0.15 }}
                                 className={`absolute left-full top-0 ml-4 w-80 bg-white border border-[#e3e8ee] rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] z-[200] overflow-hidden`}
                               >
-                                <div className="p-4 border-b border-[#e3e8ee] flex justify-between items-center bg-gray-50/50">
-                                  <h3 className="text-[14px] font-bold text-[#1a1f36]">Notifications</h3>
-                                  <button className="text-[12px] text-[#0066cc] font-medium hover:underline">Mark all as read</button>
+                                <div className="sidebar-cls-27">
+                                  <h3 className="sidebar-cls-28">Notifications</h3>
+                                  <button className="sidebar-cls-29">Mark all as read</button>
                                 </div>
-                                <div className="flex flex-col items-center justify-center py-12 px-6 text-center">
-                                  <div className="w-12 h-12 rounded-full bg-gray-50 flex items-center justify-center mb-3">
-                                    <HiOutlineBell className="w-6 h-6 text-gray-300" />
+                                <div className="sidebar-cls-30">
+                                  <div className="sidebar-cls-31">
+                                    <HiOutlineBell className="sidebar-cls-32" />
                                   </div>
-                                  <p className="text-[14px] font-bold text-[#1a1f36] mb-1">No notifications</p>
-                                  <p className="text-[13px] text-gray-500">When you have new alerts, they will appear here.</p>
+                                  <p className="sidebar-cls-33">No notifications</p>
+                                  <p className="sidebar-cls-34">When you have new alerts, they will appear here.</p>
                                 </div>
                               </motion.div>
                             )}
@@ -288,21 +289,21 @@ export const Sidebar = ({ open, setOpen }) => {
           </nav>
 
           {/* Footer User Profile */}
-          <div className="border-t border-[#e3e8ee] bg-white p-2 relative" ref={menuRef}>
+          <div className="sidebar-cls-35" ref={menuRef}>
              <div 
                className={`w-full flex items-center justify-center md:justify-start px-2 h-12 rounded-md transition-colors cursor-pointer group overflow-hidden ${profileMenuOpen ? 'bg-gray-50' : 'hover:bg-gray-50'}`}
                onClick={() => setProfileMenuOpen(!profileMenuOpen)}
              >
-                <div className="flex items-center justify-center min-w-8">
-                   <div className="w-7 h-7 rounded bg-[#00897b] text-white flex items-center justify-center text-xs font-bold">
+                <div className="sidebar-cls-36">
+                   <div className="sidebar-cls-37">
                        PS
                    </div>
                 </div>
                 <AnimatePresence>
                   {!collapsed && (
-                    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="ml-3 flex flex-1 items-center justify-between whitespace-nowrap">
-                       <span className="text-[14px] text-[#1a1f36] font-medium truncate">Prabhakar Sahu</span>
-                       <HiChevronUpDown className="w-4 h-4 text-gray-400 group-hover:text-gray-600 flex-shrink-0" />
+                    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="sidebar-cls-38">
+                       <span className="sidebar-cls-39">Prabhakar Sahu</span>
+                       <HiChevronUpDown className="sidebar-cls-40" />
                     </motion.div>
                   )}
                 </AnimatePresence>
@@ -318,24 +319,24 @@ export const Sidebar = ({ open, setOpen }) => {
                     transition={{ duration: 0.15 }}
                     className={`absolute bottom-[60px] ${collapsed ? 'left-2 min-w-[180px]' : 'left-2 right-2'} bg-white border border-[#e3e8ee] rounded-xl shadow-lg py-1 z-50`}
                   >
-                     <div className="px-2 py-1">
-                       <div className="text-[13px] text-[#1a1f36] font-medium px-3 py-1.5 bg-[#f7f9fc] rounded-md mb-1 cursor-default">
+                     <div className="sidebar-cls-41">
+                       <div className="sidebar-cls-42">
                          Personal
                        </div>
                        
-                       <Link to="/profile" onClick={() => setProfileMenuOpen(false)} className="flex items-center gap-3 px-3 py-2 text-[13px] text-[#3c4257] hover:bg-gray-50 rounded-md transition-colors w-full">
-                         <HiOutlineUser className="w-[18px] h-[18px] text-gray-400" />
+                       <Link to="/profile" onClick={() => setProfileMenuOpen(false)} className="sidebar-cls-43">
+                         <HiOutlineUser className="sidebar-cls-44" />
                          Profile
                        </Link>
-                       <button onClick={() => navigate('/login')} className="flex items-center gap-3 px-3 py-2 text-[13px] text-[#3c4257] hover:bg-gray-50 rounded-md transition-colors w-full">
-                         <HiOutlineArrowsRightLeft className="w-[18px] h-[18px] text-gray-400" />
+                       <button onClick={() => navigate('/login')} className="sidebar-cls-45">
+                         <HiOutlineArrowsRightLeft className="sidebar-cls-46" />
                          Switch account
                        </button>
                      </div>
-                     <div className="border-t border-[#e3e8ee] my-1"></div>
-                     <div className="px-2 py-1">
-                       <button onClick={() => navigate('/login')} className="flex items-center gap-3 px-3 py-2 text-[13px] text-[#3c4257] hover:bg-gray-50 hover:text-red-600 rounded-md transition-colors w-full">
-                         <HiOutlineArrowRightOnRectangle className="w-[18px] h-[18px] text-gray-400 group-hover:text-red-500" />
+                     <div className="sidebar-cls-47"></div>
+                     <div className="sidebar-cls-48">
+                       <button onClick={() => navigate('/login')} className="sidebar-cls-49">
+                         <HiOutlineArrowRightOnRectangle className="sidebar-cls-50" />
                          Logout
                        </button>
                      </div>

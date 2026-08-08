@@ -57,8 +57,8 @@ export const Dashboard = () => {
   return (
     <div className="dashboard-container">
       {/* Top Header */}
-      <div className="flex items-center justify-between mb-8">
-        <h1 className="text-[24px] font-bold text-[#1a1f36]">Workspace Overview</h1>
+      <div className="dashboard-cls-1">
+        <h1 className="dashboard-cls-2">Workspace Overview</h1>
       </div>
 
       {/* Hero Banner */}
@@ -66,17 +66,17 @@ export const Dashboard = () => {
         <img 
           src="/assets/dashboard_hero.jpg" 
           alt="Hero Background" 
-          className="absolute inset-0 w-full h-full object-cover" 
+          className="dashboard-cls-3" 
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#001b33]/90 to-transparent pointer-events-none"></div>
+        <div className="dashboard-cls-4"></div>
         
         <div className="dashboard-hero-content">
           <h1 className="dashboard-hero-title">Automate Document Verification</h1>
           <p className="dashboard-hero-text">
             Instantly scan documents, flag fraudulent activity, and clear your review queue with the Ravynx Aegis Core. Process your first 500 documents for free.
           </p>
-          <div className="flex items-center gap-4">
-            <button className="bg-white text-[#001b33] px-6 py-2.5 rounded font-bold text-[14px] hover:bg-gray-100 transition-colors shadow-sm">
+          <div className="dashboard-cls-5">
+            <button className="dashboard-cls-6">
               Start Free Trial
             </button>
           </div>
@@ -84,58 +84,58 @@ export const Dashboard = () => {
       </div>
 
       {/* Overview Stats Grid */}
-      <h2 className="text-[18px] font-semibold text-[#1a1f36] mb-4">Overview</h2>
+      <h2 className="dashboard-cls-7">Overview</h2>
       <div className="dashboard-grid dashboard-grid-cols-4">
-        <div className="bg-white border border-[#e3e8ee] rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow">
-          <div className="flex items-center gap-3 mb-3">
-            <div className="w-8 h-8 rounded-lg bg-gray-100 flex items-center justify-center">
-              <HiDocumentText className="w-5 h-5 text-gray-600" />
+        <div className="dashboard-cls-8">
+          <div className="dashboard-cls-9">
+            <div className="dashboard-cls-10">
+              <HiDocumentText className="dashboard-cls-11" />
             </div>
-            <span className="text-[12px] font-semibold uppercase tracking-wider text-gray-500">Total Docs</span>
+            <span className="dashboard-cls-12">Total Docs</span>
           </div>
-          <div className="text-[28px] font-bold text-[#1a1f36]">1,248</div>
+          <div className="dashboard-cls-13">1,248</div>
         </div>
         
-        <div className="bg-white border border-[#e3e8ee] rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow">
-          <div className="flex items-center gap-3 mb-3">
-            <div className="w-8 h-8 rounded-lg bg-red-50 flex items-center justify-center border border-red-100">
-              <HiShieldExclamation className="w-5 h-5 text-red-500" />
+        <div className="dashboard-cls-14">
+          <div className="dashboard-cls-15">
+            <div className="dashboard-cls-16">
+              <HiShieldExclamation className="dashboard-cls-17" />
             </div>
-            <span className="text-[12px] font-semibold uppercase tracking-wider text-gray-500">Fraud Cases</span>
+            <span className="dashboard-cls-18">Fraud Cases</span>
           </div>
-          <div className="text-[28px] font-bold text-[#1a1f36]">32</div>
+          <div className="dashboard-cls-19">32</div>
         </div>
 
-        <div className="bg-white border border-[#e3e8ee] rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow">
-          <div className="flex items-center gap-3 mb-3">
-            <div className="w-8 h-8 rounded-lg bg-emerald-50 flex items-center justify-center border border-emerald-100">
-              <HiShieldCheck className="w-5 h-5 text-emerald-500" />
+        <div className="dashboard-cls-20">
+          <div className="dashboard-cls-21">
+            <div className="dashboard-cls-22">
+              <HiShieldCheck className="dashboard-cls-23" />
             </div>
-            <span className="text-[12px] font-semibold uppercase tracking-wider text-gray-500">Safe Cases</span>
+            <span className="dashboard-cls-24">Safe Cases</span>
           </div>
-          <div className="text-[28px] font-bold text-[#1a1f36]">1,150</div>
+          <div className="dashboard-cls-25">1,150</div>
         </div>
 
-        <div className="bg-white border border-[#e3e8ee] rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow">
-          <div className="flex items-center gap-3 mb-3">
-            <div className="w-8 h-8 rounded-lg bg-amber-50 flex items-center justify-center border border-amber-100">
-              <HiClock className="w-5 h-5 text-amber-500" />
+        <div className="dashboard-cls-26">
+          <div className="dashboard-cls-27">
+            <div className="dashboard-cls-28">
+              <HiClock className="dashboard-cls-29" />
             </div>
-            <span className="text-[12px] font-semibold uppercase tracking-wider text-gray-500">Pending</span>
+            <span className="dashboard-cls-30">Pending</span>
           </div>
-          <div className="text-[28px] font-bold text-[#1a1f36]">66</div>
+          <div className="dashboard-cls-31">66</div>
         </div>
       </div>
 
-      <div className="flex flex-col gap-8">
+      <div className="dashboard-cls-32">
         {/* Main Content Area */}
-        <div className="w-full">
+        <div className="dashboard-cls-33">
           
           {/* Charts Card */}
-          <div className="bg-white border border-[#e3e8ee] rounded-2xl p-8 mb-8 shadow-sm">
-            <div className="flex items-center justify-between mb-8">
-              <h3 className="text-[20px] font-semibold text-[#1a1f36]">Analytics Overview</h3>
-              <div className="flex gap-2 bg-gray-50 p-1 rounded-lg border border-gray-100">
+          <div className="dashboard-cls-34">
+            <div className="dashboard-cls-35">
+              <h3 className="dashboard-cls-36">Analytics Overview</h3>
+              <div className="dashboard-cls-37">
                 <button 
                   onClick={() => setActiveChart('distribution')}
                   className={`px-3 py-1.5 text-[12px] font-semibold rounded-md transition-colors ${activeChart === 'distribution' ? 'bg-white shadow-sm text-[#1a1f36]' : 'text-gray-500 hover:text-[#1a1f36]'}`}
@@ -157,7 +157,7 @@ export const Dashboard = () => {
               </div>
             </div>
 
-            <div className="h-[280px] w-full">
+            <div className="dashboard-cls-38">
               {activeChart === 'trend' && (
                 <ResponsiveContainer width="100%" height="100%">
                   <LineChart data={fraudTrendData} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
@@ -204,11 +204,11 @@ export const Dashboard = () => {
             
             {/* Legend for Pie Chart */}
             {activeChart === 'distribution' && (
-              <div className="flex justify-center gap-6 mt-4">
+              <div className="dashboard-cls-39">
                 {riskDistData.map((entry, index) => (
-                  <div key={entry.name} className="flex items-center gap-2">
-                    <div className="w-3 h-3 rounded-full" style={{backgroundColor: COLORS[index]}}></div>
-                    <span className="text-[13px] text-[#3c4257] font-medium">{entry.name}</span>
+                  <div key={entry.name} className="dashboard-cls-40">
+                    <div className="dashboard-cls-41" style={{backgroundColor: COLORS[index]}}></div>
+                    <span className="dashboard-cls-42">{entry.name}</span>
                   </div>
                 ))}
               </div>
@@ -216,28 +216,28 @@ export const Dashboard = () => {
           </div>
 
           {/* Recent Activity Card */}
-          <div className="bg-white border border-[#e3e8ee] rounded-2xl p-8 shadow-sm">
-            <div className="flex items-center justify-between mb-6">
-              <h3 className="text-[20px] font-semibold text-[#1a1f36]">Recent Activity</h3>
-              <button className="text-[13px] text-[#0066cc] font-medium hover:underline">View all</button>
+          <div className="dashboard-cls-43">
+            <div className="dashboard-cls-44">
+              <h3 className="dashboard-cls-45">Recent Activity</h3>
+              <button className="dashboard-cls-46">View all</button>
             </div>
-            <div className="divide-y divide-[#e3e8ee]">
+            <div className="dashboard-cls-47">
               {recentActivity.map((activity, idx) => (
-                <div key={idx} className="py-4 flex items-center justify-between group">
-                  <div className="flex items-center gap-4">
+                <div key={idx} className="dashboard-cls-48">
+                  <div className="dashboard-cls-49">
                     <div className={`w-10 h-10 rounded-full flex items-center justify-center ${
                       activity.status === 'Safe' ? 'bg-emerald-50 text-emerald-600' :
                       activity.status === 'Fraud' ? 'bg-red-50 text-red-600' :
                       'bg-amber-50 text-amber-600'
                     }`}>
-                      <HiDocumentText className="w-5 h-5" />
+                      <HiDocumentText className="dashboard-cls-50" />
                     </div>
                     <div>
-                      <p className="text-[14px] font-semibold text-[#1a1f36]">{activity.id}</p>
-                      <p className="text-[12px] text-gray-500">{activity.user}</p>
+                      <p className="dashboard-cls-51">{activity.id}</p>
+                      <p className="dashboard-cls-52">{activity.user}</p>
                     </div>
                   </div>
-                  <div className="flex flex-col items-end gap-1">
+                  <div className="dashboard-cls-53">
                     <span className={`px-2.5 py-0.5 rounded-full text-[11px] font-bold ${
                       activity.status === 'Safe' ? 'bg-emerald-100 text-emerald-700' :
                       activity.status === 'Fraud' ? 'bg-red-100 text-red-700' :
@@ -245,7 +245,7 @@ export const Dashboard = () => {
                     }`}>
                       {activity.status}
                     </span>
-                    <span className="text-[11px] text-gray-400 font-medium">{activity.time}</span>
+                    <span className="dashboard-cls-54">{activity.time}</span>
                   </div>
                 </div>
               ))}

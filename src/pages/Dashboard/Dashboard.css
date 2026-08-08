@@ -1,3 +1,4 @@
+@reference "../../styles/index.css";
 /* Dashboard styles */
 
 .dashboard-container {
@@ -102,4 +103,219 @@
   .dashboard-container {
     padding: 3rem;
   }
+}
+.dashboard-cls-1 {
+  @apply flex items-center justify-between mb-8;
+}
+
+.dashboard-cls-2 {
+  @apply text-[24px] font-bold text-[#1a1f36];
+}
+
+.dashboard-cls-3 {
+  @apply absolute inset-0 w-full h-full object-cover;
+}
+
+.dashboard-cls-4 {
+  @apply absolute inset-0 bg-gradient-to-r from-[#001b33]/90 to-transparent pointer-events-none;
+}
+
+.dashboard-cls-5 {
+  @apply flex items-center gap-4;
+}
+
+.dashboard-cls-6 {
+  @apply bg-white text-[#001b33] px-6 py-2.5 rounded font-bold text-[14px] hover:bg-gray-100 transition-colors shadow-sm;
+}
+
+.dashboard-cls-7 {
+  @apply text-[18px] font-semibold text-[#1a1f36] mb-4;
+}
+
+.dashboard-cls-8 {
+  @apply bg-white border border-[#e3e8ee] rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow;
+}
+
+.dashboard-cls-9 {
+  @apply flex items-center gap-3 mb-3;
+}
+
+.dashboard-cls-10 {
+  @apply w-8 h-8 rounded-lg bg-gray-100 flex items-center justify-center;
+}
+
+.dashboard-cls-11 {
+  @apply w-5 h-5 text-gray-600;
+}
+
+.dashboard-cls-12 {
+  @apply text-[12px] font-semibold uppercase tracking-wider text-gray-500;
+}
+
+.dashboard-cls-13 {
+  @apply text-[28px] font-bold text-[#1a1f36];
+}
+
+.dashboard-cls-14 {
+  @apply bg-white border border-[#e3e8ee] rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow;
+}
+
+.dashboard-cls-15 {
+  @apply flex items-center gap-3 mb-3;
+}
+
+.dashboard-cls-16 {
+  @apply w-8 h-8 rounded-lg bg-red-50 flex items-center justify-center border border-red-100;
+}
+
+.dashboard-cls-17 {
+  @apply w-5 h-5 text-red-500;
+}
+
+.dashboard-cls-18 {
+  @apply text-[12px] font-semibold uppercase tracking-wider text-gray-500;
+}
+
+.dashboard-cls-19 {
+  @apply text-[28px] font-bold text-[#1a1f36];
+}
+
+.dashboard-cls-20 {
+  @apply bg-white border border-[#e3e8ee] rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow;
+}
+
+.dashboard-cls-21 {
+  @apply flex items-center gap-3 mb-3;
+}
+
+.dashboard-cls-22 {
+  @apply w-8 h-8 rounded-lg bg-emerald-50 flex items-center justify-center border border-emerald-100;
+}
+
+.dashboard-cls-23 {
+  @apply w-5 h-5 text-emerald-500;
+}
+
+.dashboard-cls-24 {
+  @apply text-[12px] font-semibold uppercase tracking-wider text-gray-500;
+}
+
+.dashboard-cls-25 {
+  @apply text-[28px] font-bold text-[#1a1f36];
+}
+
+.dashboard-cls-26 {
+  @apply bg-white border border-[#e3e8ee] rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow;
+}
+
+.dashboard-cls-27 {
+  @apply flex items-center gap-3 mb-3;
+}
+
+.dashboard-cls-28 {
+  @apply w-8 h-8 rounded-lg bg-amber-50 flex items-center justify-center border border-amber-100;
+}
+
+.dashboard-cls-29 {
+  @apply w-5 h-5 text-amber-500;
+}
+
+.dashboard-cls-30 {
+  @apply text-[12px] font-semibold uppercase tracking-wider text-gray-500;
+}
+
+.dashboard-cls-31 {
+  @apply text-[28px] font-bold text-[#1a1f36];
+}
+
+.dashboard-cls-32 {
+  @apply flex flex-col gap-8;
+}
+
+.dashboard-cls-33 {
+  @apply w-full;
+}
+
+.dashboard-cls-34 {
+  @apply bg-white border border-[#e3e8ee] rounded-2xl p-8 mb-8 shadow-sm;
+}
+
+.dashboard-cls-35 {
+  @apply flex items-center justify-between mb-8;
+}
+
+.dashboard-cls-36 {
+  @apply text-[20px] font-semibold text-[#1a1f36];
+}
+
+.dashboard-cls-37 {
+  @apply flex gap-2 bg-gray-50 p-1 rounded-lg border border-gray-100;
+}
+
+.dashboard-cls-38 {
+  @apply h-[280px] w-full;
+}
+
+.dashboard-cls-39 {
+  @apply flex justify-center gap-6 mt-4;
+}
+
+.dashboard-cls-40 {
+  @apply flex items-center gap-2;
+}
+
+.dashboard-cls-41 {
+  @apply w-3 h-3 rounded-full;
+}
+
+.dashboard-cls-42 {
+  @apply text-[13px] text-[#3c4257] font-medium;
+}
+
+.dashboard-cls-43 {
+  @apply bg-white border border-[#e3e8ee] rounded-2xl p-8 shadow-sm;
+}
+
+.dashboard-cls-44 {
+  @apply flex items-center justify-between mb-6;
+}
+
+.dashboard-cls-45 {
+  @apply text-[20px] font-semibold text-[#1a1f36];
+}
+
+.dashboard-cls-46 {
+  @apply text-[13px] text-[#0066cc] font-medium hover:underline;
+}
+
+.dashboard-cls-47 {
+  @apply divide-y divide-[#e3e8ee];
+}
+
+.dashboard-cls-48 {
+  @apply py-4 flex items-center justify-between;
+}
+
+.dashboard-cls-49 {
+  @apply flex items-center gap-4;
+}
+
+.dashboard-cls-50 {
+  @apply w-5 h-5;
+}
+
+.dashboard-cls-51 {
+  @apply text-[14px] font-semibold text-[#1a1f36];
+}
+
+.dashboard-cls-52 {
+  @apply text-[12px] text-gray-500;
+}
+
+.dashboard-cls-53 {
+  @apply flex flex-col items-end gap-1;
+}
+
+.dashboard-cls-54 {
+  @apply text-[11px] text-gray-400 font-medium;
 }

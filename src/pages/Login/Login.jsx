@@ -4,7 +4,7 @@ import { useNavigate } from "react-router";
 import { motion } from "framer-motion";
 import { HiEnvelope, HiChevronDown, HiGlobeAlt } from "react-icons/hi2";
 import { FaGoogle, FaApple } from "react-icons/fa";
-import { Logo } from "../../components/Logo";
+import { Logo } from '../../components/Logo/Logo';
 
 export const Login = () => {
     const navigate = useNavigate();
@@ -47,10 +47,10 @@ export const Login = () => {
     const isPhoneValid = phone.length > 5;
 
     return (
-    <div className="min-h-screen bg-gradient-to-br from-[#0A192F] to-[#020617] flex flex-col relative overflow-hidden font-[Inter,sans-serif]">
+    <div className="login-cls-1">
       
       {/* Animated Background Effect */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+      <div className="login-cls-2">
         {/* Top-Left Blue Gradient Aura */}
         <motion.div
           animate={{ 
@@ -58,7 +58,7 @@ export const Login = () => {
             opacity: [0.6, 1, 0.6]
           }}
           transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute -top-[15%] -left-[10%] w-[700px] h-[700px] rounded-full blur-[120px] pointer-events-none"
+          className="login-cls-3"
           style={{ background: "radial-gradient(circle, rgba(59,130,246,0.4) 0%, rgba(0,0,0,0) 70%)" }}
         />
         <motion.div
@@ -68,14 +68,14 @@ export const Login = () => {
             scale: [1, 0.9, 1.1, 1] 
           }}
           transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute bottom-[-10%] right-[-5%] w-[500px] h-[500px] bg-purple-600/5 rounded-full blur-[130px]"
+          className="login-cls-4"
         />
         
         {/* Floating Particles */}
         {particles.map(p => (
           <motion.div
             key={p.id}
-            className="absolute rounded-full bg-blue-300"
+            className="login-cls-5"
             style={{
               left: `${p.x}%`,
               top: `${p.y}%`,
@@ -99,7 +99,7 @@ export const Login = () => {
 
         {/* Subtle Grid Overlay */}
         <div 
-          className="absolute inset-0 opacity-[0.02]"
+          className="login-cls-6"
           style={{
             backgroundImage: 'linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)',
             backgroundSize: '60px 60px'
@@ -112,49 +112,49 @@ export const Login = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
-        className="px-6 md:px-10 py-5 flex items-center relative z-10"
+        className="login-cls-7"
       >
-        <div className="cursor-pointer" onClick={() => navigate("/")}>
-          <Logo className="text-[20px] text-white" />
+        <div className="login-cls-8" onClick={() => navigate("/")}>
+          <Logo className="login-cls-9" />
         </div>
       </motion.nav>
 
       {/* Main Content */}
-      <div className="flex-1 flex items-center justify-center px-4 relative z-10">
+      <div className="login-cls-10">
         <motion.div
           initial={{ opacity: 0, y: 20, scale: 0.95 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="w-full max-w-[400px] border border-white/10 rounded-[32px] p-8 sm:p-10 relative overflow-hidden"
+          className="login-cls-11"
         >
           {/* Heading */}
-          <div className="mb-6">
-            <h1 className="text-[28px] font-bold text-white mb-2 tracking-tight">Welcome back</h1>
-            <p className="text-gray-400 text-[13px] leading-relaxed">
+          <div className="login-cls-12">
+            <h1 className="login-cls-13">Welcome back</h1>
+            <p className="login-cls-14">
               Enter the phone number associated with your account
             </p>
           </div>
 
           {/* Phone Input */}
           <form onSubmit={handleContinue}>
-            <div className="flex gap-2 mb-4">
+            <div className="login-cls-15">
               {/* Country Code Selector */}
-              <div className="relative">
+              <div className="login-cls-16">
                 <button
                   type="button"
                   onClick={() => setShowDropdown(!showDropdown)}
-                  className="h-[46px] px-3 bg-[#1E293B] hover:bg-[#334155] border-none rounded-xl flex items-center gap-1.5 text-white text-sm transition-colors min-w-[85px]"
+                  className="login-cls-17"
                 >
-                  <span className="text-lg">{selectedCountry.flag}</span>
-                  <span className="text-[14px] font-medium ml-0.5">{countryCode}</span>
-                  <HiChevronDown size={14} className="text-gray-400 ml-auto" />
+                  <span className="login-cls-18">{selectedCountry.flag}</span>
+                  <span className="login-cls-19">{countryCode}</span>
+                  <HiChevronDown size={14} className="login-cls-20" />
                 </button>
 
                 {showDropdown && (
                   <motion.div
                     initial={{ opacity: 0, y: -5 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="absolute top-[52px] left-0 w-[220px] bg-[#1E293B] border border-slate-700 rounded-xl shadow-2xl z-50 py-2 max-h-[220px] overflow-y-auto custom-scrollbar"
+                    className="login-cls-21"
                   >
                     {countries.map(c => (
                       <button
@@ -163,9 +163,9 @@ export const Login = () => {
                         onClick={() => { setCountryCode(c.code); setShowDropdown(false); }}
                         className={`w-full px-4 py-2 flex items-center gap-2 text-sm hover:bg-[#334155] transition-colors ${c.code === countryCode ? 'bg-[#334155] text-white' : 'text-gray-300'}`}
                       >
-                        <span className="text-lg">{c.flag}</span>
-                        <span className="flex-1 text-left font-medium text-[13px]">{c.name}</span>
-                        <span className="text-gray-400 text-xs">{c.code}</span>
+                        <span className="login-cls-22">{c.flag}</span>
+                        <span className="login-cls-23">{c.name}</span>
+                        <span className="login-cls-24">{c.code}</span>
                       </button>
                     ))}
                   </motion.div>
@@ -178,14 +178,14 @@ export const Login = () => {
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
                 placeholder="Phone number"
-                className="flex-1 h-[46px] bg-[#1E293B] border-none rounded-xl px-3 text-white text-[14px] placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500/50 transition-all shadow-inner min-w-0"
+                className="login-cls-25"
               />
             </div>
 
             {/* Lost Access Link */}
             <button 
               type="button" 
-              className="text-blue-400 text-[13px] font-medium hover:text-blue-300 transition-colors mb-6 block"
+              className="login-cls-26"
             >
               Lost access to my phone number
             </button>
@@ -207,14 +207,14 @@ export const Login = () => {
           </form>
 
           {/* Divider */}
-          <div className="flex items-center gap-3 my-6">
-            <div className="flex-1 h-px bg-slate-800" />
-            <span className="text-gray-400 text-[12px]">or continue with</span>
-            <div className="flex-1 h-px bg-slate-800" />
+          <div className="login-cls-27">
+            <div className="login-cls-28" />
+            <span className="login-cls-29">or continue with</span>
+            <div className="login-cls-30" />
           </div>
 
           {/* Social Logins */}
-          <div className="flex justify-center gap-6 mb-6">
+          <div className="login-cls-31">
             {[
               { icon: <HiEnvelope size={20} />, label: "Email" },
               { icon: <FaGoogle size={18} />, label: "Google" },
@@ -224,9 +224,9 @@ export const Login = () => {
                 key={item.label}
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
-                className="flex flex-col items-center gap-2 group"
+                className="login-cls-32"
               >
-                <div className="w-[48px] h-[48px] rounded-full bg-[#1E293B] flex items-center justify-center text-gray-300 group-hover:bg-[#334155] group-hover:text-white group-hover:shadow-lg transition-all duration-300">
+                <div className="login-cls-33">
                   {item.icon}
                 </div>
               </motion.button>
@@ -234,13 +234,13 @@ export const Login = () => {
           </div>
 
           {/* Create Account */}
-          <div className="text-center mt-4">
-            <p className="text-gray-400 text-[13px] mb-3">Don't have an account?</p>
+          <div className="login-cls-34">
+            <p className="login-cls-35">Don't have an account?</p>
             <motion.button
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               onClick={() => navigate("/login")}
-              className="w-full h-[46px] bg-transparent border border-slate-700 hover:border-slate-500 rounded-full text-white text-[14px] font-medium transition-all duration-300"
+              className="login-cls-36"
             >
               Create account
             </motion.button>
@@ -253,14 +253,14 @@ export const Login = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.5, duration: 0.8 }}
-        className="relative z-10 px-6 md:px-10 py-5 flex items-center gap-6 text-[13px] text-gray-400"
+        className="login-cls-37"
       >
-        <button className="flex items-center gap-1.5 hover:text-gray-200 transition-colors">
+        <button className="login-cls-38">
           <HiGlobeAlt size={14} />
           <span>English</span>
           <HiChevronDown size={12} />
         </button>
-        <a href="#" className="hover:text-gray-200 transition-colors">Privacy Policy</a>
+        <a href="#" className="login-cls-39">Privacy Policy</a>
       </motion.div>
     </div>
     );

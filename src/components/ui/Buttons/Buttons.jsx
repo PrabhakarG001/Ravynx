@@ -1,3 +1,4 @@
+import './Buttons.css';
 import React from "react";
 import { Loader2 } from "lucide-react";
 
@@ -34,8 +35,8 @@ export const Button = ({
       disabled={disabled || isLoading}
       {...props}
     >
-      {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-      {!isLoading && Icon && <Icon className="mr-2 h-4 w-4" />}
+      {isLoading && <Loader2 className="buttons-cls-1" />}
+      {!isLoading && Icon && <Icon className="buttons-cls-2" />}
       {children}
     </button>
   );

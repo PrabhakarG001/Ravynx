@@ -1,1 +1,157 @@
+@reference "../../styles/index.css";
 /* Login styles */
+.login-cls-1 {
+  @apply min-h-screen bg-gradient-to-br from-[#0A192F] to-[#020617] flex flex-col relative overflow-hidden font-[Inter,sans-serif];
+}
+
+.login-cls-2 {
+  @apply absolute inset-0 pointer-events-none overflow-hidden;
+}
+
+.login-cls-3 {
+  @apply absolute -top-[15%] -left-[10%] w-[700px] h-[700px] rounded-full blur-[120px] pointer-events-none;
+}
+
+.login-cls-4 {
+  @apply absolute bottom-[-10%] right-[-5%] w-[500px] h-[500px] bg-purple-600/5 rounded-full blur-[130px];
+}
+
+.login-cls-5 {
+  @apply absolute rounded-full bg-blue-300;
+}
+
+.login-cls-6 {
+  @apply absolute inset-0 opacity-[0.02];
+}
+
+.login-cls-7 {
+  @apply px-6 md:px-10 py-5 flex items-center relative z-10;
+}
+
+.login-cls-8 {
+  @apply cursor-pointer;
+}
+
+.login-cls-9 {
+  @apply text-[20px] text-white;
+}
+
+.login-cls-10 {
+  @apply flex-1 flex items-center justify-center px-4 relative z-10;
+}
+
+.login-cls-11 {
+  @apply w-full max-w-[400px] border border-white/10 rounded-[32px] p-8 sm:p-10 relative overflow-hidden;
+}
+
+.login-cls-12 {
+  @apply mb-6;
+}
+
+.login-cls-13 {
+  @apply text-[28px] font-bold text-white mb-2 tracking-tight;
+}
+
+.login-cls-14 {
+  @apply text-gray-400 text-[13px] leading-relaxed;
+}
+
+.login-cls-15 {
+  @apply flex gap-2 mb-4;
+}
+
+.login-cls-16 {
+  @apply relative;
+}
+
+.login-cls-17 {
+  @apply h-[46px] px-3 bg-[#1E293B] hover:bg-[#334155] border-none rounded-xl flex items-center gap-1.5 text-white text-sm transition-colors min-w-[85px];
+}
+
+.login-cls-18 {
+  @apply text-lg;
+}
+
+.login-cls-19 {
+  @apply text-[14px] font-medium ml-0.5;
+}
+
+.login-cls-20 {
+  @apply text-gray-400 ml-auto;
+}
+
+.login-cls-21 {
+  @apply absolute top-[52px] left-0 w-[220px] bg-[#1E293B] border border-slate-700 rounded-xl shadow-2xl z-50 py-2 max-h-[220px] overflow-y-auto;
+}
+
+.login-cls-22 {
+  @apply text-lg;
+}
+
+.login-cls-23 {
+  @apply flex-1 text-left font-medium text-[13px];
+}
+
+.login-cls-24 {
+  @apply text-gray-400 text-xs;
+}
+
+.login-cls-25 {
+  @apply flex-1 h-[46px] bg-[#1E293B] border-none rounded-xl px-3 text-white text-[14px] placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500/50 transition-all shadow-inner min-w-0;
+}
+
+.login-cls-26 {
+  @apply text-blue-400 text-[13px] font-medium hover:text-blue-300 transition-colors mb-6 block;
+}
+
+.login-cls-27 {
+  @apply flex items-center gap-3 my-6;
+}
+
+.login-cls-28 {
+  @apply flex-1 h-px bg-slate-800;
+}
+
+.login-cls-29 {
+  @apply text-gray-400 text-[12px];
+}
+
+.login-cls-30 {
+  @apply flex-1 h-px bg-slate-800;
+}
+
+.login-cls-31 {
+  @apply flex justify-center gap-6 mb-6;
+}
+
+.login-cls-32 {
+  @apply flex flex-col items-center gap-2;
+}
+
+.login-cls-33 {
+  @apply w-[48px] h-[48px] rounded-full bg-[#1E293B] flex items-center justify-center text-gray-300 hover:bg-[#334155] hover:text-white hover:shadow-lg transition-all duration-300;
+}
+
+.login-cls-34 {
+  @apply text-center mt-4;
+}
+
+.login-cls-35 {
+  @apply text-gray-400 text-[13px] mb-3;
+}
+
+.login-cls-36 {
+  @apply w-full h-[46px] bg-transparent border border-slate-700 hover:border-slate-500 rounded-full text-white text-[14px] font-medium transition-all duration-300;
+}
+
+.login-cls-37 {
+  @apply relative z-10 px-6 md:px-10 py-5 flex items-center gap-6 text-[13px] text-gray-400;
+}
+
+.login-cls-38 {
+  @apply flex items-center gap-1.5 hover:text-gray-200 transition-colors;
+}
+
+.login-cls-39 {
+  @apply hover:text-gray-200 transition-colors;
+}

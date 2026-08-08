@@ -1,1 +1,61 @@
+@reference "../../styles/index.css";
 /* Profile styles */
+.profile-cls-1 {
+  @apply p-8 md:p-12 max-w-3xl mx-auto w-full mt-4;
+}
+
+.profile-cls-2 {
+  @apply text-[32px] font-semibold text-[#1a1f36] mb-10 tracking-tight;
+}
+
+.profile-cls-3 {
+  @apply flex flex-col gap-6;
+}
+
+.profile-cls-4 {
+  @apply relative;
+}
+
+.profile-cls-5 {
+  @apply absolute -top-[9px] left-3 px-1 bg-white text-[11px] font-medium text-gray-500 tracking-wide z-10;
+}
+
+.profile-cls-6 {
+  @apply w-full bg-white border border-[#d1d5db] rounded-[4px] px-4 py-[14px] text-[15px] text-[#1a1f36] focus:outline-none focus:border-[#635BFF] focus:ring-1 focus:ring-[#635BFF] transition-all relative z-0;
+}
+
+.profile-cls-7 {
+  @apply relative;
+}
+
+.profile-cls-8 {
+  @apply absolute -top-[9px] left-3 px-1 bg-white text-[11px] font-medium text-gray-500 tracking-wide z-10;
+}
+
+.profile-cls-9 {
+  @apply w-full bg-white border border-[#d1d5db] rounded-[4px] px-4 py-[14px] text-[15px] text-[#1a1f36] focus:outline-none focus:border-[#635BFF] focus:ring-1 focus:ring-[#635BFF] transition-all relative z-0;
+}
+
+.profile-cls-10 {
+  @apply relative;
+}
+
+.profile-cls-11 {
+  @apply absolute -top-[9px] left-3 px-1 bg-white text-[11px] font-medium text-gray-500 tracking-wide z-10;
+}
+
+.profile-cls-12 {
+  @apply w-full bg-white border border-[#d1d5db] rounded-[4px] px-4 py-[14px] text-[15px] text-[#1a1f36] focus:outline-none focus:border-[#635BFF] focus:ring-1 focus:ring-[#635BFF] transition-all relative z-0;
+}
+
+.profile-cls-13 {
+  @apply mt-4 flex justify-end;
+}
+
+.profile-cls-14 {
+  @apply bg-[#6b7280] hover:bg-[#4b5563] text-white font-medium text-[14px] px-5 py-2.5 rounded flex items-center gap-2 transition-colors;
+}
+
+.profile-cls-15 {
+  @apply w-4 h-4 opacity-80;
+}

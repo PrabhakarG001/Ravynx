@@ -1,0 +1,34 @@
+@reference "../../../styles/index.css";
+/* DashboardLayout Styles */
+
+.dashboardlayout-cls-1 {
+  @apply flex h-screen w-full bg-background overflow-hidden font-[Inter,sans-serif];
+}
+
+.dashboardlayout-cls-2 {
+  @apply flex-1 flex flex-col min-w-0 overflow-hidden relative z-10;
+}
+
+.dashboardlayout-cls-3 {
+  @apply md:hidden flex items-center justify-between h-14 px-4 bg-white border-b border-[#e3e8ee] shrink-0;
+}
+
+.dashboardlayout-cls-4 {
+  @apply flex items-center gap-3;
+}
+
+.dashboardlayout-cls-5 {
+  @apply p-1.5 -ml-1.5 text-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded-md transition-colors;
+}
+
+.dashboardlayout-cls-6 {
+  @apply w-6 h-6;
+}
+
+.dashboardlayout-cls-7 {
+  @apply text-lg text-[#1a1f36];
+}
+
+.dashboardlayout-cls-8 {
+  @apply flex-1 overflow-auto flex flex-col relative z-0 bg-[#f7f9fc];
+}

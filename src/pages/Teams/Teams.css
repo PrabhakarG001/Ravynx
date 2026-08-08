@@ -1,1 +1,89 @@
+@reference "../../styles/index.css";
 /* Teams styles */
+.teams-cls-1 {
+  @apply p-8 md:p-12 max-w-4xl mx-auto w-full mt-4;
+}
+
+.teams-cls-2 {
+  @apply flex items-center justify-between mb-10;
+}
+
+.teams-cls-3 {
+  @apply text-[32px] font-semibold text-[#1a1f36] tracking-tight;
+}
+
+.teams-cls-4 {
+  @apply bg-[#6b7280] hover:bg-[#4b5563] text-white font-medium text-[14px] px-4 py-2 rounded flex items-center gap-2 transition-colors;
+}
+
+.teams-cls-5 {
+  @apply w-4 h-4;
+}
+
+.teams-cls-6 {
+  @apply bg-white border border-[#e3e8ee] rounded-xl overflow-hidden shadow-sm;
+}
+
+.teams-cls-7 {
+  @apply px-6 py-5 border-b border-[#e3e8ee];
+}
+
+.teams-cls-8 {
+  @apply text-[16px] font-semibold text-[#1a1f36];
+}
+
+.teams-cls-9 {
+  @apply text-[14px] text-[#3c4257] mt-1;
+}
+
+.teams-cls-10 {
+  @apply divide-y divide-[#e3e8ee];
+}
+
+.teams-cls-11 {
+  @apply px-6 py-4 flex items-center justify-between hover:bg-gray-50 transition-colors;
+}
+
+.teams-cls-12 {
+  @apply flex items-center gap-4;
+}
+
+.teams-cls-13 {
+  @apply w-10 h-10 rounded-full bg-[#00897b] text-white flex items-center justify-center text-sm font-bold;
+}
+
+.teams-cls-14 {
+  @apply text-[14px] font-semibold text-[#1a1f36];
+}
+
+.teams-cls-15 {
+  @apply text-[13px] text-gray-500;
+}
+
+.teams-cls-16 {
+  @apply flex items-center gap-4;
+}
+
+.teams-cls-17 {
+  @apply px-2.5 py-1 bg-green-100 text-green-700 text-xs font-semibold rounded-full;
+}
+
+.teams-cls-18 {
+  @apply px-6 py-12 flex flex-col items-center justify-center text-center;
+}
+
+.teams-cls-19 {
+  @apply w-12 h-12 bg-gray-50 rounded-full flex items-center justify-center mb-3;
+}
+
+.teams-cls-20 {
+  @apply w-6 h-6 text-gray-400;
+}
+
+.teams-cls-21 {
+  @apply text-[15px] font-semibold text-[#1a1f36] mb-1;
+}
+
+.teams-cls-22 {
+  @apply text-[14px] text-gray-500 max-w-sm;
+}

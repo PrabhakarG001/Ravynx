@@ -1,3 +1,4 @@
+import './NeuralNetwork.css';
 import React, { useEffect, useRef } from 'react';
 
 export default function NeuralNetwork() {
@@ -133,7 +134,7 @@ export default function NeuralNetwork() {
   return (
     <canvas 
       ref={canvasRef} 
-      className="w-full h-full absolute inset-0 pointer-events-none" 
+      className="neuralnetwork-cls-1" 
       style={{ 
         maskImage: 'linear-gradient(to bottom, black 50%, transparent 100%)', 
         WebkitMaskImage: 'linear-gradient(to bottom, black 50%, transparent 100%)' 

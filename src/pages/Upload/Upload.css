@@ -1,1 +1,169 @@
+@reference "../../styles/index.css";
 /* Upload styles */
+.upload-cls-1 {
+  @apply p-8 flex flex-col gap-6 overflow-auto max-w-4xl mx-auto w-full;
+}
+
+.upload-cls-2 {
+  @apply mb-2;
+}
+
+.upload-cls-3 {
+  @apply text-2xl font-bold text-[#1a1f36];
+}
+
+.upload-cls-4 {
+  @apply text-[#8792a2] text-sm mt-1;
+}
+
+.upload-cls-5 {
+  @apply p-8;
+}
+
+.upload-cls-6 {
+  @apply grid grid-cols-1 md:grid-cols-3 gap-6 mb-8 border-b border-[#e3e8ee] pb-8;
+}
+
+.upload-cls-7 {
+  @apply text-sm font-semibold text-[#3c4257] block mb-1.5;
+}
+
+.upload-cls-8 {
+  @apply w-full border border-[#e3e8ee] rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#635BFF] focus:border-transparent bg-white shadow-sm transition-all;
+}
+
+.upload-cls-9 {
+  @apply text-sm font-semibold text-[#3c4257] block mb-1.5;
+}
+
+.upload-cls-10 {
+  @apply w-full border border-[#e3e8ee] rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#635BFF] focus:border-transparent bg-white shadow-sm transition-all;
+}
+
+.upload-cls-11 {
+  @apply text-sm font-semibold text-[#3c4257] block mb-1.5;
+}
+
+.upload-cls-12 {
+  @apply border border-[#e3e8ee] rounded-lg text-sm px-4 py-2 bg-white focus:outline-none focus:ring-2 focus:ring-[#635BFF] w-full shadow-sm cursor-pointer transition-shadow;
+}
+
+.upload-cls-13 {
+  @apply flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6;
+}
+
+.upload-cls-14 {
+  @apply text-base font-semibold text-[#1a1f36] mb-1;
+}
+
+.upload-cls-15 {
+  @apply text-sm text-[#8792a2];
+}
+
+.upload-cls-16 {
+  @apply border border-[#e3e8ee] rounded-lg text-sm px-4 py-2 bg-white focus:outline-none focus:ring-2 focus:ring-[#635BFF] w-full sm:w-64 cursor-pointer shadow-sm transition-shadow;
+}
+
+.upload-cls-17 {
+  @apply border-2 border-dashed border-[#e3e8ee] rounded-xl bg-[#f7f9fc] p-12 text-center cursor-pointer hover:border-[#635BFF] hover:bg-blue-50/50 transition-all;
+}
+
+.upload-cls-18 {
+  @apply w-16 h-16 bg-white border border-[#e3e8ee] rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm hover:scale-110 hover:border-[#635BFF] transition-all;
+}
+
+.upload-cls-19 {
+  @apply text-[#635BFF];
+}
+
+.upload-cls-20 {
+  @apply text-base font-semibold text-[#1a1f36];
+}
+
+.upload-cls-21 {
+  @apply text-sm text-[#8792a2] mt-1.5;
+}
+
+.upload-cls-22 {
+  @apply text-xs text-[#8792a2] mt-4 opacity-70;
+}
+
+.upload-cls-23 {
+  @apply hidden;
+}
+
+.upload-cls-24 {
+  @apply p-6 overflow-hidden;
+}
+
+.upload-cls-25 {
+  @apply flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-5;
+}
+
+.upload-cls-26 {
+  @apply text-base font-semibold text-[#1a1f36];
+}
+
+.upload-cls-27 {
+  @apply flex items-center justify-center gap-2;
+}
+
+.upload-cls-28 {
+  @apply flex flex-col gap-3;
+}
+
+.upload-cls-29 {
+  @apply flex items-center gap-4 border border-[#e3e8ee] rounded-lg p-3 bg-white;
+}
+
+.upload-cls-30 {
+  @apply w-10 h-10 rounded-lg bg-[#f7f9fc] border border-[#e3e8ee] flex items-center justify-center shrink-0;
+}
+
+.upload-cls-31 {
+  @apply text-[#635BFF];
+}
+
+.upload-cls-32 {
+  @apply flex-1 min-w-0;
+}
+
+.upload-cls-33 {
+  @apply text-sm font-semibold text-[#1a1f36] truncate;
+}
+
+.upload-cls-34 {
+  @apply text-xs text-[#8792a2] mt-0.5;
+}
+
+.upload-cls-35 {
+  @apply text-[#8792a2] hover:text-[#ef4444] w-8 h-8 rounded-full flex items-center justify-center hover:bg-red-50 transition-colors ml-2;
+}
+
+.upload-cls-36 {
+  @apply p-6 mt-2;
+}
+
+.upload-cls-37 {
+  @apply text-sm font-semibold text-[#1a1f36] mb-4;
+}
+
+.upload-cls-38 {
+  @apply grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4;
+}
+
+.upload-cls-39 {
+  @apply flex gap-3 bg-[#f7f9fc] p-4 rounded-lg border border-[#e3e8ee];
+}
+
+.upload-cls-40 {
+  @apply text-[#10b981] shrink-0 mt-0.5;
+}
+
+.upload-cls-41 {
+  @apply text-sm font-semibold text-[#3c4257];
+}
+
+.upload-cls-42 {
+  @apply text-xs text-[#8792a2] mt-1 leading-relaxed;
+}

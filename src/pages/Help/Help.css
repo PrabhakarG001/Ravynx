@@ -1,1 +1,85 @@
+@reference "../../styles/index.css";
 /* Help styles */
+.help-cls-1 {
+  @apply p-8 md:p-12 max-w-4xl mx-auto w-full mt-4;
+}
+
+.help-cls-2 {
+  @apply mb-10;
+}
+
+.help-cls-3 {
+  @apply text-[32px] font-semibold text-[#1a1f36] tracking-tight mb-4;
+}
+
+.help-cls-4 {
+  @apply text-[#3c4257] max-w-none;
+}
+
+.help-cls-5 {
+  @apply text-[15px] leading-relaxed mb-4;
+}
+
+.help-cls-6 {
+  @apply text-[15px] leading-relaxed mb-6;
+}
+
+.help-cls-7 {
+  @apply bg-[#635BFF] hover:bg-[#0A2540] text-white font-medium text-[14px] px-5 py-2.5 rounded-lg flex items-center gap-2 transition-colors shadow-sm;
+}
+
+.help-cls-8 {
+  @apply w-5 h-5;
+}
+
+.help-cls-9 {
+  @apply mt-12 border-t border-[#e3e8ee] pt-10;
+}
+
+.help-cls-10 {
+  @apply text-[20px] font-semibold text-[#1a1f36] mb-6;
+}
+
+.help-cls-11 {
+  @apply grid grid-cols-1 md:grid-cols-2 gap-6;
+}
+
+.help-cls-12 {
+  @apply bg-white border border-[#e3e8ee] rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow;
+}
+
+.help-cls-13 {
+  @apply flex items-center gap-4 mb-4;
+}
+
+.help-cls-14 {
+  @apply text-[16px] font-semibold text-[#1a1f36];
+}
+
+.help-cls-15 {
+  @apply text-[13px] text-[#635BFF] font-medium;
+}
+
+.help-cls-16 {
+  @apply space-y-3 mt-6 border-t border-[#e3e8ee] pt-4;
+}
+
+.help-cls-17 {
+  @apply flex items-center gap-3 text-[14px] text-[#3c4257];
+}
+
+.help-cls-18 {
+  @apply w-4 h-4 text-gray-400;
+}
+
+.help-cls-19 {
+  @apply flex items-center gap-3 text-[14px] text-[#3c4257];
+}
+
+.help-cls-20 {
+  @apply w-4 h-4 text-gray-400;
+}
+
+.help-cls-21 {
+  @apply hover:text-[#635BFF] hover:underline transition-colors;
+}

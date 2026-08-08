@@ -13,15 +13,15 @@ export const Settings = () => {
   ];
 
   return (
-    <div className="p-8 md:p-12 max-w-5xl mx-auto w-full mt-4">
-      <h1 className="text-[32px] font-semibold text-[#1a1f36] mb-8 tracking-tight">
+    <div className="settings-cls-1">
+      <h1 className="settings-cls-2">
         Settings
       </h1>
 
-      <div className="flex flex-col md:flex-row gap-8">
+      <div className="settings-cls-3">
         {/* Settings Sidebar */}
-        <div className="w-full md:w-64 flex-shrink-0">
-          <nav className="flex flex-col gap-1">
+        <div className="settings-cls-4">
+          <nav className="settings-cls-5">
             {tabs.map((tab) => {
               const isActive = activeTab === tab.id;
               return (
@@ -43,7 +43,7 @@ export const Settings = () => {
         </div>
 
         {/* Settings Content Area */}
-        <div className="flex-1 bg-white border border-[#e3e8ee] rounded-xl shadow-sm min-h-[400px]">
+        <div className="settings-cls-6">
           <AnimatePresence mode="wait">
             <motion.div
               key={activeTab}
@@ -51,36 +51,36 @@ export const Settings = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.15 }}
-              className="p-8"
+              className="settings-cls-7"
             >
               {activeTab === "Notifications" && (
-                <div className="space-y-6">
+                <div className="settings-cls-8">
                   <div>
-                    <h2 className="text-[18px] font-semibold text-[#1a1f36] mb-1">Notification Settings</h2>
-                    <p className="text-[14px] text-gray-500">Control how and when you want to be alerted.</p>
+                    <h2 className="settings-cls-9">Notification Settings</h2>
+                    <p className="settings-cls-10">Control how and when you want to be alerted.</p>
                   </div>
-                  <hr className="border-[#e3e8ee]" />
+                  <hr className="settings-cls-11" />
                   
-                  <div className="space-y-5">
-                    <div className="flex items-start justify-between gap-4">
+                  <div className="settings-cls-12">
+                    <div className="settings-cls-13">
                       <div>
-                        <p className="text-[14px] font-medium text-[#1a1f36]">Processing Complete Alerts</p>
-                        <p className="text-[13px] text-gray-500 mt-0.5">Receive an email immediately when a batch finishes processing.</p>
+                        <p className="settings-cls-14">Processing Complete Alerts</p>
+                        <p className="settings-cls-15">Receive an email immediately when a batch finishes processing.</p>
                       </div>
-                      <label className="relative inline-flex items-center cursor-pointer flex-shrink-0 mt-1">
-                        <input type="checkbox" className="sr-only peer" defaultChecked />
-                        <div className="w-9 h-5 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-[#635BFF]"></div>
+                      <label className="settings-cls-16">
+                        <input type="checkbox" className="settings-cls-17" defaultChecked />
+                        <div className="settings-cls-18"></div>
                       </label>
                     </div>
                     
-                    <div className="flex items-start justify-between gap-4">
+                    <div className="settings-cls-19">
                       <div>
-                        <p className="text-[14px] font-medium text-[#1a1f36]">Weekly Summary</p>
-                        <p className="text-[13px] text-gray-500 mt-0.5">Get a weekly digest of your risk analytics and audit logs.</p>
+                        <p className="settings-cls-20">Weekly Summary</p>
+                        <p className="settings-cls-21">Get a weekly digest of your risk analytics and audit logs.</p>
                       </div>
-                      <label className="relative inline-flex items-center cursor-pointer flex-shrink-0 mt-1">
-                        <input type="checkbox" className="sr-only peer" />
-                        <div className="w-9 h-5 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-[#635BFF]"></div>
+                      <label className="settings-cls-22">
+                        <input type="checkbox" className="settings-cls-23" />
+                        <div className="settings-cls-24"></div>
                       </label>
                     </div>
                   </div>
@@ -88,29 +88,29 @@ export const Settings = () => {
               )}
 
               {activeTab === "Security" && (
-                <div className="space-y-6">
+                <div className="settings-cls-25">
                   <div>
-                    <h2 className="text-[18px] font-semibold text-[#1a1f36] mb-1">Account Security</h2>
-                    <p className="text-[14px] text-gray-500">Keep your account safe and manage authentication.</p>
+                    <h2 className="settings-cls-26">Account Security</h2>
+                    <p className="settings-cls-27">Keep your account safe and manage authentication.</p>
                   </div>
-                  <hr className="border-[#e3e8ee]" />
+                  <hr className="settings-cls-28" />
                   
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-gray-50 p-4 rounded-lg border border-gray-100">
+                  <div className="settings-cls-29">
                     <div>
-                      <p className="text-[14px] font-medium text-[#1a1f36]">Password</p>
-                      <p className="text-[13px] text-gray-500">Last changed 3 months ago.</p>
+                      <p className="settings-cls-30">Password</p>
+                      <p className="settings-cls-31">Last changed 3 months ago.</p>
                     </div>
-                    <button className="bg-white border border-[#d1d5db] hover:bg-gray-100 text-[#3c4257] font-medium text-[13px] px-4 py-2 rounded transition-colors shadow-sm">
+                    <button className="settings-cls-32">
                       Update Password
                     </button>
                   </div>
 
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-gray-50 p-4 rounded-lg border border-gray-100">
+                  <div className="settings-cls-33">
                     <div>
-                      <p className="text-[14px] font-medium text-[#1a1f36]">Two-Factor Authentication</p>
-                      <p className="text-[13px] text-gray-500">Add an extra layer of security to your account.</p>
+                      <p className="settings-cls-34">Two-Factor Authentication</p>
+                      <p className="settings-cls-35">Add an extra layer of security to your account.</p>
                     </div>
-                    <button className="bg-[#1a1f36] hover:bg-black text-white font-medium text-[13px] px-4 py-2 rounded transition-colors shadow-sm">
+                    <button className="settings-cls-36">
                       Enable 2FA
                     </button>
                   </div>
@@ -118,19 +118,19 @@ export const Settings = () => {
               )}
 
               {activeTab === "Advanced" && (
-                <div className="space-y-6">
+                <div className="settings-cls-37">
                   <div>
-                    <h2 className="text-[18px] font-semibold text-red-600 mb-1">Danger Zone</h2>
-                    <p className="text-[14px] text-gray-500">Irreversible actions for your account.</p>
+                    <h2 className="settings-cls-38">Danger Zone</h2>
+                    <p className="settings-cls-39">Irreversible actions for your account.</p>
                   </div>
-                  <hr className="border-[#e3e8ee]" />
+                  <hr className="settings-cls-40" />
                   
-                  <div className="border border-red-200 rounded-lg p-5 bg-red-50/30">
-                    <h3 className="text-[15px] font-medium text-[#1a1f36] mb-1">Delete Account</h3>
-                    <p className="text-[13px] text-gray-500 mb-4">
+                  <div className="settings-cls-41">
+                    <h3 className="settings-cls-42">Delete Account</h3>
+                    <p className="settings-cls-43">
                       Once you delete your account, there is no going back. Please be certain.
                     </p>
-                    <button className="bg-white border border-red-200 text-red-600 hover:bg-red-50 font-medium text-[13px] px-4 py-2 rounded transition-colors">
+                    <button className="settings-cls-44">
                       Delete my account
                     </button>
                   </div>

@@ -1,7 +1,7 @@
+import './CardNav.css';
 import { useLayoutEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { HiArrowUpRight } from 'react-icons/hi2';
-import './CardNav.css';
 const CardNav = ({ logo, logoAlt = 'Logo', items, className = '', ease = 'power3.out', baseColor = '#fff', menuColor, buttonBgColor, buttonTextColor, onLoginClick, onSignupClick, scrolled, isLightNavbar, activeSection }) => {
     const [isHamburgerOpen, setIsHamburgerOpen] = useState(false);
     const [isExpanded, setIsExpanded] = useState(false);
@@ -108,35 +108,35 @@ const CardNav = ({ logo, logoAlt = 'Logo', items, className = '', ease = 'power3
     };
     return (<div className={`card-nav-container ${className}`}>
       <nav ref={navRef} className={`card-nav ${isExpanded ? 'open' : ''}`} style={{ backgroundColor: baseColor }}>
-        <div className="card-nav-top">
+        <div className="cardnav-cls-1">
           <div className={`hamburger-menu ${isHamburgerOpen ? 'open' : ''}`} onClick={toggleMenu} onKeyDown={e => {
             if (e.key === 'Enter' || e.key === ' ') {
                 e.preventDefault();
                 toggleMenu();
             }
         }} role="button" aria-label={isExpanded ? 'Close menu' : 'Open menu'} aria-expanded={isExpanded} tabIndex={0} style={{ color: menuColor || '#000' }}>
-            <div className="hamburger-line"/>
-            <div className="hamburger-line"/>
+            <div className="cardnav-cls-2"/>
+            <div className="cardnav-cls-3"/>
           </div>
 
-          <div className="logo-container">
-            {typeof logo === 'string' ? (<img src={logo} alt={logoAlt} className="logo"/>) : (logo)}
+          <div className="cardnav-cls-4">
+            {typeof logo === 'string' ? (<img src={logo} alt={logoAlt} className="cardnav-cls-5"/>) : (logo)}
           </div>
 
-          <button type="button" className="card-nav-cta-button" style={{ backgroundColor: buttonBgColor, color: buttonTextColor }} onClick={onSignupClick}>
+          <button type="button" className="cardnav-cls-6" style={{ backgroundColor: buttonBgColor, color: buttonTextColor }} onClick={onSignupClick}>
             Get Started
           </button>
         </div>
 
-        <div className="card-nav-content" aria-hidden={!isExpanded}>
-          {(items || []).slice(0, 3).map((item, idx) => (<div key={`${item.label}-${idx}`} className="nav-card" ref={setCardRef(idx)} style={{ backgroundColor: item.bgColor, color: item.textColor }}>
-              <div className="nav-card-label">{item.label}</div>
-              <div className="nav-card-links">
+        <div className="cardnav-cls-7" aria-hidden={!isExpanded}>
+          {(items || []).slice(0, 3).map((item, idx) => (<div key={`${item.label}-${idx}`} className="cardnav-cls-8" ref={setCardRef(idx)} style={{ backgroundColor: item.bgColor, color: item.textColor }}>
+              <div className="cardnav-cls-9">{item.label}</div>
+              <div className="cardnav-cls-10">
                 {item.links?.map((lnk, i) => {
                   const isActive = activeSection === lnk.href.substring(1);
                   return (
-                  <a key={`${lnk.label}-${i}`} className="nav-card-link" href={lnk.href} aria-label={lnk.ariaLabel} style={{ color: isActive ? '#d946ef' : 'inherit', fontWeight: isActive ? 'bold' : 'normal' }}>
-                    <HiArrowUpRight className="nav-card-link-icon" aria-hidden="true" size={16}/>
+                  <a key={`${lnk.label}-${i}`} className="cardnav-cls-11" href={lnk.href} aria-label={lnk.ariaLabel} style={{ color: isActive ? '#d946ef' : 'inherit', fontWeight: isActive ? 'bold' : 'normal' }}>
+                    <HiArrowUpRight className="cardnav-cls-12" aria-hidden="true" size={16}/>
                     {lnk.label}
                   </a>
                 )})}
@@ -149,13 +149,13 @@ const CardNav = ({ logo, logoAlt = 'Logo', items, className = '', ease = 'power3
             >
               <button
                 onClick={onLoginClick}
-                className="nav-auth-btn nav-login-btn"
+                className="cardnav-cls-13"
               >
                 Log in
               </button>
               <button
                 onClick={onSignupClick}
-                className="nav-auth-btn nav-signup-btn"
+                className="cardnav-cls-14"
               >
                 Sign up
               </button>

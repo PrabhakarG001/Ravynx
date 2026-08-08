@@ -1,3 +1,4 @@
+import './Inputs.css';
 import React, { useState } from "react";
 import { Search, Eye, EyeOff } from "lucide-react";
 
@@ -18,7 +19,7 @@ Input.displayName = "Input";
 export const SearchInput = React.forwardRef(({ className = "", ...props }, ref) => {
   return (
     <div className={`relative ${className}`}>
-      <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-white/40" />
+      <Search className="inputs-cls-1" />
       <input
         type="search"
         className={`${baseInputStyles} pl-10`}
@@ -43,9 +44,9 @@ export const PasswordInput = React.forwardRef(({ className = "", ...props }, ref
       <button
         type="button"
         onClick={() => setShow(!show)}
-        className="absolute right-3 top-1/2 -translate-y-1/2 text-white/40 hover:text-white/80 transition-colors focus:outline-none"
+        className="inputs-cls-2"
       >
-        {show ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+        {show ? <EyeOff className="inputs-cls-3" /> : <Eye className="inputs-cls-4" />}
       </button>
     </div>
   );
