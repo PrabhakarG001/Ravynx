@@ -256,18 +256,18 @@ export default function Landing() {
           {/* Core Capabilities Revealed */}
 <section className="py-24 relative z-10">
 <div className="w-full max-w-6xl mx-auto px-6 md:px-12">
-              <div className="landing-cls-28">
+<motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, margin: "-50px" }} className="landing-cls-28">
                 <h2 className="landing-cls-29">Core Capabilities</h2>
                 <p className="landing-cls-30">An advanced suite of AI tools designed to automate your underwriting process and eliminate document fraud at the source.</p>
-              </div>
+              </motion.div>
               <div className="landing-cls-31 features-grid">
-                {features.map(({ icon: Icon, title, desc }) => (<div key={title} className="landing-cls-32">
+                {features.map(({ icon: Icon, title, desc }) => (<motion.div key={title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, margin: "-50px" }} className="landing-cls-32">
                     <div className="landing-cls-33">
                       <Icon size={18} className="landing-cls-34"/>
                     </div>
                     <h3 className="landing-cls-35">{title}</h3>
                     <p className="landing-cls-36">{desc}</p>
-                  </div>))}
+                  </motion.div>))}
               </div>
             </div>
 </section>

@@ -181,11 +181,11 @@
 }
 
 .landing-cls-7 {
-  @apply relative min-h-screen bg-black;
+  @apply relative h-[150vh] bg-black;
 }
 
 .landing-cls-8 {
-  @apply relative min-h-screen overflow-hidden flex flex-col justify-between;
+  @apply sticky top-0 h-screen overflow-hidden flex flex-col justify-between;
 }
 
 .landing-cls-9 {
