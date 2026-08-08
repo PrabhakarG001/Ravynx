@@ -670,7 +670,7 @@ export default function Landing() {
           
           <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 relative">
             <div className="text-white/60 text-sm">
-              ┬⌐ 2026 Ravynx. All rights reserved.
+              © 2026 Ravynx. All rights reserved.
             </div>
             <div className="text-white/60 text-sm md:text-center md:absolute md:left-1/2 md:-translate-x-1/2">
               Developed and Design by Team DataMineX
