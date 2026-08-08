@@ -276,7 +276,7 @@ export default function Landing() {
                 <h2 className="landing-cls-29">Core Capabilities</h2>
                 <p className="landing-cls-30">An advanced suite of AI tools designed to automate your underwriting process and eliminate document fraud at the source.</p>
               </div>
-              <div className="landing-cls-31">
+              <div className="landing-cls-31 features-grid">
                 {features.map(({ icon: Icon, title, desc }) => (<div key={title} className="landing-cls-32">
                     <div className="landing-cls-33">
                       <Icon size={18} className="landing-cls-34"/>
@@ -307,7 +307,7 @@ export default function Landing() {
             <div className="landing-cls-45">
               <div className="landing-cls-46">
                 <h3 className="landing-cls-47">Manual Verification</h3>
-                <p className="landing-cls-48 features-grid">
+                <p className="landing-cls-48">
                   High operational costs, slow turnaround times, and sophisticated forgeries that go undetected by the human eye.
                 </p>
               </div>
@@ -337,7 +337,7 @@ export default function Landing() {
             <div className="landing-cls-61">
               <div className="landing-cls-62">
                 <h3 className="landing-cls-63">Ravynx AI Engine</h3>
-                <p className="landing-cls-64 trust-metrics">
+                <p className="landing-cls-64">
                   Instant processing, cross-document data reconciliation, and pixel-level tampering detection.
                 </p>
               </div>
@@ -531,7 +531,7 @@ export default function Landing() {
             </div>
           </div>
 
-          <div className="landing-cls-162">
+          <div className="landing-cls-162 trust-metrics">
             {[
               {
                 icon: Landmark,
