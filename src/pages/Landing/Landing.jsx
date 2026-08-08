@@ -250,27 +250,7 @@ export default function Landing() {
              </motion.div>
           </motion.div>
 
-          {/* Expanding Card */}
-          <motion.div className="landing-cls-26" initial={{ opacity: 0, y: 80 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.4, ease: [0.22, 1, 0.36, 1] }} style={{
-            left: cardLeft,
-            width: cardWidth,
-            height: cardHeight,
-            borderTopLeftRadius: cardBorderRadius,
-            borderTopRightRadius: cardBorderRadius,
-            borderTopWidth: cardBorderWidth,
-            borderLeftWidth: cardBorderWidth,
-            borderRightWidth: cardBorderWidth,
-            borderColor: cardBorderColor,
-            backgroundColor: cardBgColor,
-            borderStyle: "solid",
-            zIndex: 30
-        }}>
-            {/* Card Content Removed as per user request */}
-
-          </motion.div>
-
-          
-        </div>
+          </div>
       </div>
 
           {/* Core Capabilities Revealed */}
