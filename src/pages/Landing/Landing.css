@@ -181,7 +181,7 @@
 }
 
 .landing-cls-7 {
-  @apply relative min-h-screen bg-black;
+  @apply sticky top-0 h-screen bg-black overflow-hidden z-0;
 }
 
 .landing-cls-8 {
