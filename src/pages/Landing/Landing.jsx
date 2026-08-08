@@ -254,43 +254,23 @@ export default function Landing() {
       </div>
 
           {/* Core Capabilities Revealed */}
-{/* Expanding Card */}
-<motion.div className="landing-cls-26" initial={{ opacity: 0, y: 80 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.4, ease: [0.22, 1, 0.36, 1] }} style={{
-left: cardLeft,
-width: cardWidth,
-height: cardHeight,
-borderTopLeftRadius: cardBorderRadius,
-borderTopRightRadius: cardBorderRadius,
-borderTopWidth: cardBorderWidth,
-borderLeftWidth: cardBorderWidth,
-borderRightWidth: cardBorderWidth,
-borderColor: cardBorderColor,
-backgroundColor: cardBgColor,
-borderStyle: "solid",
-zIndex: 30
-}}>
-{/* Card Content Removed as per user request */}
-</motion.div>
-
-{/* Core Capabilities Revealed */}
-<motion.div className="landing-cls-27" style={{ opacity: pageOpacity }}>
-<div className={`w-full max-w-6xl mx-auto px-6 md:px-12 ${isLightNavbar ? 'pointer-events-auto' : 'pointer-events-none'}`}>
-<div className="landing-cls-28">
-<h2 className="landing-cls-29">Core Capabilities</h2>
-<p className="landing-cls-30">An advanced suite of AI tools designed to automate your underwriting process and eliminate document fraud at the source.</p>
-</div>
-<div className="landing-cls-31 features-grid">
-{features.map(({ icon: Icon, title, desc }) => (<div key={title} className="landing-cls-32">
-<div className="landing-cls-33">
-<Icon size={18} className="landing-cls-34"/>
-</div>
-<h3 className="landing-cls-35">{title}</h3>
-<p className="landing-cls-36">{desc}</p>
-</div>))}
-</div>
-</div>
-</motion.div>
-
+<section className="py-24 relative z-10">
+<div className="w-full max-w-6xl mx-auto px-6 md:px-12">
+<motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, margin: "-50px" }} className="landing-cls-28">
+                <h2 className="landing-cls-29">Core Capabilities</h2>
+                <p className="landing-cls-30">An advanced suite of AI tools designed to automate your underwriting process and eliminate document fraud at the source.</p>
+              </motion.div>
+              <div className="landing-cls-31 features-grid">
+                {features.map(({ icon: Icon, title, desc }) => (<motion.div key={title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, margin: "-50px" }} className="landing-cls-32">
+                    <div className="landing-cls-33">
+                      <Icon size={18} className="landing-cls-34"/>
+                    </div>
+                    <h3 className="landing-cls-35">{title}</h3>
+                    <p className="landing-cls-36">{desc}</p>
+                  </motion.div>))}
+              </div>
+            </div>
+</section>
 
       {/* Problem vs Solution (Revolut Style Image Cards) */}
       <section className="landing-cls-37">
