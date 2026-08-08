@@ -623,12 +623,12 @@ export default function Landing() {
       <footer className="landing-cls-196">
         <div className="landing-cls-197">
           <div className="landing-cls-198">
-            <div className="landing-cls-199">
+            <div className="landing-cls-199 footer-brand">
               <Logo className="landing-cls-200" />
               <p className="landing-cls-201">
                 Government-grade AI underwriting and document fraud detection for modern financial institutions.
               </p>
-              <div className="landing-cls-202">
+              <div className="landing-cls-202 footer-socials">
                 <a href="#" className="landing-cls-203">
                   <FiGithub className="landing-cls-204"/>
                 </a>
