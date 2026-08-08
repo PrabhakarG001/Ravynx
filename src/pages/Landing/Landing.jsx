@@ -50,6 +50,7 @@ export default function Landing() {
     const coreX = useTransform(coreScroll, [0, 1], ["40vw", "0vw"]);
     const coreY = useTransform(coreScroll, [0, 1], ["40vh", "0vh"]);
     const coreBorderRadius = useTransform(coreScroll, [0, 1], ["40px", "0px"]);
+    const heroOpacity = useTransform(coreScroll, [0, 0.4], [1, 0]);
     const { scrollYProgress } = useScroll({
         target: containerRef,
         offset: ["start start", "end end"]
@@ -70,8 +71,7 @@ export default function Landing() {
     // Scroll Transition Hooks
     const moveProgress = useTransform(scrollYProgress, [0.05, 0.35], [0, 1]);
     const expandProgress = useTransform(scrollYProgress, [0.35, 0.75], [0, 1]);
-    const heroOpacity = useTransform(scrollYProgress, [0.5, 0.8], [1, 0]);
-    const mobileBgOpacity = useTransform(expandProgress, [0, 1], [0, 1]);
+        const mobileBgOpacity = useTransform(expandProgress, [0, 1], [0, 1]);
     const cardLeft = useTransform(() => {
         const m = moveProgress.get();
         const e = expandProgress.get();
@@ -219,7 +219,7 @@ export default function Landing() {
           
 
           {/* Hero Content (Fades out) */}
-          <motion.div className="landing-cls-9">
+          <motion.div className="landing-cls-9" style={{ opacity: heroOpacity }}>
              {/* Background glow effects */}
              <div className="landing-cls-10"></div>
 
