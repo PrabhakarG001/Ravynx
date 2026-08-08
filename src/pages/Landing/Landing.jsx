@@ -212,7 +212,7 @@ export default function Landing() {
           
 
           {/* Hero Content (Fades out) */}
-          <motion.div className="landing-cls-9" style={{ opacity: heroOpacity }}>
+          <motion.div className="landing-cls-9">
              {/* Background glow effects */}
              <div className="landing-cls-10"></div>
 
