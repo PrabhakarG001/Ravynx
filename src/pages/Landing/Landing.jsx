@@ -269,7 +269,7 @@ export default function Landing() {
     x: coreX, 
     y: coreY, 
     borderRadius: coreBorderRadius,
-    backgroundColor: '#000000'
+    backgroundColor: '#ffffff'
   }}
   className="py-24 relative z-20 overflow-hidden"
 >
@@ -300,7 +300,7 @@ export default function Landing() {
           whileHover={{ scale: 1.03, boxShadow: "0px 10px 30px rgba(0, 0, 0, 0.08)" }}
           transition={{ duration: 0.6, delay: 0.2 + (index * 0.1), ease: [0.22, 1, 0.36, 1] }} 
           viewport={{ once: false, margin: "-50px" }} 
-          className="landing-cls-32 cursor-pointer"
+          className="landing-cls-32 cursor-pointer bg-white"
         >
           <div className="landing-cls-33">
             <Icon size={18} className="landing-cls-34 transition-all duration-300 opacity-90 scale-95 group-hover:scale-100 group-hover:opacity-100" />

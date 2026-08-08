@@ -183,7 +183,7 @@
 }
 
 .landing-cls-7 {
-  @apply sticky top-0 h-screen bg-black overflow-hidden z-0;
+  @apply sticky top-0 h-screen bg-background overflow-hidden z-0;
 }
 
 .landing-cls-8 {
@@ -231,11 +231,11 @@
 }
 
 .landing-cls-14 {
-  @apply text-white;
+  @apply text-foreground;
 }
 
 .landing-cls-15 {
-  @apply text-white/90 text-[16px] leading-[1.6] max-w-3xl mx-auto mb-3 font-medium;
+  @apply text-gray-700 text-[16px] leading-[1.6] max-w-3xl mx-auto mb-3 font-medium;
 }
 @media (min-width: 640px) {
   .landing-cls-15 {
@@ -249,7 +249,7 @@
 }
 
 .landing-cls-16 {
-  @apply text-white/60 text-[14px] leading-[1.6] max-w-2xl mx-auto mb-6;
+  @apply text-gray-500 text-[14px] leading-[1.6] max-w-2xl mx-auto mb-6;
 }
 @media (min-width: 640px) {
   .landing-cls-16 {
@@ -272,7 +272,7 @@
 }
 
 .landing-cls-18 {
-  @apply px-8 py-2.5 rounded-full border border-purple-500 text-white text-sm font-medium hover:bg-purple-500/10 transition-colors shadow-[0_0_15px_rgba(168,85,247,0.3)] inline-flex items-center justify-center gap-2 cursor-pointer;
+  @apply px-8 py-2.5 rounded-full bg-purple-600 text-white text-sm font-medium hover:bg-purple-700 transition-colors shadow-[0_4px_14px_0_rgba(168,85,247,0.39)] inline-flex items-center justify-center gap-2 cursor-pointer;
 }
 
 .landing-cls-19 {
@@ -280,7 +280,7 @@
 }
 
 .landing-cls-20 {
-  @apply px-8 py-2.5 rounded-full border border-white/30 text-white text-sm font-medium hover:bg-white/10 transition-colors inline-flex items-center justify-center gap-2 cursor-pointer;
+  @apply px-8 py-2.5 rounded-full border border-gray-300 text-gray-700 text-sm font-medium hover:bg-gray-50 transition-colors inline-flex items-center justify-center gap-2 cursor-pointer;
 }
 
 .landing-cls-21 {
