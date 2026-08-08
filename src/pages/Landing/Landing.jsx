@@ -516,7 +516,7 @@ export default function Landing() {
       <section className="bg-[#030213] text-white py-24 sm:py-32 border-y border-white/10">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16 md:mb-24">
+          <motion.div initial={{ opacity: 0, x: 60, y: 60 }} whileInView={{ opacity: 1, x: 0, y: 0 }} viewport={{ once: false, margin: "-80px" }} transition={{ type: "spring", stiffness: 180, damping: 22 }} className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16 md:mb-24">
             <div className="max-w-2xl">
               <div className="flex items-center gap-2 mb-4">
                 <div className="w-2 h-2 rounded-full bg-fuchsia-500"></div>
@@ -529,9 +529,9 @@ export default function Landing() {
             <div className="md:max-w-sm text-white/60 text-base md:text-lg leading-relaxed border-l border-white/10 pl-6">
               Our architecture ensures complete data isolation and algorithmic transparency for strict regulatory compliance.
             </div>
-          </div>
+          </motion.div>
 
-          <div className="trust-metrics bg-white/5 rounded-2xl overflow-hidden border border-white/10">
+          <motion.div initial={{ opacity: 0, x: 80, y: 80 }} whileInView={{ opacity: 1, x: 0, y: 0 }} viewport={{ once: false, margin: "-80px" }} transition={{ type: "spring", stiffness: 160, damping: 25, delay: 0.15 }} className="trust-metrics bg-white/5 rounded-2xl overflow-hidden border border-white/10">
             {[
               {
                 icon: Landmark,
@@ -563,7 +563,7 @@ export default function Landing() {
                 </p>
               </div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
