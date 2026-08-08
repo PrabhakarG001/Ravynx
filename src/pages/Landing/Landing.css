@@ -121,7 +121,9 @@
   . {
     text-align: left;
   }
-}.landing-cls-1 {
+}
+
+.landing-cls-1 {
   @apply min-h-screen bg-background font-['Plus_Jakarta_Sans',sans-serif];
 }
 
