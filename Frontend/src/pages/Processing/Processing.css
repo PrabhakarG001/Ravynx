@@ -1,0 +1,145 @@
+@reference "../../styles/index.css";
+/* Processing styles */
+.processing-cls-1 {
+  @apply p-8 flex flex-col gap-6 overflow-auto max-w-3xl mx-auto w-full;
+}
+
+.processing-cls-2 {
+  @apply mb-2;
+}
+
+.processing-cls-3 {
+  @apply text-2xl font-bold text-[#1a1f36];
+}
+
+.processing-cls-4 {
+  @apply text-[#8792a2] text-sm mt-1;
+}
+
+.processing-cls-5 {
+  @apply p-8;
+}
+
+.processing-cls-6 {
+  @apply flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8;
+}
+
+.processing-cls-7 {
+  @apply flex items-center gap-4;
+}
+
+.processing-cls-8 {
+  @apply w-12 h-12 bg-[#f7f9fc] border border-[#e3e8ee] rounded-xl flex items-center justify-center shrink-0;
+}
+
+.processing-cls-9 {
+  @apply text-[#635BFF];
+}
+
+.processing-cls-10 {
+  @apply text-lg font-bold text-[#1a1f36];
+}
+
+.processing-cls-11 {
+  @apply text-sm text-[#8792a2] mt-0.5;
+}
+
+.processing-cls-12 {
+  @apply flex items-center gap-2 text-sm font-semibold text-[#635BFF] bg-[#f7f9fc] border border-[#e3e8ee] rounded-lg px-4 py-2;
+}
+
+.processing-cls-13 {
+  @apply animate-spin;
+}
+
+.processing-cls-14 {
+  @apply mb-10;
+}
+
+.processing-cls-15 {
+  @apply flex justify-between text-sm font-medium text-[#1a1f36] mb-2;
+}
+
+.processing-cls-16 {
+  @apply text-[#635BFF];
+}
+
+.processing-cls-17 {
+  @apply h-2 bg-[#f7f9fc] rounded-full overflow-hidden shadow-inner;
+}
+
+.processing-cls-18 {
+  @apply h-full bg-[#635BFF] rounded-full relative;
+}
+
+.processing-cls-19 {
+  @apply absolute inset-0 bg-white/20 w-full h-full animate-[shimmer_2s_infinite] bg-[linear-gradient(90deg,transparent,rgba(255,255,255,0.4),transparent)] -translate-x-full;
+}
+
+.processing-cls-20 {
+  @apply flex flex-col;
+}
+
+.processing-cls-21 {
+  @apply flex gap-5;
+}
+
+.processing-cls-22 {
+  @apply flex flex-col items-center;
+}
+
+.processing-cls-23 {
+  @apply flex items-center justify-between;
+}
+
+.processing-cls-24 {
+  @apply text-sm text-[#8792a2] font-mono bg-[#f7f9fc] px-2 py-0.5 rounded-md border border-[#e3e8ee];
+}
+
+.processing-cls-25 {
+  @apply text-sm text-[#8792a2] mt-1;
+}
+
+.processing-cls-26 {
+  @apply mt-3 h-2 bg-[#f7f9fc] rounded-full overflow-hidden w-64 max-w-full;
+}
+
+.processing-cls-27 {
+  @apply h-full bg-[#635BFF] rounded-full animate-[pulse_1.5s_infinite] w-[60%];
+}
+
+.processing-cls-28 {
+  @apply mt-6 pt-6 border-t border-[#e3e8ee] flex flex-col sm:flex-row gap-3;
+}
+
+.processing-cls-29 {
+  @apply flex items-center justify-center gap-2 sm:flex-1;
+}
+
+.processing-cls-30 {
+  @apply sm:w-auto;
+}
+
+.processing-cls-31 {
+  @apply p-6;
+}
+
+.processing-cls-32 {
+  @apply text-sm font-semibold text-[#1a1f36] mb-4;
+}
+
+.processing-cls-33 {
+  @apply grid grid-cols-2 gap-4;
+}
+
+.processing-cls-34 {
+  @apply bg-[#f7f9fc] border border-[#e3e8ee] rounded-lg p-3;
+}
+
+.processing-cls-35 {
+  @apply text-xs text-[#8792a2];
+}
+
+.processing-cls-36 {
+  @apply text-sm font-medium text-[#1a1f36] mt-0.5;
+}

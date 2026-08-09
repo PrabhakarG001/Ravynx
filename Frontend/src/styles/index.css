@@ -1,0 +1,83 @@
+@import './fonts.css';
+@import './tailwind.css';
+@import './theme.css';
+
+/* Force pointer cursor on all buttons to ensure it always shows on hover */
+button, 
+.btn,
+[role="button"],
+a,
+input[type="submit"],
+input[type="button"] {
+  cursor: pointer !important;
+}
+
+/* Stripe Design System Utilities */
+.stripe-card {
+  @apply bg-white border border-[#e3e8ee] rounded-xl;
+  box-shadow: 0 2px 5px -1px rgba(50, 50, 93, 0.05), 0 1px 3px -1px rgba(0, 0, 0, 0.03);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.stripe-card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 7px 14px 0 rgba(50, 50, 93, 0.1), 0 3px 6px 0 rgba(0, 0, 0, 0.08);
+}
+
+.stripe-button-primary {
+  @apply bg-[#635BFF] text-white font-medium rounded-lg px-4 py-2 hover:bg-[#0A2540] transition-colors;
+  box-shadow: 0 2px 5px 0 rgba(50, 50, 93, 0.1), 0 1px 1px 0 rgba(0, 0, 0, 0.07);
+}
+
+.stripe-button-secondary {
+  @apply bg-white text-[#3c4257] font-medium border border-[#e3e8ee] rounded-lg px-4 py-2 hover:bg-[#f7f9fc] hover:text-[#1a1f36] transition-colors;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+/* Custom Scrollbar matching AI-Powered Underwriting gradient (Landing Page Only) */
+html.landing-theme ::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+html.landing-theme ::-webkit-scrollbar-track {
+  background: #000000; 
+}
+html.landing-theme ::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #d946ef, #9333ea);
+  border-radius: 4px;
+}
+html.landing-theme ::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #e879f9, #a855f7);
+}
+
+/* Global Professional Scrollbar for the Application (non-landing) */
+html:not(.landing-theme) ::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+html:not(.landing-theme) ::-webkit-scrollbar-track {
+  background: transparent; 
+}
+html:not(.landing-theme) ::-webkit-scrollbar-thumb {
+  background: #cbd5e1; /* tailwind gray-300 */
+  border-radius: 4px;
+}
+html:not(.landing-theme) ::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8; /* tailwind gray-400 */
+}
+
+/* Utility class for forcing professional scrollbars inside specific scrollable containers */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent; 
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}

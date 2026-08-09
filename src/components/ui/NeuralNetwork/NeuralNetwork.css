@@ -1,6 +1,0 @@
-@reference "../../../styles/index.css";
-/* NeuralNetwork Styles */
-
-.neuralnetwork-cls-1 {
-  @apply w-full h-full absolute inset-0 pointer-events-none;
-}

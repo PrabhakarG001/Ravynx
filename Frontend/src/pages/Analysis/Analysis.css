@@ -1,0 +1,157 @@
+@reference "../../styles/index.css";
+/* Analysis styles */
+.analysis-cls-1 {
+  @apply p-6 md:p-8 flex flex-col gap-6 overflow-auto max-w-6xl mx-auto w-full;
+}
+
+.analysis-cls-2 {
+  @apply mb-2;
+}
+
+.analysis-cls-3 {
+  @apply text-2xl font-bold text-foreground;
+}
+
+.analysis-cls-4 {
+  @apply text-muted-foreground text-sm mt-1;
+}
+
+.analysis-cls-5 {
+  @apply grid grid-cols-1 lg:grid-cols-3 gap-6;
+}
+
+.analysis-cls-6 {
+  @apply bg-card border border-border rounded-2xl shadow-sm p-8 flex flex-col items-center justify-center text-center relative overflow-hidden;
+}
+
+.analysis-cls-7 {
+  @apply absolute top-0 left-0 w-full h-1 bg-red-600;
+}
+
+.analysis-cls-8 {
+  @apply text-xs text-muted-foreground uppercase tracking-widest mb-6 font-semibold;
+}
+
+.analysis-cls-9 {
+  @apply relative w-40 h-40 mb-6 drop-shadow-md;
+}
+
+.analysis-cls-10 {
+  @apply w-full h-full -rotate-90;
+}
+
+.analysis-cls-11 {
+  @apply animate-[stroke_1.5s_ease-out_forwards];
+}
+
+.analysis-cls-12 {
+  @apply absolute inset-0 flex flex-col items-center justify-center;
+}
+
+.analysis-cls-13 {
+  @apply text-4xl font-bold text-red-600 tracking-tight;
+}
+
+.analysis-cls-14 {
+  @apply text-sm font-medium text-muted-foreground;
+}
+
+.analysis-cls-15 {
+  @apply text-sm text-foreground mt-4 font-semibold;
+}
+
+.analysis-cls-16 {
+  @apply text-xs text-muted-foreground mt-1;
+}
+
+.analysis-cls-17 {
+  @apply lg:col-span-2 bg-card border border-border rounded-2xl shadow-sm p-8;
+}
+
+.analysis-cls-18 {
+  @apply text-base font-semibold text-foreground mb-4;
+}
+
+.analysis-cls-19 {
+  @apply bg-red-50 border border-red-200 rounded-xl p-5 mb-6 shadow-sm;
+}
+
+.analysis-cls-20 {
+  @apply flex gap-2.5 mb-3;
+}
+
+.analysis-cls-21 {
+  @apply text-red-600 shrink-0 mt-0.5;
+}
+
+.analysis-cls-22 {
+  @apply text-sm font-bold text-red-700;
+}
+
+.analysis-cls-23 {
+  @apply text-sm text-red-800 leading-relaxed font-medium;
+}
+
+.analysis-cls-24 {
+  @apply grid grid-cols-2 md:grid-cols-4 gap-4;
+}
+
+.analysis-cls-25 {
+  @apply text-xs font-semibold text-muted-foreground mb-2;
+}
+
+.analysis-cls-26 {
+  @apply bg-card border border-border rounded-2xl shadow-sm p-8;
+}
+
+.analysis-cls-27 {
+  @apply text-base font-semibold text-foreground mb-6;
+}
+
+.analysis-cls-28 {
+  @apply flex flex-col gap-4;
+}
+
+.analysis-cls-29 {
+  @apply flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-2;
+}
+
+.analysis-cls-30 {
+  @apply flex items-center gap-3;
+}
+
+.analysis-cls-31 {
+  @apply text-red-600 shrink-0;
+}
+
+.analysis-cls-32 {
+  @apply text-yellow-600 shrink-0;
+}
+
+.analysis-cls-33 {
+  @apply text-emerald-600 shrink-0;
+}
+
+.analysis-cls-34 {
+  @apply text-sm font-bold text-foreground;
+}
+
+.analysis-cls-35 {
+  @apply text-sm font-medium text-muted-foreground sm:ml-8 leading-relaxed;
+}
+
+.analysis-cls-36 {
+  @apply text-foreground;
+}
+
+.analysis-cls-37 {
+  @apply mt-8 pt-6 border-t border-border flex flex-col sm:flex-row gap-4;
+}
+
+.analysis-cls-38 {
+  @apply bg-blue-600 text-white text-sm font-semibold px-6 py-2.5 rounded-xl hover:bg-blue-700 hover:shadow-lg transition-all flex items-center justify-center gap-2 sm:flex-1;
+}
+
+.analysis-cls-39 {
+  @apply border border-border text-foreground font-medium text-sm px-6 py-2.5 rounded-xl hover:bg-secondary transition-colors sm:w-auto;
+}
