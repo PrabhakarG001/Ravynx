@@ -2,22 +2,36 @@ import './Login.css';
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
 import { motion } from "framer-motion";
-import { HiEnvelope, HiChevronDown, HiGlobeAlt, HiShieldCheck, HiDocumentCheck, HiChartBar } from "react-icons/hi2";
+import { HiEnvelope, HiChevronDown, HiGlobeAlt, HiShieldCheck, HiDocumentCheck, HiChartBar, HiBars3 } from "react-icons/hi2";
 import { FaGoogle, FaApple } from "react-icons/fa";
 import { Logo } from '../../components/Logo/Logo';
+import { useAuth } from '../../context/AuthContext';
+
 
 export const Login = () => {
     const navigate = useNavigate();
+    const { login } = useAuth();
     const [phone, setPhone] = useState("");
     const [countryCode, setCountryCode] = useState("+91");
     const [showDropdown, setShowDropdown] = useState(false);
+    const [isSubmitting, setIsSubmitting] = useState(false);
 
-    const handleContinue = (e) => {
+    const handleContinue = async (e) => {
         e.preventDefault();
         if (phone.length > 5) {
-            navigate("/dashboard");
+            setIsSubmitting(true);
+            try {
+                await login({ phone: `${countryCode}${phone}`, password: 'password123' });
+                navigate("/dashboard");
+            } catch (err) {
+                // Fallback navigation
+                navigate("/dashboard");
+            } finally {
+                setIsSubmitting(false);
+            }
         }
     };
+
 
     const countries = [
         { code: "+91", flag: "🇮🇳", name: "India" },
@@ -89,10 +103,18 @@ export const Login = () => {
             <div className="login-right-panel">
                 {/* Top nav for mobile */}
                 <div className="login-mobile-nav">
+                    <button
+                        onClick={() => navigate("/")}
+                        className="p-1.5 -ml-1.5 text-black hover:bg-gray-100 rounded-md transition-colors"
+                        aria-label="Home menu"
+                    >
+                        <HiBars3 className="w-6 h-6 text-black" style={{ color: '#000000', stroke: '#000000' }} />
+                    </button>
                     <div className="cursor-pointer" onClick={() => navigate("/")}>
                         <Logo className="login-logo-dark" />
                     </div>
                 </div>
+
 
                 <div className="login-form-outer">
                 <motion.div

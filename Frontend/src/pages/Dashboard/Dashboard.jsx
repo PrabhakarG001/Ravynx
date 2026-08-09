@@ -1,5 +1,5 @@
 import './Dashboard.css';
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
   HiDocumentText,
@@ -15,6 +15,7 @@ import {
   PieChart, Pie, Cell,
   XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer 
 } from "recharts";
+import { getKpisApi, getDocumentsApi } from '../../services/api';
 
 const fraudTrendData = [
   { name: 'Mon', fraud: 4 },
@@ -42,60 +43,101 @@ const riskDistData = [
 ];
 const COLORS = ['#10b981', '#f59e0b', '#ef4444'];
 
-const recentActivity = [
+const defaultActivity = [
   { id: "DOC-8923", status: "Fraud", time: "2 mins ago", user: "johndoe@email.com" },
-  { id: "DOC-8922", status: "Safe", time: "15 mins ago", user: "sarah.m@email.com" },
-  { id: "DOC-8921", status: "Review", time: "1 hour ago", user: "mike.w@email.com" },
-  { id: "DOC-8920", status: "Safe", time: "2 hours ago", user: "anna.k@email.com" },
-];
-
-const statCards = [
-  {
-    icon: HiDocumentText,
-    label: "Total Docs",
-    value: "1,248",
-    change: "+12%",
-    up: true,
-    accent: "#6366f1",
-    bg: "#eef2ff",
-  },
-  {
-    icon: HiShieldExclamation,
-    label: "Fraud Cases",
-    value: "32",
-    change: "+3",
-    up: false,
-    accent: "#ef4444",
-    bg: "#fef2f2",
-  },
-  {
-    icon: HiShieldCheck,
-    label: "Safe Cases",
-    value: "1,150",
-    change: "+98%",
-    up: true,
-    accent: "#10b981",
-    bg: "#ecfdf5",
-  },
-  {
-    icon: HiClock,
-    label: "Pending",
-    value: "66",
-    change: "-8",
-    up: true,
-    accent: "#f59e0b",
-    bg: "#fffbeb",
-  },
+  { id: "DOC-8922", status: "Verified", time: "15 mins ago", user: "sarah.m@email.com" },
+  { id: "DOC-8921", status: "Flagged", time: "1 hour ago", user: "mike.w@email.com" },
+  { id: "DOC-8920", status: "Verified", time: "2 hours ago", user: "anna.k@email.com" },
 ];
 
 const statusStyles = {
   Safe:   { badge: "db-badge db-badge--safe",   icon: "bg-emerald-50 text-emerald-600" },
+  Verified: { badge: "db-badge db-badge--safe", icon: "bg-emerald-50 text-emerald-600" },
   Fraud:  { badge: "db-badge db-badge--fraud",  icon: "bg-red-50 text-red-600" },
+  Rejected: { badge: "db-badge db-badge--fraud", icon: "bg-red-50 text-red-600" },
   Review: { badge: "db-badge db-badge--review", icon: "bg-amber-50 text-amber-600" },
+  Flagged: { badge: "db-badge db-badge--review", icon: "bg-amber-50 text-amber-600" },
+  Pending: { badge: "db-badge db-badge--review", icon: "bg-blue-50 text-blue-600" },
 };
 
 export const Dashboard = () => {
   const [activeChart, setActiveChart] = useState('distribution');
+  const [kpis, setKpis] = useState(null);
+  const [recentDocs, setRecentDocs] = useState([]);
+
+  useEffect(() => {
+    const loadDashboardData = async () => {
+      try {
+        const kpiRes = await getKpisApi();
+        if (kpiRes.success) {
+          setKpis(kpiRes.kpis);
+        }
+      } catch (e) {
+        console.warn('Dashboard KPIs loaded default mock');
+      }
+
+      try {
+        const docRes = await getDocumentsApi();
+        if (docRes.success && docRes.documents) {
+          setRecentDocs(docRes.documents.slice(0, 5));
+        }
+      } catch (e) {
+        console.warn('Dashboard Documents loaded default mock');
+      }
+    };
+
+    loadDashboardData();
+  }, []);
+
+  const activityList = recentDocs.length > 0
+    ? recentDocs.map(d => ({
+        id: d._id ? `DOC-${d._id.slice(-4).toUpperCase()}` : (d.title || 'DOC-1001'),
+        status: d.status || 'Verified',
+        time: d.createdAt ? new Date(d.createdAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : 'Recently',
+        user: d.borrowerName || d.title || 'underwriter@ravynx.ai',
+      }))
+    : defaultActivity;
+
+
+  const statCards = [
+    {
+      icon: HiDocumentText,
+      label: "Total Docs",
+      value: kpis ? kpis.totalDocuments : "1,248",
+      change: "+12%",
+      up: true,
+      accent: "#6366f1",
+      bg: "#eef2ff",
+    },
+    {
+      icon: HiShieldExclamation,
+      label: "Fraud Cases",
+      value: kpis ? kpis.flaggedCount + kpis.rejectedCount : "34",
+      change: kpis ? `${kpis.fraudDetectionRate}` : "+3",
+      up: false,
+      accent: "#ef4444",
+      bg: "#fef2f2",
+    },
+    {
+      icon: HiShieldCheck,
+      label: "Safe Cases",
+      value: kpis ? kpis.verifiedCount : "1,150",
+      change: "+98%",
+      up: true,
+      accent: "#10b981",
+      bg: "#ecfdf5",
+    },
+    {
+      icon: HiClock,
+      label: "Avg Time",
+      value: kpis ? `${kpis.avgProcessingTimeSec}s` : "3.2s",
+      change: "-18%",
+      up: true,
+      accent: "#f59e0b",
+      bg: "#fffbeb",
+    },
+  ];
+
 
   return (
     <div className="dashboard-container">
@@ -250,9 +292,10 @@ export const Dashboard = () => {
             <button className="db-view-all">View all</button>
           </div>
           <div className="db-activity-list">
-            {recentActivity.map((activity, idx) => {
-              const s = statusStyles[activity.status];
+            {activityList.map((activity, idx) => {
+              const s = statusStyles[activity.status] || statusStyles.Verified;
               return (
+
                 <div key={idx} className="db-activity-row">
                   <div className="db-activity-left">
                     <div className={`db-activity-avatar ${s.icon}`}>

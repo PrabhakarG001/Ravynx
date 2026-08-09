@@ -4,6 +4,8 @@ import { useNavigate } from "react-router";
 import { motion, AnimatePresence } from "framer-motion";
 import { HiArrowUpTray as UploadIcon, HiCpuChip, HiDocumentText, HiXMark, HiCheckCircle } from "react-icons/hi2";
 import { Badge } from '../../components/common/Badge/Badge';
+import { uploadDocumentApi, analyzeDocumentApi } from '../../services/api';
+
 export const Upload = () => {
     const navigate = useNavigate();
     const [files, setFiles] = useState([]);
@@ -11,12 +13,14 @@ export const Upload = () => {
     const [applicantName, setApplicantName] = useState("");
     const [loanAmount, setLoanAmount] = useState("");
     const [loanType, setLoanType] = useState("Mortgage");
+    const [isUploading, setIsUploading] = useState(false);
     const inputRef = useRef(null);
     const docTypes = ["Land Record", "Sale Deed", "Financial Statement", "Bank Statement", "GST Certificate"];
+
     const handleFiles = (fl) => {
-        if (!fl)
-            return;
+        if (!fl) return;
         const added = Array.from(fl).map(f => ({
+            fileObj: f,
             name: f.name,
             size: f.size,
             type: docType,
@@ -24,10 +28,38 @@ export const Upload = () => {
         }));
         setFiles(prev => [...prev, ...added]);
     };
+
     const handleDrop = (e) => {
         e.preventDefault();
         handleFiles(e.dataTransfer.files);
     };
+
+    const handleSubmitApplication = async () => {
+        setIsUploading(true);
+        try {
+            for (const f of files) {
+                const formData = new FormData();
+                if (f.fileObj) {
+                    formData.append('file', f.fileObj);
+                }
+                formData.append('title', f.name);
+                formData.append('documentType', f.type);
+                formData.append('borrowerName', applicantName || 'Applicant');
+                
+                const uploaded = await uploadDocumentApi(formData);
+                if (uploaded && uploaded.document) {
+                    // Trigger AI analysis
+                    await analyzeDocumentApi(uploaded.document._id);
+                }
+            }
+        } catch (err) {
+            console.warn('[Upload submit]:', err.message);
+        } finally {
+            setIsUploading(false);
+            navigate("/processing");
+        }
+    };
+
     const fmt = (bytes) => bytes > 1024 * 1024 ? `${(bytes / 1024 / 1024).toFixed(1)} MB` : `${Math.round(bytes / 1024)} KB`;
     
     return (<div className="upload-cls-1">
@@ -83,10 +115,11 @@ export const Upload = () => {
         {files.length > 0 && (<motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} exit={{ opacity: 0, height: 0 }} className="upload-cls-24">
             <div className="upload-cls-25">
               <h3 className="upload-cls-26">Files Queued ({files.length})</h3>
-              <button onClick={() => navigate("/processing")} className="upload-cls-27">
-                <HiCpuChip size={16}/> Submit Application
+              <button onClick={handleSubmitApplication} disabled={isUploading} className="upload-cls-27">
+                <HiCpuChip size={16}/> {isUploading ? 'Processing AI...' : 'Submit Application'}
               </button>
             </div>
+
             <div className="upload-cls-28">
               {files.map((f, i) => (<motion.div initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: i * 0.05 }} key={i} className="upload-cls-29">
                   <div className="upload-cls-30">

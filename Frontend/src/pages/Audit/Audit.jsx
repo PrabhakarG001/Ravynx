@@ -1,17 +1,44 @@
 import './Audit.css';
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { HiMagnifyingGlass, HiFunnel, HiArrowDownTray, HiOutlineDocumentText } from "react-icons/hi2";
 import { Badge } from '../../components/common/Badge/Badge';
-import { auditLogs } from "../../utils/mockData";
+import { getAuditLogsApi } from '../../services/api';
+import { auditLogs as mockLogs } from "../../utils/mockData";
 
 export const Audit = () => {
     const [search, setSearch] = useState("");
-    const filtered = auditLogs.filter(l => 
-        l.doc.toLowerCase().includes(search.toLowerCase()) ||
-        l.user.toLowerCase().includes(search.toLowerCase()) ||
-        l.action.toLowerCase().includes(search.toLowerCase())
+    const [logs, setLogs] = useState(mockLogs);
+
+    useEffect(() => {
+        const fetchLogs = async () => {
+            try {
+                const res = await getAuditLogsApi();
+                if (res.success && res.logs && res.logs.length > 0) {
+                    const formatted = res.logs.map((l, idx) => ({
+                        id: l._id ? `LOG-${l._id.slice(-4).toUpperCase()}` : `LOG-00${idx+1}`,
+                        timestamp: new Date(l.timestamp).toLocaleString(),
+                        user: l.user || 'System',
+                        action: l.action || 'ACTIVITY',
+                        doc: l.details || 'System event',
+                        status: l.status === 'ERROR' ? 'Fraud' : (l.status === 'WARNING' ? 'Review' : 'Verified'),
+                    }));
+                    setLogs(formatted);
+                }
+            } catch (err) {
+                console.warn('Audit logs loaded mock');
+            }
+        };
+
+        fetchLogs();
+    }, []);
+
+    const filtered = logs.filter(l => 
+        (l.doc || '').toLowerCase().includes(search.toLowerCase()) ||
+        (l.user || '').toLowerCase().includes(search.toLowerCase()) ||
+        (l.action || '').toLowerCase().includes(search.toLowerCase())
     );
+
     
     return (
       <div className="audit-cls-1">

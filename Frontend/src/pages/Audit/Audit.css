@@ -1,8 +1,9 @@
 @reference "../../styles/index.css";
 /* Audit styles */
 .audit-cls-1 {
-  @apply p-8 md:p-12 flex flex-col gap-8 overflow-auto max-w-[1200px] mx-auto w-full font-[Inter,sans-serif];
+  @apply p-4 sm:p-6 md:p-10 flex flex-col gap-8 overflow-auto max-w-[1200px] mx-auto w-full font-[Inter,sans-serif];
 }
+
 
 .audit-cls-2 {
   @apply mb-2;

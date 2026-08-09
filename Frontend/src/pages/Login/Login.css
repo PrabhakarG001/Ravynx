@@ -21,18 +21,19 @@
 
 .login-bg-img {
   @apply absolute inset-0 w-full h-full object-cover;
-  opacity: 0.38;
+  opacity: 0.70;
 }
 
 .login-left-overlay {
   @apply absolute inset-0;
   background: linear-gradient(
     160deg,
-    rgba(4, 8, 18, 0.96) 0%,
-    rgba(10, 18, 38, 0.80) 55%,
-    rgba(20, 15, 55, 0.70) 100%
+    rgba(4, 8, 18, 0.78) 0%,
+    rgba(10, 18, 38, 0.55) 55%,
+    rgba(20, 15, 55, 0.45) 100%
   );
 }
+
 
 .login-left-content {
   @apply relative z-10 flex flex-col h-full;
@@ -55,50 +56,62 @@
 
 /* Accent line above headline */
 .login-left-divider {
-  width: 40px;
-  height: 3px;
+  width: 54px;
+  height: 4px;
   background: linear-gradient(90deg, #6366f1, #38bdf8);
   border-radius: 9999px;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.5rem;
 }
 
 .login-left-headline {
-  font-size: 2rem;
+  font-size: 2.65rem;
   font-weight: 800;
   color: #ffffff;
-  line-height: 1.2;
-  margin-bottom: 0.875rem;
-  letter-spacing: -0.6px;
+  line-height: 1.18;
+  margin-bottom: 1.25rem;
+  letter-spacing: -0.8px;
 }
 
 .login-left-sub {
-  font-size: 0.9375rem;
-  color: rgba(255,255,255,0.62);
+  font-size: 1.125rem;
+  color: rgba(255, 255, 255, 0.78);
   line-height: 1.65;
-  margin-bottom: 2rem;
-  max-width: 26rem;
+  margin-bottom: 2.5rem;
+  max-width: 32rem;
 }
 
 .login-trust-list {
-  @apply flex flex-col gap-3;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
 }
 
 .login-trust-item {
-  @apply flex items-center gap-3 text-white/80 text-[14px] font-medium;
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: -0.2px;
 }
 
 .login-trust-icon {
-  @apply w-5 h-5 flex-shrink-0;
-  color: #6366f1;
+  width: 1.65rem;
+  height: 1.65rem;
+  flex-shrink: 0;
+  color: #38bdf8;
+  filter: drop-shadow(0 2px 4px rgba(56, 189, 248, 0.3));
 }
 
 .login-left-footer {
-  font-size: 0.75rem;
-  color: rgba(255,255,255,0.30);
-  border-top: 1px solid rgba(255,255,255,0.08);
-  padding-top: 1.25rem;
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.45);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  padding-top: 1.5rem;
   margin-top: auto;
 }
+
 
 /* ── RIGHT PANEL ── */
 .login-right-panel {
@@ -107,12 +120,27 @@
 }
 
 .login-mobile-nav {
-  @apply flex items-center px-6 py-5 lg:hidden;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.5rem;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+@media (min-width: 1024px) {
+  .login-mobile-nav {
+    display: none;
+  }
 }
 
 .login-logo-dark {
-  @apply text-[20px] text-[#1a1f36];
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #000000 !important;
 }
+
+
 
 /* Outer flex wrapper — fills space and centres the card */
 .login-form-outer {
@@ -131,6 +159,13 @@
   max-width: 420px;
   padding: 2.5rem 2.25rem;
 }
+
+@media (max-width: 480px) {
+  .login-form-card {
+    padding: 1.75rem 1.25rem;
+  }
+}
+
 
 /* Heading */
 .login-heading-wrap {

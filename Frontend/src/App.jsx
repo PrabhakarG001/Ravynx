@@ -1,11 +1,11 @@
 import React from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router";
+import { AuthProvider } from "./context/AuthContext";
 import { DashboardLayout } from './components/layout/DashboardLayout/DashboardLayout';
 import Landing from "./pages/Landing/Landing";
 import { Login } from "./pages/Login/Login";
 import { Dashboard } from "./pages/Dashboard/Dashboard";
 import { Upload } from "./pages/Upload/Upload";
-import { Processing } from "./pages/Processing/Processing";
 import { Analysis } from "./pages/Analysis/Analysis";
 import { Viewer } from "./pages/Viewer/Viewer";
 import { Analytics } from "./pages/Analytics/Analytics";
@@ -17,27 +17,32 @@ import { Help } from "./pages/Help/Help";
 import { Settings } from "./pages/Settings/Settings";
 
 export default function App() {
-    return (<BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Landing />}/>
-        <Route path="/login" element={<Login />}/>
-        
-        <Route element={<DashboardLayout />}>
-          <Route path="/dashboard" element={<Dashboard />}/>
-          <Route path="/profile" element={<Profile />}/>
-          <Route path="/teams" element={<Teams />}/>
-          <Route path="/help" element={<Help />}/>
-          <Route path="/settings" element={<Settings />}/>
-          <Route path="/upload" element={<Upload />}/>
-          <Route path="/processing" element={<Processing />}/>
-          <Route path="/analysis" element={<Analysis />}/>
-          <Route path="/viewer" element={<Viewer />}/>
-          <Route path="/analytics" element={<Analytics />}/>
-          <Route path="/audit" element={<Audit />}/>
-          <Route path="/report" element={<Report />}/>
-        </Route>
-        
-        <Route path="*" element={<Navigate to="/" replace/>}/>
-      </Routes>
-    </BrowserRouter>);
+    return (
+      <AuthProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Landing />}/>
+            <Route path="/login" element={<Login />}/>
+            
+            <Route element={<DashboardLayout />}>
+              <Route path="/dashboard" element={<Dashboard />}/>
+              <Route path="/profile" element={<Profile />}/>
+              <Route path="/teams" element={<Teams />}/>
+              <Route path="/help" element={<Help />}/>
+              <Route path="/settings" element={<Settings />}/>
+              <Route path="/upload" element={<Upload />}/>
+              <Route path="/analysis" element={<Analysis />}/>
+
+              <Route path="/viewer" element={<Viewer />}/>
+              <Route path="/analytics" element={<Analytics />}/>
+              <Route path="/audit" element={<Audit />}/>
+              <Route path="/report" element={<Report />}/>
+            </Route>
+            
+            <Route path="*" element={<Navigate to="/" replace/>}/>
+          </Routes>
+        </BrowserRouter>
+      </AuthProvider>
+    );
 }
+

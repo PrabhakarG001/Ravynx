@@ -1,8 +1,9 @@
 @reference "../../styles/index.css";
 /* Settings styles */
 .settings-cls-1 {
-  @apply p-8 md:p-12 max-w-5xl mx-auto w-full mt-4;
+  @apply p-4 sm:p-6 md:p-10 max-w-5xl mx-auto w-full mt-4;
 }
+
 
 .settings-cls-2 {
   @apply text-[32px] font-semibold text-[#1a1f36] mb-8 tracking-tight;

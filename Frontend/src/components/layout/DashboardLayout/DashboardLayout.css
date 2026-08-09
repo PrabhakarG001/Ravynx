@@ -18,16 +18,21 @@
 }
 
 .dashboardlayout-cls-5 {
-  @apply p-1.5 -ml-1.5 text-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded-md transition-colors;
+  @apply p-1.5 -ml-1.5 hover:bg-gray-100 rounded-md transition-colors;
+  color: #000000 !important;
 }
 
 .dashboardlayout-cls-6 {
   @apply w-6 h-6;
+  color: #000000 !important;
+  stroke: #000000 !important;
 }
 
 .dashboardlayout-cls-7 {
-  @apply text-lg text-[#1a1f36];
+  @apply text-lg font-bold;
+  color: #000000 !important;
 }
+
 
 .dashboardlayout-cls-8 {
   @apply flex-1 overflow-auto flex flex-col relative z-0 bg-[#f7f9fc];

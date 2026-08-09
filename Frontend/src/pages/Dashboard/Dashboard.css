@@ -97,13 +97,18 @@
 .db-stats-grid {
   display: grid;
   gap: 1rem;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr;
   margin-bottom: 2rem;
 }
 
-@media (min-width: 900px) {
+@media (min-width: 481px) {
+  .db-stats-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 1024px) {
   .db-stats-grid { grid-template-columns: repeat(4, 1fr); }
 }
+
 
 .db-stat-card {
   @apply bg-white border border-[#e2e8f0] rounded-xl p-5 cursor-default;

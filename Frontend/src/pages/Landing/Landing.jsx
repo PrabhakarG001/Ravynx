@@ -90,12 +90,17 @@ export default function Landing() {
     useEffect(() => {
         document.documentElement.classList.add('landing-theme');
         const handleScroll = () => {
-            if (window.scrollY > 50) {
+            const isMobile = window.innerWidth <= 768;
+            const threshold = isMobile ? 180 : 350;
+            if (window.scrollY > threshold) {
                 setScrolled(true);
             } else {
                 setScrolled(false);
             }
         };
+
+
+
         window.addEventListener("scroll", handleScroll);
         return () => {
             document.documentElement.classList.remove('landing-theme');
@@ -196,9 +201,23 @@ export default function Landing() {
       </nav>
 
       {/* CardNav Island Navbar for Mobile */}
-      <div className={`md:hidden fixed top-0 left-0 w-full z-50 transition-transform duration-300 ${navVisible ? 'translate-y-0' : '-translate-y-full'}`}>
-        <CardNav logo={<Logo className={`text-[24px] transition-colors ${isLightNavbar ? 'text-black' : 'text-white'}`} />} items={cardNavItems} baseColor={isLightNavbar ? "rgba(255, 255, 255, 0.9)" : scrolled ? "rgba(0, 0, 0, 0.3)" : "transparent"} menuColor={isLightNavbar ? "#000000" : "#ffffff"} buttonBgColor="#2563eb" buttonTextColor="#ffffff" onLoginClick={() => navigate("/login")} onSignupClick={() => navigate("/login")} scrolled={scrolled} isLightNavbar={isLightNavbar} activeSection={activeSection} />
+      <div className="md:hidden fixed top-0 left-0 w-full z-50 translate-y-0">
+
+        <CardNav
+          logo={<Logo className={`text-[24px] transition-colors ${scrolled ? 'text-black' : 'text-white'}`} />}
+          items={cardNavItems}
+          baseColor={scrolled ? "rgba(255, 255, 255, 0.94)" : "transparent"}
+          menuColor={scrolled ? "#000000" : "#ffffff"}
+          buttonBgColor="#2563eb"
+          buttonTextColor="#ffffff"
+          onLoginClick={() => navigate("/login")}
+          onSignupClick={() => navigate("/login")}
+          scrolled={scrolled}
+          isLightNavbar={scrolled}
+          activeSection={activeSection}
+        />
       </div>
+
 
       {/* Scroll Transition Container (Hero + Card Expansion) */}
       <div ref={containerRef} id="aegis-core" className="relative h-[200vh] bg-black">
@@ -238,14 +257,16 @@ export default function Landing() {
                  Built for banks and financial institutions to automate verification, reduce manual effort, and eliminate document tampering risks using advanced AI.
                </motion.p>
 
-               <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }} className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 relative z-50 pointer-events-auto">
-                 <button onClick={() => navigate("/dashboard")} className="px-8 py-2.5 rounded-full border border-purple-500 text-white text-sm font-medium hover:bg-purple-500/10 transition-colors shadow-[0_0_15px_rgba(168,85,247,0.3)] inline-flex items-center justify-center gap-2 cursor-pointer">
+               <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }} className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 relative z-[100] pointer-events-auto">
+                 <button onClick={() => navigate("/dashboard")} style={{ cursor: "pointer", pointerEvents: "auto" }} className="hero-cta-btn px-8 py-2.5 rounded-full border border-purple-500 text-white text-sm font-medium hover:bg-purple-500/10 transition-colors shadow-[0_0_15px_rgba(168,85,247,0.3)] inline-flex items-center justify-center gap-2 cursor-pointer">
                    Launch Dashboard <ArrowRight className="w-4 h-4" strokeWidth={2.5} />
                  </button>
-                 <button onClick={() => navigate("/dashboard")} className="px-8 py-2.5 rounded-full border border-white/30 text-white text-sm font-medium hover:bg-white/10 transition-colors inline-flex items-center justify-center gap-2 cursor-pointer">
+                 <button onClick={() => navigate("/dashboard")} style={{ cursor: "pointer", pointerEvents: "auto" }} className="hero-cta-btn px-8 py-2.5 rounded-full border border-white/30 text-white text-sm font-medium hover:bg-white/10 transition-colors inline-flex items-center justify-center gap-2 cursor-pointer">
                    <PlayCircle className="w-4 h-4" strokeWidth={2.5} /> Try Demo
                  </button>
                </motion.div>
+
+
              </div>
 
              {/* 3D Animated Surface (Glowing Horizon) */}
@@ -277,7 +298,7 @@ export default function Landing() {
 
           </motion.div>
 
-          {/* Core Capabilities Revealed — DESKTOP ONLY (sticky animation) */}
+          {/* Core Capabilities Revealed — DESKTOP STICKY SCROLL ANIMATION */}
           <motion.div className="absolute inset-0 z-40 hidden md:flex items-start justify-center pt-20 pointer-events-none" style={{ opacity: pageOpacity }}>
             <div className="w-full max-w-6xl mx-auto px-6 md:px-12 pointer-events-auto">
               <div className="mb-10 text-center md:text-left">
@@ -295,36 +316,45 @@ export default function Landing() {
               </div>
             </div>
           </motion.div>
-
-          
         </div>
       </div>
 
-      {/* Core Capabilities — MOBILE ONLY (normal scroll, outside sticky container) */}
-      <section className="md:hidden bg-white px-6 py-16">
-        <div className="mb-10 text-center">
+      {/* Core Capabilities — PHONE ANIMATED SLIDING CARD SHEET (md:hidden) */}
+      <section className="md:hidden relative z-30 bg-white px-6 py-14 -mt-12 rounded-t-3xl border-t border-slate-200/80 shadow-[0_-12px_40px_rgba(0,0,0,0.35)]">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          className="mb-10 text-center"
+        >
+          <div className="w-12 h-1.5 bg-slate-300 rounded-full mx-auto mb-6" />
           <h2 className="text-3xl font-bold text-slate-900 mb-3">Core Capabilities</h2>
           <p className="text-slate-500 text-base">An advanced suite of AI tools designed to automate your underwriting process and eliminate document fraud at the source.</p>
-        </div>
-        <div className="features-grid">
+        </motion.div>
+        <div className="grid grid-cols-1 gap-6">
           {features.map(({ icon: Icon, title, desc }, idx) => (
             <motion.div
               key={title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false, margin: "-50px" }}
-              transition={{ type: "spring", stiffness: 300, damping: 20, delay: idx * 0.1 }}
-              className="bg-white border border-slate-200 rounded-xl p-6 shadow-sm"
+              initial={{ opacity: 0, y: 35, scale: 0.96 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: false, margin: "-20px" }}
+              transition={{ type: "spring", stiffness: 280, damping: 22, delay: idx * 0.08 }}
+              className="bg-slate-50/90 border border-slate-200 rounded-2xl p-6 shadow-sm hover:shadow-md transition-all"
             >
-              <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                <Icon size={18} className="text-primary"/>
+              <div className="w-12 h-12 bg-slate-100 rounded-xl flex items-center justify-center mb-4 border border-slate-200">
+                <Icon size={22} className="text-black" style={{ color: "#000000" }} />
               </div>
-              <h3 className="text-base font-semibold text-slate-900 mb-2">{title}</h3>
-              <p className="text-sm text-slate-500 leading-relaxed">{desc}</p>
+
+              <h3 className="text-lg font-bold text-slate-900 mb-2">{title}</h3>
+              <p className="text-sm text-slate-600 leading-relaxed">{desc}</p>
             </motion.div>
           ))}
         </div>
       </section>
+
+
+
 
 
       <section className="px-6 md:px-12 py-24 max-w-7xl mx-auto">
@@ -332,6 +362,8 @@ export default function Landing() {
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4 tracking-tight">The Underwriting Bottleneck</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg">Traditional document verification is slow, manual, and prone to sophisticated fraud.</p>
         </motion.div>
+
+
         
         <div className="grid md:grid-cols-2 gap-6">
           {/* Problem Image Card */}
@@ -717,6 +749,8 @@ export default function Landing() {
           </div>
         </div>
       </footer>
+
+
       
       <AnimatePresence>
         {activeModal && (<motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm p-6" onClick={() => setActiveModal(null)}>

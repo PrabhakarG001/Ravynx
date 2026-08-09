@@ -28,7 +28,7 @@ const CardNav = ({
 
   const calculateHeight = () => {
     const navEl = navRef.current;
-    if (!navEl) return 260;
+    if (!navEl) return 360;
 
     const isMobile = window.matchMedia('(max-width: 768px)').matches;
     if (isMobile) {
@@ -47,7 +47,7 @@ const CardNav = ({
         contentEl.offsetHeight;
 
         const topBar = 60;
-        const padding = 16;
+        const padding = 28;
         const contentHeight = contentEl.scrollHeight;
 
         contentEl.style.visibility = wasVisible;
@@ -57,9 +57,11 @@ const CardNav = ({
 
         return topBar + contentHeight + padding;
       }
+      return 380;
     }
     return 260;
   };
+
 
   const createTimeline = () => {
     const navEl = navRef.current;
@@ -140,7 +142,9 @@ const CardNav = ({
 
   return (
     <div className={`card-nav-container ${className}`}>
-      <nav ref={navRef} className={`card-nav ${isExpanded ? 'open' : ''}`} style={{ backgroundColor: baseColor }}>
+      <nav ref={navRef} className={`card-nav ${isExpanded ? 'open' : ''} ${scrolled ? 'scrolled-light' : 'transparent-hero'}`} style={{ backgroundColor: isExpanded ? '#030213' : (scrolled ? 'rgba(255, 255, 255, 0.94)' : 'transparent') }}>
+
+
         <div className="card-nav-top">
           <div
             className={`hamburger-menu ${isHamburgerOpen ? 'open' : ''}`}
@@ -171,13 +175,15 @@ const CardNav = ({
 
           <button
             type="button"
-            className="card-nav-cta-button"
+            className="card-nav-cta-button hidden md:block"
             style={{ backgroundColor: buttonBgColor, color: buttonTextColor }}
             onClick={onSignupClick}
           >
             Get Started
           </button>
         </div>
+
+
 
         <div className="card-nav-content" aria-hidden={!isExpanded}>
           {(items || []).slice(0, 3).map((item, idx) => (

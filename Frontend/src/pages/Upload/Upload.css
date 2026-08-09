@@ -1,7 +1,7 @@
 @reference "../../styles/index.css";
 /* Upload styles */
 .upload-cls-1 {
-  @apply p-8 flex flex-col gap-6 overflow-auto max-w-4xl mx-auto w-full;
+  @apply p-4 sm:p-6 md:p-8 flex flex-col gap-6 overflow-auto max-w-4xl mx-auto w-full;
 }
 
 .upload-cls-2 {
@@ -17,8 +17,10 @@
 }
 
 .upload-cls-5 {
-  @apply p-8;
+  @apply p-4 sm:p-6 md:p-8 bg-white border border-[#e3e8ee] rounded-xl shadow-sm;
 }
+
+
 
 .upload-cls-6 {
   @apply grid grid-cols-1 md:grid-cols-3 gap-6 mb-8 border-b border-[#e3e8ee] pb-8;

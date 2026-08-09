@@ -1,7 +1,7 @@
 @reference "../../styles/index.css";
 /* Analytics styles */
 .analytics-cls-1 {
-  @apply p-8 flex flex-col gap-6 overflow-auto max-w-[1400px] mx-auto w-full;
+  @apply p-4 sm:p-6 md:p-8 flex flex-col gap-6 overflow-auto max-w-[1400px] mx-auto w-full;
 }
 
 .analytics-cls-2 {
@@ -17,8 +17,9 @@
 }
 
 .analytics-cls-5 {
-  @apply grid grid-cols-2 lg:grid-cols-4 gap-6;
+  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6;
 }
+
 
 .analytics-cls-6 {
   @apply grid grid-cols-1 lg:grid-cols-2 gap-6;

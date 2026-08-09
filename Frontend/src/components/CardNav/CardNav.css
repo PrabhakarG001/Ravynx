@@ -165,29 +165,127 @@
   opacity: 0.75;
 }
 
+/* ── Nav mobile auth buttons: default hidden on desktop ── */
+.nav-mobile-auth-buttons {
+  display: none;
+}
+
 @media (max-width: 768px) {
   .card-nav-container {
-    width: 90%;
-    top: 1.2em;
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 24px);
+    max-width: 500px;
+    z-index: 100;
   }
 
+  .card-nav {
+    transition: background-color 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+    border-radius: 14px;
+  }
+
+  /* Home / Hero page: transparent navbar, WHITE menu icon & white logo text */
+  .card-nav.transparent-hero:not(.open) {
+    background-color: transparent !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border: 1px solid transparent !important;
+    box-shadow: none !important;
+  }
+
+  .card-nav.transparent-hero:not(.open) .hamburger-menu {
+    color: #ffffff !important;
+  }
+
+  .card-nav.transparent-hero:not(.open) .hamburger-line {
+    background-color: #ffffff !important;
+  }
+
+  .card-nav.transparent-hero:not(.open) .logo-wordmark {
+    color: #ffffff !important;
+  }
+
+  /* Core Capabilities page & below: white bar, BLACK menu icon & BLACK logo text */
+  .card-nav.scrolled-light,
+  .card-nav.scrolled-dark {
+    background-color: rgba(255, 255, 255, 0.96) !important;
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
+    border: 1px solid rgba(0, 0, 0, 0.12) !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15) !important;
+  }
+
+  .card-nav.scrolled-light .hamburger-menu,
+  .card-nav.scrolled-dark .hamburger-menu {
+    color: #000000 !important;
+  }
+
+  .card-nav.scrolled-light .hamburger-line,
+  .card-nav.scrolled-dark .hamburger-line {
+    background-color: #000000 !important;
+  }
+
+  .card-nav.scrolled-light .logo-wordmark,
+  .card-nav.scrolled-dark .logo-wordmark {
+    color: #000000 !important;
+  }
+
+
+  /* When expanded dropdown menu is open */
+  .card-nav.open {
+    background-color: #030213 !important;
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.18) !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6) !important;
+  }
+
+  .card-nav.open .hamburger-menu {
+    color: #ffffff !important;
+  }
+
+  .card-nav.open .hamburger-line {
+    background-color: #ffffff !important;
+  }
+
+  .card-nav.open .logo-wordmark {
+    color: #ffffff !important;
+  }
+
+
+
+
   .card-nav-top {
-    padding: 0.5rem 1rem;
+    height: 56px;
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
     justify-content: space-between;
   }
 
-  .hamburger-menu {
-    order: 2;
-  }
-
+  /* Ravynx logo on left */
   .logo-container {
     position: static;
     transform: none;
     order: 1;
   }
 
+  /* Hamburger menu icon on right */
+  .hamburger-menu {
+    display: flex;
+    order: 2;
+    color: #ffffff !important;
+    cursor: pointer;
+  }
+
+  .hamburger-line {
+    background-color: #ffffff !important;
+  }
+
   .card-nav-cta-button {
-    display: none;
+    display: none !important;
   }
 
   .card-nav-content {
@@ -201,26 +299,26 @@
 
   .nav-card {
     height: auto;
-    min-height: 60px;
+    min-height: 56px;
     flex: 1 1 auto;
     max-height: none;
   }
 
   .nav-card-label {
-    font-size: 18px;
+    font-size: 16px;
   }
 
   .nav-card-link {
-    font-size: 15px;
+    font-size: 14px;
   }
 
-  /* Mobile auth buttons container */
+  /* Mobile auth buttons container – visible inside expanded dropdown menu bar */
   .nav-mobile-auth-buttons {
-    display: flex;
+    display: flex !important;
     flex-direction: row;
     align-items: center;
-    gap: 8px;
-    padding: 8px 4px;
+    gap: 10px;
+    padding: 12px 4px 6px 4px;
     flex-shrink: 0;
     width: 100%;
   }
@@ -228,17 +326,15 @@
   .card-nav-auth-btn {
     flex: 1;
     font-size: 14px;
-    font-weight: 600;
+    font-weight: 700;
     text-align: center;
     white-space: nowrap;
+    padding: 10px 16px;
+    border-radius: 8px;
+    cursor: pointer;
   }
 }
 
-/* ── Nav mobile auth buttons: default (dark navbar) ── */
-.nav-mobile-auth-buttons {
-  /* Hidden on desktop – only rendered inside mobile card-nav-content */
-  display: none;
-}
 
 /* Login button – always clear text */
 .card-nav-auth-btn.login {

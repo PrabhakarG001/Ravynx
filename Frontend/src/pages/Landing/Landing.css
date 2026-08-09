@@ -52,6 +52,18 @@
   flex-shrink: 0;
 }
 
+/* Explicit pointer cursor for Hero CTA buttons */
+.hero-cta-btn {
+  cursor: pointer !important;
+  pointer-events: auto !important;
+  position: relative;
+  z-index: 100;
+}
+.hero-cta-btn:hover {
+  cursor: pointer !important;
+}
+
+
 
 
 /* HERO SECTION - Responsive Horizon Glow */
