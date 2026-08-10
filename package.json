@@ -1,0 +1,10 @@
+{
+  "name": "ravynx-root",
+  "private": true,
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "npm --prefix Frontend run dev",
+    "build": "npm --prefix Frontend run build",
+    "install:all": "npm --prefix Frontend install"
+  }
+}
