@@ -46,7 +46,7 @@ export default function Landing() {
         offset: ["start start", "end end"]
     });
     useMotionValueEvent(scrollYProgress, "change", (latest) => {
-        setIsLightNavbar(latest > 0.55);
+        setIsLightNavbar(latest > 0.25);
     });
     const { scrollY } = useScroll();
     useMotionValueEvent(scrollY, "change", (latest) => {
@@ -60,10 +60,10 @@ export default function Landing() {
         }
     });
     const backgroundY = useTransform(scrollY, [0, 1000], [0, 200]);
-    // Scroll Transition Hooks
-    const moveProgress = useTransform(scrollYProgress, [0.05, 0.35], [0, 1]);
-    const expandProgress = useTransform(scrollYProgress, [0.35, 0.75], [0, 1]);
-    const heroOpacity = useTransform(scrollYProgress, [0.5, 0.8], [1, 0]);
+    // Scroll Transition Hooks (Faster & smoother response on small scroll)
+    const moveProgress = useTransform(scrollYProgress, [0.01, 0.15], [0, 1]);
+    const expandProgress = useTransform(scrollYProgress, [0.08, 0.35], [0, 1]);
+    const heroOpacity = useTransform(scrollYProgress, [0.02, 0.25], [1, 0]);
     const mobileBgOpacity = useTransform(expandProgress, [0, 1], [0, 1]);
     const cardLeft = useTransform(() => {
         const m = moveProgress.get();
@@ -86,7 +86,7 @@ export default function Landing() {
     const cardBorderColor = useTransform(expandProgress, [0, 1], ["rgba(255, 255, 255, 0)", "rgba(255, 255, 255, 0)"]);
     const cardBgColor = useTransform(expandProgress, [0, 1], ["rgba(255, 255, 255, 1)", "rgba(255, 255, 255, 1)"]);
     const cardInnerOpacity = useTransform(expandProgress, [0, 0.5], [0, 0]);
-    const pageOpacity = useTransform(expandProgress, [0.5, 1], [0, 1]);
+    const pageOpacity = useTransform(expandProgress, [0.15, 0.8], [0, 1]);
     useEffect(() => {
         document.documentElement.classList.add('landing-theme');
         const handleScroll = () => {
@@ -220,7 +220,7 @@ export default function Landing() {
 
 
       {/* Scroll Transition Container (Hero + Card Expansion) */}
-      <div ref={containerRef} id="capabilities" className="relative h-[200vh] bg-black">
+      <div ref={containerRef} id="capabilities" className="relative h-[125vh] bg-black">
         <div className="sticky top-0 h-screen overflow-hidden flex flex-col justify-between">
           
 
