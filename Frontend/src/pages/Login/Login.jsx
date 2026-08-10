@@ -97,7 +97,7 @@ export const Login = ({ initialMode }) => {
                     <div className="login-left-body">
                         <div className="login-left-divider" />
                         <h2 className="login-left-headline">
-                            {language === 'hi' ? "एआई-संचालित दस्तावेज़\nसत्यापन प्लेटफ़ॉर्म" : "AI-Powered Document\nVerification Platform"}
+                            AI-Powered Document<br />Verification Platform
                         </h2>
                         <p className="login-left-sub">
                             {t("leftSub")}
