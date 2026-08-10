@@ -365,7 +365,15 @@ export default function Landing() {
 
 
         
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid md:grid-cols-2 gap-6 relative">
+          {/* Stylish & Professional VS Badge between both cards (Desktop) */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-30 hidden md:flex items-center justify-center pointer-events-none">
+            <div className="relative flex items-center justify-center w-14 h-14 rounded-full bg-slate-950 border-2 border-purple-500/60 shadow-[0_0_30px_rgba(168,85,247,0.5)] backdrop-blur-md">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-400 to-purple-400 font-black text-lg tracking-widest">VS</span>
+              <div className="absolute inset-0 rounded-full border border-purple-400/30 animate-ping opacity-40"></div>
+            </div>
+          </div>
+
           {/* Problem Image Card */}
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, margin: "-50px" }} className="relative h-[600px] rounded-3xl overflow-hidden group">
             <img src="/manual_verification_bg.jpg" alt="Manual Verification" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
@@ -395,6 +403,13 @@ export default function Landing() {
               </div>
             </div>
           </motion.div>
+
+          {/* Stylish VS Badge for Mobile */}
+          <div className="md:hidden flex justify-center -my-3 z-30 relative pointer-events-none">
+            <div className="relative flex items-center justify-center w-12 h-12 rounded-full bg-slate-950 border-2 border-purple-500/60 shadow-[0_0_20px_rgba(168,85,247,0.4)]">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-400 to-purple-400 font-black text-base tracking-widest">VS</span>
+            </div>
+          </div>
           
           {/* Solution Image Card */}
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, margin: "-50px" }} transition={{ delay: 0.1 }} className="relative h-[600px] rounded-3xl overflow-hidden group">
@@ -413,7 +428,7 @@ export default function Landing() {
                   <div className="relative z-10">
                     <div className="flex items-center justify-between mb-4 pb-4 border-b border-blue-400/20">
                       <span className="text-blue-200/80 text-sm font-medium">Processing Time</span>
-                      <span className="text-blue-400 font-bold flex items-center gap-1.5"><HiClock className="w-4 h-4"/> &lt; 3 Seconds</span>
+                      <span className="text-blue-400 font-bold">&lt; 3 Seconds</span>
                     </div>
                     <ul className="space-y-3">
                       <li className="flex items-center gap-3 text-white text-sm font-medium text-left">
