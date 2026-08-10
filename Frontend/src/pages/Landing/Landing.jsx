@@ -543,7 +543,7 @@ export default function Landing() {
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, margin: "-50px" }} transition={{ duration: 0.6 }} className="max-w-4xl mx-auto text-center mt-12 bg-black/40 backdrop-blur-sm border border-white/10 rounded-2xl p-6 md:p-10">
             <h3 className="text-2xl md:text-3xl font-semibold text-white mb-6">Complete Transparency in Every Decision</h3>
             <p className="text-white/90 text-base md:text-xl leading-relaxed">
-              Ravynx doesn't just give you a score. Our system cross-references hundreds of data pointsΓÇöfrom metadata tampering to registry mismatchesΓÇöand presents a crystal clear, human-readable reasoning chain. Underwriters can instantly see the "why" behind every alert, drastically reducing manual review time while ensuring zero margin for error in compliance.
+              Ravynx doesn't just give you a score. Our system cross-references hundreds of data points — from metadata tampering to registry mismatches — and presents a crystal clear, human-readable reasoning chain. Underwriters can instantly see the "why" behind every alert, drastically reducing manual review time while ensuring zero margin for error in compliance.
             </p>
           </motion.div>
         </div>
@@ -756,10 +756,10 @@ export default function Landing() {
         {activeModal && (<motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm p-6" onClick={() => setActiveModal(null)}>
             <motion.div initial={{ scale: 0.9, y: 20 }} animate={{ scale: 1, y: 0 }} exit={{ scale: 0.9, y: 20 }} className="bg-card border border-border max-w-lg w-full rounded-2xl p-8 relative shadow-2xl" onClick={e => e.stopPropagation()}>
               <button onClick={() => setActiveModal(null)} className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full bg-secondary text-muted-foreground hover:text-foreground transition-colors">
-                Γ£ò
+                ✕
               </button>
               <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-6 border border-primary/20">
-                 <span className="text-2xl">Γ£¿</span>
+                 <span className="text-2xl">✨</span>
               </div>
               <h3 className="text-2xl font-bold text-foreground mb-4">{activeModal.title}</h3>
               <p className="text-muted-foreground leading-relaxed mb-4">
