@@ -724,11 +724,9 @@ export default function Landing() {
                     Subscribe
                   </button>
                 </div>
-                <div className="flex items-center gap-3 mt-3.5 text-[12px] text-white/50 font-medium">
-                  <span className="flex items-center gap-1.5"><HiShieldCheck className="w-4 h-4 text-purple-400"/> ISO 27001 Certified</span>
-                  <span>•</span>
-                  <span className="flex items-center gap-1.5"><HiLockClosed className="w-4 h-4 text-purple-400"/> SOC-2 Ready</span>
-                </div>
+                <p className="text-white/40 text-[12px] mt-2.5">
+                  Join 500+ risk analysts & underwriters getting weekly fraud prevention alerts.
+                </p>
               </div>
             </div>
             
