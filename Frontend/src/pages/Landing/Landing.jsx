@@ -321,13 +321,13 @@ export default function Landing() {
                 <h2 className="text-3xl font-bold text-slate-900 mb-3">Core Capabilities</h2>
               </div>
               <div className="features-grid">
-                {features.map(({ icon: Icon, title, desc }, idx) => (<motion.div key={title} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, margin: "-50px" }} whileHover={{ scale: 1.03, y: -5 }} transition={{ type: "spring", stiffness: 300, damping: 20, delay: idx * 0.1 }} className="bg-white border border-slate-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-all flex flex-col justify-between h-full">
-                    <div>
-                      <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center mb-4 shrink-0">
+                {features.map(({ icon: Icon, title, desc }, idx) => (<motion.div key={title} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, margin: "-50px" }} whileHover={{ scale: 1.03, y: -5 }} transition={{ type: "spring", stiffness: 300, damping: 20, delay: idx * 0.1 }} className="bg-white border border-slate-200 rounded-xl p-6 md:p-8 shadow-sm hover:shadow-md transition-all flex flex-col justify-between h-full text-left w-full">
+                    <div className="flex flex-col h-full justify-between">
+                      <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center mb-5 shrink-0">
                         <Icon size={18} className="text-primary"/>
                       </div>
-                      <h3 className="text-base font-bold text-slate-900 mb-2 leading-snug">{title}</h3>
-                      <p className="text-sm text-slate-600 leading-relaxed">{desc}</p>
+                      <h3 className="text-base font-bold text-slate-900 mb-2 leading-snug text-left tracking-tight min-h-[24px] flex items-center">{title}</h3>
+                      <p className="text-sm text-slate-600 leading-relaxed text-left flex-grow">{desc}</p>
                     </div>
                   </motion.div>))}
               </div>
@@ -357,15 +357,15 @@ export default function Landing() {
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: false, margin: "-20px" }}
               transition={{ type: "spring", stiffness: 280, damping: 22, delay: idx * 0.08 }}
-              className="bg-slate-50/90 border border-slate-200 rounded-2xl p-6 shadow-sm hover:shadow-md transition-all flex flex-col justify-between h-full"
+              className="bg-slate-50/90 border border-slate-200 rounded-2xl p-6 shadow-sm hover:shadow-md transition-all flex flex-col justify-between h-full text-left w-full"
             >
-              <div>
-                <div className="w-12 h-12 bg-slate-100 rounded-xl flex items-center justify-center mb-4 border border-slate-200 shrink-0">
+              <div className="flex flex-col h-full justify-between">
+                <div className="w-12 h-12 bg-slate-100 rounded-xl flex items-center justify-center mb-5 border border-slate-200 shrink-0">
                   <Icon size={22} className="text-black" style={{ color: "#000000" }} />
                 </div>
 
-                <h3 className="text-lg font-bold text-slate-900 mb-2 leading-snug">{title}</h3>
-                <p className="text-sm text-slate-600 leading-relaxed">{desc}</p>
+                <h3 className="text-lg font-bold text-slate-900 mb-2 leading-snug text-left tracking-tight min-h-[28px] flex items-center">{title}</h3>
+                <p className="text-sm text-slate-600 leading-relaxed text-left flex-grow">{desc}</p>
               </div>
             </motion.div>
           ))}
@@ -393,14 +393,14 @@ export default function Landing() {
           </div>
 
           {/* Problem Image Card */}
-          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, margin: "-50px" }} className="relative h-[600px] rounded-3xl overflow-hidden group flex flex-col justify-between">
+          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, margin: "-50px" }} className="relative h-[600px] rounded-3xl overflow-hidden group flex flex-col justify-between w-full">
             <img src="/manual_verification_bg.jpg" alt="Manual Verification" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/30"></div>
             
-            <div className="relative z-10 h-full flex flex-col justify-between p-8 md:p-10">
-              <div className="text-center mt-6">
-                <h3 className="text-3xl font-bold text-white mb-4 leading-tight">Manual Verification</h3>
-                <p className="text-white/80 text-lg max-w-md mx-auto min-h-[56px] flex items-center justify-center">
+            <div className="relative z-10 h-full flex flex-col justify-between p-8 sm:p-10 md:p-12 w-full">
+              <div className="text-center mt-6 w-full px-2 max-w-md mx-auto">
+                <h3 className="text-3xl font-bold text-white mb-4 leading-tight text-center tracking-tight">Manual Verification</h3>
+                <p className="text-white/80 text-base sm:text-lg max-w-md mx-auto min-h-[56px] flex items-center justify-center text-center leading-relaxed px-2">
                   High operational costs, slow turnaround times, and sophisticated forgeries that go undetected by the human eye.
                 </p>
               </div>
@@ -430,14 +430,14 @@ export default function Landing() {
           </div>
           
           {/* Solution Image Card */}
-          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, margin: "-50px" }} transition={{ delay: 0.1 }} className="relative h-[600px] rounded-3xl overflow-hidden group flex flex-col justify-between">
+          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, margin: "-50px" }} transition={{ delay: 0.1 }} className="relative h-[600px] rounded-3xl overflow-hidden group flex flex-col justify-between w-full">
             <img src="/ai_verification_bg.jpg" alt="Ravynx AI Engine" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
             <div className="absolute inset-0 bg-gradient-to-t from-blue-900/90 via-black/40 to-black/30"></div>
             
-            <div className="relative z-10 h-full flex flex-col justify-between p-8 md:p-10">
-              <div className="text-center mt-6">
-                <h3 className="text-3xl font-bold text-white mb-4 leading-tight">Ravynx AI Engine</h3>
-                <p className="text-white/80 text-lg max-w-md mx-auto min-h-[56px] flex items-center justify-center">
+            <div className="relative z-10 h-full flex flex-col justify-between p-8 sm:p-10 md:p-12 w-full">
+              <div className="text-center mt-6 w-full px-2 max-w-md mx-auto">
+                <h3 className="text-3xl font-bold text-white mb-4 leading-tight text-center tracking-tight">Ravynx AI Engine</h3>
+                <p className="text-white/80 text-base sm:text-lg max-w-md mx-auto min-h-[56px] flex items-center justify-center text-center leading-relaxed px-2">
                   Instant processing, cross-document data reconciliation, and pixel-level tampering detection.
                 </p>
               </div>
@@ -467,8 +467,8 @@ export default function Landing() {
       <section id="how-it-works" className="bg-secondary/50 py-24 border-y border-border overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, margin: "-50px" }} className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-foreground mb-4">How Ravynx Works</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">A seamless pipeline from document upload to actionable risk intelligence.</p>
+            <h2 className="text-3xl font-bold text-foreground mb-4 tracking-tight">How Ravynx Works</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto text-lg">A seamless pipeline from document upload to actionable risk intelligence.</p>
           </motion.div>
           
           <div className="flex flex-col md:flex-row items-center justify-between gap-2 md:gap-0 relative">
@@ -484,13 +484,13 @@ export default function Landing() {
             { icon: FiGitMerge, title: "Aegis Core", desc: "Cross-validate facts" },
             { icon: HiSquares2X2, title: "Report", desc: "Actionable insights" }
         ].map((step, i, arr) => (<React.Fragment key={step.title}>
-                <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, margin: "-50px" }} whileHover={{ scale: 1.05 }} transition={{ type: "spring", stiffness: 300, delay: i * 0.2 }} className="relative z-10 flex flex-col items-center text-center w-full md:w-48 group">
-                <div className="w-24 h-24 rounded-2xl bg-card border border-border shadow-md flex items-center justify-center mb-4 group-hover:-translate-y-2 transition-transform duration-300 relative overflow-hidden">
+                <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, margin: "-50px" }} whileHover={{ scale: 1.05 }} transition={{ type: "spring", stiffness: 300, delay: i * 0.2 }} className="relative z-10 flex flex-col items-center justify-between text-center w-full md:w-48 group h-full">
+                <div className="w-24 h-24 rounded-2xl bg-card border border-border shadow-md flex items-center justify-center mb-4 group-hover:-translate-y-2 transition-transform duration-300 relative overflow-hidden shrink-0">
                   <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                   <step.icon className="w-10 h-10 text-primary"/>
                 </div>
-                <h4 className="font-bold text-foreground text-lg">{step.title}</h4>
-                <p className="text-sm text-muted-foreground mt-1">{step.desc}</p>
+                <h4 className="font-bold text-foreground text-lg leading-snug min-h-[28px] flex items-center justify-center text-center px-2 tracking-tight">{step.title}</h4>
+                <p className="text-sm text-muted-foreground mt-1 leading-relaxed text-center px-2">{step.desc}</p>
               </motion.div>
               {/* Mobile Arrow Between Steps */}
               {i < arr.length - 1 && (
@@ -573,9 +573,9 @@ export default function Landing() {
             <p className="text-white/80 max-w-2xl mx-auto text-lg mb-8">Every risk score comes with a clear, traceable reasoning chain for human underwriters. No black box decisions.</p>
           </motion.div>
           
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, margin: "-50px" }} transition={{ duration: 0.6 }} className="max-w-4xl mx-auto text-center mt-12 bg-black/40 backdrop-blur-sm border border-white/10 rounded-2xl p-6 md:p-10">
-            <h3 className="text-2xl md:text-3xl font-semibold text-white mb-6">Complete Transparency in Every Decision</h3>
-            <p className="text-white/90 text-base md:text-xl leading-relaxed">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, margin: "-50px" }} transition={{ duration: 0.6 }} className="max-w-4xl mx-auto text-center mt-12 bg-black/40 backdrop-blur-sm border border-white/10 rounded-2xl p-8 md:p-12">
+            <h3 className="text-2xl md:text-3xl font-semibold text-white mb-6 tracking-tight">Complete Transparency in Every Decision</h3>
+            <p className="text-white/90 text-base md:text-xl leading-relaxed text-center px-4">
               Ravynx doesn't just give you a score. Our system cross-references hundreds of data points — from metadata tampering to registry mismatches — and presents a crystal clear, human-readable reasoning chain. Underwriters can instantly see the "why" behind every alert, drastically reducing manual review time while ensuring zero margin for error in compliance.
             </p>
           </motion.div>
@@ -585,7 +585,7 @@ export default function Landing() {
       {/* Architecture Section */}
       <section id="architecture" className="px-6 md:px-12 py-32 max-w-7xl mx-auto">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, margin: "-50px" }} className="text-center mb-20">
-          <h2 className="text-3xl font-bold text-foreground mb-4">Enterprise-Grade Architecture</h2>
+          <h2 className="text-3xl font-bold text-foreground mb-4 tracking-tight">Enterprise-Grade Architecture</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg">Built to scale. Secure by design. Deploy on-premise or in the cloud.</p>
         </motion.div>
         
@@ -600,13 +600,13 @@ export default function Landing() {
             { icon: HiServerStack, title: "Processing Node", desc: "Scalable OCR & Vision AI clusters" },
             { icon: HiCpuChip, title: "LLM Engine", desc: "Context-aware anomaly detection" },
             { icon: HiLockClosed, title: "Compliance Vault", desc: "Encrypted zero-retention storage" }
-        ].map((node, i) => (<motion.div key={node.title} initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, margin: "-50px" }} whileHover={{ scale: 1.04, y: -10 }} transition={{ type: "spring", stiffness: 200, delay: i * 0.1 }} className="bg-card/80 backdrop-blur-md border border-border rounded-2xl p-8 text-center shadow-lg hover:shadow-[0_0_30px_rgba(var(--primary),0.15)] transition-all duration-300 relative group">
+        ].map((node, i) => (<motion.div key={node.title} initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, margin: "-50px" }} whileHover={{ scale: 1.04, y: -10 }} transition={{ type: "spring", stiffness: 200, delay: i * 0.1 }} className="bg-card/80 backdrop-blur-md border border-border rounded-2xl p-6 md:p-8 text-center shadow-lg hover:shadow-[0_0_30px_rgba(var(--primary),0.15)] transition-all duration-300 relative group flex flex-col items-center justify-between h-full w-full">
                 <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl"></div>
-                <div className="w-16 h-16 rounded-2xl bg-primary/10 mx-auto flex items-center justify-center mb-6 relative z-10">
+                <div className="w-16 h-16 rounded-2xl bg-primary/10 mx-auto flex items-center justify-center mb-6 relative z-10 shrink-0">
                   <node.icon className="w-8 h-8 text-primary"/>
                 </div>
-                <h4 className="font-bold text-foreground text-lg relative z-10">{node.title}</h4>
-                <p className="text-sm text-muted-foreground mt-2 relative z-10">{node.desc}</p>
+                <h4 className="font-bold text-foreground text-lg relative z-10 text-center min-h-[28px] flex items-center justify-center w-full px-2 tracking-tight">{node.title}</h4>
+                <p className="text-sm text-muted-foreground mt-2 relative z-10 text-center w-full px-2 leading-relaxed">{node.desc}</p>
               </motion.div>))}
           </div>
         </div>
@@ -651,14 +651,14 @@ export default function Landing() {
             ].map((feature, i) => (
               <div 
                 key={i}
-                className="bg-[#030213] p-10 lg:p-12 transition-colors hover:bg-white/[0.02] group flex flex-col"
+                className="bg-[#030213] p-8 sm:p-10 lg:p-12 transition-colors hover:bg-white/[0.02] group flex flex-col justify-between h-full w-full text-left"
               >
-                <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center mb-8 text-white/60 group-hover:text-white transition-colors shadow-sm">
+                <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center mb-8 text-white/60 group-hover:text-white transition-colors shadow-sm shrink-0">
                   <feature.icon className="w-6 h-6" strokeWidth={1.5} />
                 </div>
                 
-                <h3 className="text-xl font-semibold mb-4 text-white">{feature.title}</h3>
-                <p className="text-white/60 text-sm md:text-base leading-relaxed flex-grow">
+                <h3 className="text-xl font-semibold mb-4 text-white text-left tracking-tight min-h-[32px] flex items-center">{feature.title}</h3>
+                <p className="text-white/60 text-sm md:text-base leading-relaxed flex-grow text-left">
                   {feature.desc}
                 </p>
               </div>
@@ -672,18 +672,18 @@ export default function Landing() {
       {/* Team Section */}
       <section id="team" className="px-6 md:px-12 py-32 max-w-7xl mx-auto">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, margin: "-50px" }} className="text-center mb-20">
-          <h2 className="text-3xl font-bold text-foreground mb-4">Meet Our Development Team</h2>
+          <h2 className="text-3xl font-bold text-foreground mb-4 tracking-tight">Meet Our Development Team</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg">A team bridging the gap between deep learning and financial compliance.</p>
         </motion.div>
         
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-3xl mx-auto">
-          {team.map(({ name, role, initial }, index) => (<motion.div key={name} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, margin: "-50px" }} transition={{ duration: 0.5, delay: index * 0.1 }} className="bg-card border border-border rounded-2xl p-8 text-center shadow-sm hover:shadow-[0_0_40px_rgba(var(--primary),0.15)] hover:-translate-y-3 transition-all duration-300 group relative overflow-hidden">
+          {team.map(({ name, role, initial }, index) => (<motion.div key={name} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, margin: "-50px" }} transition={{ duration: 0.5, delay: index * 0.1 }} className="bg-card border border-border rounded-2xl p-8 text-center shadow-sm hover:shadow-[0_0_40px_rgba(var(--primary),0.15)] hover:-translate-y-3 transition-all duration-300 group relative overflow-hidden flex flex-col items-center justify-between h-full w-full">
               <div className="absolute inset-0 bg-gradient-to-b from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-              <div className="w-20 h-20 rounded-full bg-primary/10 text-primary text-2xl font-bold flex items-center justify-center mx-auto mb-6 relative z-10 group-hover:bg-primary group-hover:text-primary-foreground transition-colors shadow-inner">
+              <div className="w-20 h-20 rounded-full bg-primary/10 text-primary text-2xl font-bold flex items-center justify-center mx-auto mb-6 relative z-10 group-hover:bg-primary group-hover:text-primary-foreground transition-colors shadow-inner shrink-0">
                 {initial}
               </div>
-              <p className="text-xl font-bold text-foreground relative z-10">{name}</p>
-              <p className="text-sm text-primary font-semibold mt-1.5 relative z-10">{role}</p>
+              <p className="text-xl font-bold text-foreground relative z-10 text-center w-full tracking-tight">{name}</p>
+              <p className="text-sm text-primary font-semibold mt-1.5 relative z-10 text-center w-full">{role}</p>
               
               <div className="flex items-center justify-center gap-4 mt-6 relative z-10">
                  <a href="#" className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center text-muted-foreground hover:bg-foreground hover:text-background transition-colors"><FiGithub className="w-4 h-4"/></a>
