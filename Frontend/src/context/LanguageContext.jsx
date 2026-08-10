@@ -63,7 +63,7 @@ const LanguageContext = createContext();
 export const LanguageProvider = ({ children }) => {
   const [language, setLanguageState] = useState(localStorage.getItem('ravynx_lang') || 'en');
 
-  const applyGoogleTranslate = (lang) => {
+  const applyGoogleTranslate = (lang, shouldReload = false) => {
     try {
       const langCode = lang === 'hi' ? '/en/hi' : '/en/en';
       const domain = window.location.hostname;
@@ -75,15 +75,10 @@ export const LanguageProvider = ({ children }) => {
       if (select) {
         select.value = lang === 'hi' ? 'hi' : 'en';
         select.dispatchEvent(new Event('change'));
-      } else {
-        // Retry trigger once widget initializes
-        setTimeout(() => {
-          const combo = document.querySelector('.goog-te-combo');
-          if (combo) {
-            combo.value = lang === 'hi' ? 'hi' : 'en';
-            combo.dispatchEvent(new Event('change'));
-          }
-        }, 800);
+      }
+
+      if (shouldReload) {
+        window.location.reload();
       }
     } catch (e) {
       console.warn("Google Translate helper:", e);
@@ -93,14 +88,14 @@ export const LanguageProvider = ({ children }) => {
   useEffect(() => {
     const storedLang = localStorage.getItem('ravynx_lang');
     if (storedLang === 'hi') {
-      applyGoogleTranslate('hi');
+      applyGoogleTranslate('hi', false);
     }
   }, []);
 
   const setLanguage = (lang) => {
     setLanguageState(lang);
     localStorage.setItem('ravynx_lang', lang);
-    applyGoogleTranslate(lang);
+    applyGoogleTranslate(lang, true);
   };
 
   const t = (key) => {
