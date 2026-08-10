@@ -85,22 +85,33 @@ html:not(.landing-theme) ::-webkit-scrollbar-thumb:hover {
 /* ─────────────────────────────────────────────────────────────
    HIDE GOOGLE TRANSLATE BANNER & PREVENT NAVBAR PUSH-DOWN
    ───────────────────────────────────────────────────────────── */
+.skiptranslate,
+body > .skiptranslate,
 .goog-te-banner-frame.skiptranslate,
 .goog-te-banner-frame,
 iframe.goog-te-banner-frame,
+iframe[src*="translate"],
+iframe[id*="goog"],
 .goog-te-balloon-frame,
 #goog-gt-tt,
 .goog-te-spinner-pos,
-.VIpgJd-yDtfld-eJuTwc-wDJBVe {
+.VIpgJd-yDtfld-eJuTwc-wDJBVe,
+.VIpgJd-yDtfld-l4gVh-JfmdFv,
+.VIpgJd-yDtfld-LgbsSe {
   display: none !important;
   visibility: hidden !important;
   opacity: 0 !important;
-  height: 0 !important;
-  width: 0 !important;
+  height: 0px !important;
+  width: 0px !important;
+  max-height: 0px !important;
+  pointer-events: none !important;
+  z-index: -99999 !important;
 }
 
-body {
+html, body {
   top: 0px !important;
+  margin-top: 0px !important;
+  padding-top: 0px !important;
   position: static !important;
 }
 
