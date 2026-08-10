@@ -1,16 +1,20 @@
 import './Login.css';
 import React, { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router";
-import { motion } from "framer-motion";
-import { HiEnvelope, HiChevronDown, HiGlobeAlt, HiShieldCheck, HiDocumentCheck, HiChartBar, HiBars3 } from "react-icons/hi2";
+import { motion, AnimatePresence } from "framer-motion";
+import { HiEnvelope, HiChevronDown, HiGlobeAlt, HiShieldCheck, HiDocumentCheck, HiChartBar, HiBars3, HiXMark } from "react-icons/hi2";
 import { FaGoogle, FaApple } from "react-icons/fa";
 import { Logo } from '../../components/Logo/Logo';
 import { useAuth } from '../../context/AuthContext';
+import { useLanguage } from '../../context/LanguageContext';
 
 
 export const Login = ({ initialMode }) => {
     const navigate = useNavigate();
     const location = useLocation();
+    const { login } = useAuth();
+    const { language, setLanguage, t } = useLanguage();
+
     const isSignUpInitial = initialMode === "signup" || location.pathname === "/signup";
     const [isSignUp, setIsSignUp] = useState(isSignUpInitial);
     const [name, setName] = useState("");
@@ -19,6 +23,8 @@ export const Login = ({ initialMode }) => {
     const [phone, setPhone] = useState("");
     const [countryCode, setCountryCode] = useState("+91");
     const [showDropdown, setShowDropdown] = useState(false);
+    const [showLangMenu, setShowLangMenu] = useState(false);
+    const [policyModal, setPolicyModal] = useState(null); // 'privacy' | 'terms' | null
     const [isSubmitting, setIsSubmitting] = useState(false);
 
     useEffect(() => {
@@ -61,9 +67,9 @@ export const Login = ({ initialMode }) => {
         : (phone.length > 5);
 
     const trustPoints = [
-        { icon: HiShieldCheck,       label: "Bank-Grade Security" },
-        { icon: HiDocumentCheck,     label: "AI Document Verification" },
-        { icon: HiChartBar,          label: "Real-Time Risk Scoring" },
+        { icon: HiShieldCheck,       label: t("bankSecurity") },
+        { icon: HiDocumentCheck,     label: t("aiDocVerify") },
+        { icon: HiChartBar,          label: t("realtimeRisk") },
     ];
 
     return (
@@ -90,10 +96,10 @@ export const Login = ({ initialMode }) => {
                     <div className="login-left-body">
                         <div className="login-left-divider" />
                         <h2 className="login-left-headline">
-                            AI-Powered Document<br />Verification Platform
+                            {language === 'hi' ? "एआई-संचालित दस्तावेज़\nसत्यापन प्लेटफ़ॉर्म" : "AI-Powered Document\nVerification Platform"}
                         </h2>
                         <p className="login-left-sub">
-                            Instantly verify financial documents, detect fraud, and generate risk scores for faster, safer lending decisions.
+                            {t("leftSub")}
                         </p>
                         <div className="login-trust-list">
                             {trustPoints.map(({ icon: Icon, label }) => (
@@ -107,7 +113,7 @@ export const Login = ({ initialMode }) => {
 
                     {/* Footer — pinned to very bottom */}
                     <p className="login-left-footer">
-                        Trusted by leading NBFCs and financial institutions
+                        {t("trustedFooter")}
                     </p>
                 </div>
             </div>
@@ -139,11 +145,9 @@ export const Login = ({ initialMode }) => {
                 >
                     {/* Heading */}
                     <div className="login-heading-wrap">
-                        <h1 className="login-heading">{isSignUp ? "Create your account" : "Welcome back"}</h1>
+                        <h1 className="login-heading">{isSignUp ? t("createAccount") : t("welcomeBack")}</h1>
                         <p className="login-subheading">
-                            {isSignUp
-                                ? "Start your 14-day free trial. Instant access to AI verification."
-                                : "Enter the phone number associated with your account"}
+                            {isSignUp ? t("createAccountSub") : t("enterPhoneSub")}
                         </p>
                     </div>
 
@@ -156,7 +160,7 @@ export const Login = ({ initialMode }) => {
                                     required
                                     value={name}
                                     onChange={(e) => setName(e.target.value)}
-                                    placeholder="Full name"
+                                    placeholder={t("fullName")}
                                     className="login-field-input"
                                 />
                                 <input
@@ -164,7 +168,7 @@ export const Login = ({ initialMode }) => {
                                     required
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
-                                    placeholder="Work email address"
+                                    placeholder={t("workEmail")}
                                     className="login-field-input"
                                 />
                             </>
@@ -212,7 +216,7 @@ export const Login = ({ initialMode }) => {
                                 required
                                 value={phone}
                                 onChange={(e) => setPhone(e.target.value)}
-                                placeholder="Phone number"
+                                placeholder={t("phoneNumber")}
                                 className="login-phone-input"
                             />
                         </div>
@@ -222,7 +226,7 @@ export const Login = ({ initialMode }) => {
                                 type="text"
                                 value={company}
                                 onChange={(e) => setCompany(e.target.value)}
-                                placeholder="Company / Institution name (optional)"
+                                placeholder={t("companyName")}
                                 className="login-field-input"
                             />
                         )}
@@ -235,14 +239,14 @@ export const Login = ({ initialMode }) => {
                             disabled={!isFormValid || isSubmitting}
                             className={`login-cta-btn${isFormValid ? " login-cta-btn--active" : " login-cta-btn--disabled"}`}
                         >
-                            {isSubmitting ? "Processing..." : (isSignUp ? "Create Account" : "Continue")}
+                            {isSubmitting ? t("processing") : (isSignUp ? t("createAccountBtn") : t("continueBtn"))}
                         </motion.button>
                     </form>
 
                     {/* Divider */}
                     <div className="login-divider">
                         <div className="login-divider-line" />
-                        <span className="login-divider-text">or continue with</span>
+                        <span className="login-divider-text">{t("orContinueWith")}</span>
                         <div className="login-divider-line" />
                     </div>
 
@@ -268,7 +272,7 @@ export const Login = ({ initialMode }) => {
                     {/* Create account / Switch mode */}
                     <div className="login-create-account">
                         <span className="login-create-text">
-                            {isSignUp ? "Already have an account?" : "Don't have an account?"}
+                            {isSignUp ? t("alreadyHaveAccount") : t("dontHaveAccount")}
                         </span>
                         <motion.button
                             whileHover={{ scale: 1.02 }}
@@ -276,23 +280,163 @@ export const Login = ({ initialMode }) => {
                             onClick={handleToggleMode}
                             className="login-create-btn"
                         >
-                            {isSignUp ? "Log in" : "Create account"}
+                            {isSignUp ? t("loginBtn") : t("createAccountBtn")}
                         </motion.button>
                     </div>
                 </motion.div>
                 </div>{/* /login-form-outer */}
 
                 {/* Footer */}
-                <div className="login-footer">
-                    <button className="login-footer-lang">
-                        <HiGlobeAlt size={13} />
-                        <span>English</span>
-                        <HiChevronDown size={11} />
+                <div className="login-footer relative">
+                    <div className="relative">
+                        <button
+                            type="button"
+                            onClick={() => setShowLangMenu(!showLangMenu)}
+                            className="login-footer-lang"
+                        >
+                            <HiGlobeAlt size={14} />
+                            <span className="font-semibold">{language === 'hi' ? "हिंदी (Hindi)" : "Language / भाषा"}</span>
+                            <HiChevronDown size={12} />
+                        </button>
+
+                        {/* Language Dropdown Menu */}
+                        <AnimatePresence>
+                            {showLangMenu && (
+                                <motion.div
+                                    initial={{ opacity: 0, y: 10 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    exit={{ opacity: 0, y: 10 }}
+                                    className="absolute bottom-9 left-0 bg-white border border-gray-200 rounded-xl shadow-xl z-50 p-1.5 w-48"
+                                >
+                                    <button
+                                        type="button"
+                                        onClick={() => { setLanguage('hi'); setShowLangMenu(false); }}
+                                        className={`w-full px-3 py-2 text-xs font-semibold rounded-lg flex items-center justify-between transition-colors ${language === 'hi' ? 'bg-blue-50 text-blue-600' : 'text-gray-700 hover:bg-gray-50'}`}
+                                    >
+                                        <span>🇮🇳 हिंदी (Hindi)</span>
+                                        {language === 'hi' && <span>✓</span>}
+                                    </button>
+                                    <button
+                                        type="button"
+                                        onClick={() => { setLanguage('en'); setShowLangMenu(false); }}
+                                        className={`w-full px-3 py-2 text-xs font-semibold rounded-lg flex items-center justify-between transition-colors ${language === 'en' ? 'bg-blue-50 text-blue-600' : 'text-gray-700 hover:bg-gray-50'}`}
+                                    >
+                                        <span>🌐 English (Default)</span>
+                                        {language === 'en' && <span>✓</span>}
+                                    </button>
+                                </motion.div>
+                            )}
+                        </AnimatePresence>
+                    </div>
+
+                    {/* Operational Status Badge */}
+                    <div className="hidden sm:flex items-center gap-1.5 px-2.5 py-1 bg-emerald-50 text-emerald-700 border border-emerald-200/80 rounded-full text-[11px] font-semibold">
+                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                        <span>Systems Operational</span>
+                    </div>
+
+                    <button
+                        type="button"
+                        onClick={() => setPolicyModal('privacy')}
+                        className="login-footer-link"
+                    >
+                        {t("privacyPolicy")}
                     </button>
-                    <a href="#" className="login-footer-link">Privacy Policy</a>
-                    <a href="#" className="login-footer-link">Terms</a>
+                    <button
+                        type="button"
+                        onClick={() => setPolicyModal('terms')}
+                        className="login-footer-link"
+                    >
+                        {t("terms")}
+                    </button>
                 </div>
             </div>
+
+            {/* ── Privacy Policy & Terms Popups / Modals ── */}
+            <AnimatePresence>
+                {policyModal && (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[200] flex items-center justify-center p-4"
+                        onClick={() => setPolicyModal(null)}
+                    >
+                        <motion.div
+                            initial={{ scale: 0.94, opacity: 0, y: 16 }}
+                            animate={{ scale: 1, opacity: 1, y: 0 }}
+                            exit={{ scale: 0.94, opacity: 0, y: 16 }}
+                            transition={{ type: "spring", stiffness: 300, damping: 25 }}
+                            onClick={(e) => e.stopPropagation()}
+                            className="bg-white border border-slate-200 rounded-2xl shadow-2xl max-w-lg w-full overflow-hidden text-slate-900"
+                        >
+                            {/* Modal Header */}
+                            <div className="flex items-center justify-between px-6 py-4 border-b border-slate-100 bg-slate-50">
+                                <div>
+                                    <h3 className="text-lg font-bold text-slate-900">
+                                        {policyModal === 'privacy' ? t("privacyPolicy") : t("terms")}
+                                    </h3>
+                                    <p className="text-xs text-slate-500 font-medium">Ravynx Trust & Legal Framework</p>
+                                </div>
+                                <button
+                                    type="button"
+                                    onClick={() => setPolicyModal(null)}
+                                    className="w-8 h-8 rounded-full bg-slate-200/80 hover:bg-slate-300 flex items-center justify-center text-slate-700 transition-colors"
+                                >
+                                    <HiXMark size={18} />
+                                </button>
+                            </div>
+
+                            {/* Modal Content */}
+                            <div className="p-6 max-h-[60vh] overflow-y-auto space-y-4 text-sm text-slate-600 leading-relaxed">
+                                {policyModal === 'privacy' ? (
+                                    <>
+                                        <div className="p-3 bg-blue-50 border border-blue-100 rounded-xl text-blue-800 text-xs font-semibold">
+                                            🔒 Ephemeral Memory Processing — Zero Permanent Data Storage
+                                        </div>
+                                        <p>
+                                            <strong>1. Data Isolation:</strong> Ravynx processes all uploaded financial, bank, and legal documents inside isolated memory enclaves. Documents are never ingested to train public AI models.
+                                        </p>
+                                        <p>
+                                            <strong>2. Encryption & Retention:</strong> All PII (Personally Identifiable Information) and document graphics are encrypted using AES-256 in transit and immediately purged post-verification.
+                                        </p>
+                                        <p>
+                                            <strong>3. Regulatory Compliance:</strong> Audit trails maintain tamper-evident cryptographic checksums for NBFC and banking regulatory standards.
+                                        </p>
+                                    </>
+                                ) : (
+                                    <>
+                                        <div className="p-3 bg-purple-50 border border-purple-100 rounded-xl text-purple-800 text-xs font-semibold">
+                                            📜 Institutional Terms of Service — Authorized Use
+                                        </div>
+                                        <p>
+                                            <strong>1. Authorized Access:</strong> Ravynx is provided for licensed financial institutions, underwriting teams, banks, and authorized audit professionals.
+                                        </p>
+                                        <p>
+                                            <strong>2. Explainable Intelligence:</strong> Anomaly scores and metadata checks assist decision-makers. Final underwriting authority remains with institutionally approved officers.
+                                        </p>
+                                        <p>
+                                            <strong>3. SLA & Support:</strong> 99.99% operational uptime SLA with dedicated enterprise engineering support.
+                                        </p>
+                                    </>
+                                )}
+                            </div>
+
+                            {/* Modal Footer */}
+                            <div className="px-6 py-4 border-t border-slate-100 flex justify-end bg-slate-50">
+                                <button
+                                    type="button"
+                                    onClick={() => setPolicyModal(null)}
+                                    className="px-5 py-2 rounded-xl bg-slate-900 text-white text-xs font-bold hover:bg-slate-800 transition-colors shadow-sm"
+                                >
+                                    Understood & Close
+                                </button>
+                            </div>
+                        </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </div>
     );
 };
+

@@ -10,8 +10,11 @@ import { Landmark, Database, BrainCircuit, ArrowRight, PlayCircle } from "lucide
 import { PieChart, Pie, Cell, ResponsiveContainer } from "recharts";
 import CardNav from '../../components/CardNav/CardNav';
 import { Logo } from '../../components/Logo/Logo';
+import { useLanguage } from '../../context/LanguageContext';
+
 export default function Landing() {
     const navigate = useNavigate();
+    const { t } = useLanguage();
     const [scrolled, setScrolled] = useState(false);
     const [isLightNavbar, setIsLightNavbar] = useState(false);
     const [navVisible, setNavVisible] = useState(true);
@@ -127,19 +130,19 @@ export default function Landing() {
         { name: "Saksham Varshney", role: "Backend Developer", initial: "SV" },
     ];
     const navLinks = [
-    { name: "Capabilities", href: "#capabilities" },
-    { name: "How it Works", href: "#how-it-works" },
-    { name: "Architecture", href: "#architecture" },
-    { name: "Team", href: "#team" }
-  ];
-  const cardNavItems = [
+        { name: t("capabilities"), href: "#capabilities" },
+        { name: t("howItWorks"), href: "#how-it-works" },
+        { name: t("architecture"), href: "#architecture" },
+        { name: t("team"), href: "#team" }
+    ];
+    const cardNavItems = [
         {
             label: "Platform",
             bgColor: "#0f172a",
             textColor: "#fff",
             links: [
-                { label: "Capabilities", href: "#capabilities", ariaLabel: "Capabilities" },
-                { label: "How it Works", href: "#how-it-works", ariaLabel: "How it Works" }
+                { label: t("capabilities"), href: "#capabilities", ariaLabel: "Capabilities" },
+                { label: t("howItWorks"), href: "#how-it-works", ariaLabel: "How it Works" }
             ]
         },
         {
@@ -147,8 +150,8 @@ export default function Landing() {
             bgColor: "#0f172a",
             textColor: "#fff",
             links: [
-                { label: "Architecture", href: "#architecture", ariaLabel: "Architecture" },
-                { label: "Team", href: "#team", ariaLabel: "Meet the Team" }
+                { label: t("architecture"), href: "#architecture", ariaLabel: "Architecture" },
+                { label: t("team"), href: "#team", ariaLabel: "Meet the Team" }
             ]
         },
         {
@@ -194,13 +197,13 @@ export default function Landing() {
               onClick={() => navigate("/login")}
               className={`font-semibold text-[14px] transition-colors hidden sm:block ${isLightNavbar ? 'text-foreground hover:text-black/70' : 'text-white hover:text-white/80'}`}
             >
-              Log in
+              {t("loginBtn")}
             </button>
             <button
               onClick={() => navigate("/signup")}
               className={`text-[14px] font-bold px-4 py-2 sm:px-5 sm:py-2 rounded-full transition-colors shadow-lg hover:scale-105 ${isLightNavbar ? 'bg-primary text-primary-foreground hover:bg-primary/90' : 'bg-white text-black hover:bg-gray-100'}`}
             >
-              Sign up
+              {t("signupBtn")}
             </button>
           </div>
 
