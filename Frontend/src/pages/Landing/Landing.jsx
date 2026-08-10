@@ -11,6 +11,7 @@ import { PieChart, Pie, Cell, ResponsiveContainer } from "recharts";
 import CardNav from '../../components/CardNav/CardNav';
 import { Logo } from '../../components/Logo/Logo';
 import { useLanguage } from '../../context/LanguageContext';
+import { LanguageSelector } from '../../components/LanguageSelector/LanguageSelector';
 
 export default function Landing() {
     const navigate = useNavigate();
@@ -192,7 +193,8 @@ export default function Landing() {
             </div>
           </div>
 
-          <div className="flex items-center gap-4 sm:gap-6 lg:mr-24 md:mr-16 mr-4">
+          <div className="flex items-center gap-3 sm:gap-5 lg:mr-24 md:mr-16 mr-4">
+            <LanguageSelector variant={isLightNavbar ? "light" : "dark"} />
             <button
               onClick={() => navigate("/login")}
               className={`font-semibold text-[14px] transition-colors hidden sm:block ${isLightNavbar ? 'text-foreground hover:text-black/70' : 'text-white hover:text-white/80'}`}
@@ -796,9 +798,8 @@ export default function Landing() {
             <div className="text-white/60 text-sm md:text-center md:absolute md:left-1/2 md:-translate-x-1/2">
               Developed and Design by Team DataMineX
             </div>
-            <div className="flex items-center gap-2 text-white/60 text-sm">
-              <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-              All systems operational
+            <div className="flex items-center gap-3">
+              <LanguageSelector variant="dark" />
             </div>
           </div>
         </div>

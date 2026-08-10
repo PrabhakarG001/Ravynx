@@ -7,6 +7,7 @@ import { FaGoogle, FaApple } from "react-icons/fa";
 import { Logo } from '../../components/Logo/Logo';
 import { useAuth } from '../../context/AuthContext';
 import { useLanguage } from '../../context/LanguageContext';
+import { LanguageSelector } from '../../components/LanguageSelector/LanguageSelector';
 
 
 export const Login = ({ initialMode }) => {
@@ -287,62 +288,25 @@ export const Login = ({ initialMode }) => {
                 </div>{/* /login-form-outer */}
 
                 {/* Footer */}
-                <div className="login-footer relative">
-                    <div className="relative">
+                <div className="login-footer relative flex items-center justify-between">
+                    <LanguageSelector variant="light" />
+
+                    <div className="flex items-center gap-4">
                         <button
                             type="button"
-                            onClick={() => setShowLangMenu(!showLangMenu)}
-                            className="login-footer-lang"
+                            onClick={() => setPolicyModal('privacy')}
+                            className="login-footer-link"
                         >
-                            <HiGlobeAlt size={14} />
-                            <span className="font-semibold">{language === 'hi' ? "हिंदी (Hindi)" : "Language / भाषा"}</span>
-                            <HiChevronDown size={12} />
+                            {t("privacyPolicy")}
                         </button>
-
-                        {/* Language Dropdown Menu */}
-                        <AnimatePresence>
-                            {showLangMenu && (
-                                <motion.div
-                                    initial={{ opacity: 0, y: 10 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    exit={{ opacity: 0, y: 10 }}
-                                    className="absolute bottom-9 left-0 bg-white border border-gray-200 rounded-xl shadow-xl z-50 p-1.5 w-48"
-                                >
-                                    <button
-                                        type="button"
-                                        onClick={() => { setLanguage('hi'); setShowLangMenu(false); }}
-                                        className={`w-full px-3 py-2 text-xs font-semibold rounded-lg flex items-center justify-between transition-colors ${language === 'hi' ? 'bg-blue-50 text-blue-600' : 'text-gray-700 hover:bg-gray-50'}`}
-                                    >
-                                        <span>🇮🇳 हिंदी (Hindi)</span>
-                                        {language === 'hi' && <span>✓</span>}
-                                    </button>
-                                    <button
-                                        type="button"
-                                        onClick={() => { setLanguage('en'); setShowLangMenu(false); }}
-                                        className={`w-full px-3 py-2 text-xs font-semibold rounded-lg flex items-center justify-between transition-colors ${language === 'en' ? 'bg-blue-50 text-blue-600' : 'text-gray-700 hover:bg-gray-50'}`}
-                                    >
-                                        <span>🌐 English (Default)</span>
-                                        {language === 'en' && <span>✓</span>}
-                                    </button>
-                                </motion.div>
-                            )}
-                        </AnimatePresence>
+                        <button
+                            type="button"
+                            onClick={() => setPolicyModal('terms')}
+                            className="login-footer-link"
+                        >
+                            {t("terms")}
+                        </button>
                     </div>
-
-                    <button
-                        type="button"
-                        onClick={() => setPolicyModal('privacy')}
-                        className="login-footer-link"
-                    >
-                        {t("privacyPolicy")}
-                    </button>
-                    <button
-                        type="button"
-                        onClick={() => setPolicyModal('terms')}
-                        className="login-footer-link"
-                    >
-                        {t("terms")}
-                    </button>
                 </div>
             </div>
 

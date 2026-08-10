@@ -2,6 +2,7 @@ import './Navbar.css';
 import React from "react";
 import { useNavigate } from "react-router";
 import { HiMagnifyingGlass, HiBell, HiBars3, HiOutlineSquares2X2, HiOutlineQuestionMarkCircle, HiOutlineCog8Tooth, HiPlus } from "react-icons/hi2";
+import { LanguageSelector } from '../../LanguageSelector/LanguageSelector';
 
 export const Navbar = ({ title, onMenu }) => {
   const navigate = useNavigate();
@@ -21,6 +22,7 @@ export const Navbar = ({ title, onMenu }) => {
       </div>
       <div className="navbar-cls-8">
         <div className="navbar-cls-9">
+          <LanguageSelector variant="light" className="mr-2" />
           {/* Infinity Icons */}
           <div className="navbar-cls-10">
             <span className="navbar-cls-11">Test mode</span>

@@ -2,6 +2,7 @@ import './Sidebar.css';
 import { useState, useRef, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router";
 import { motion, AnimatePresence } from "framer-motion";
+import { LanguageSelector } from '../../LanguageSelector/LanguageSelector';
 import { 
   HiOutlineHome, 
   HiOutlineArrowUpTray, 
@@ -344,13 +345,17 @@ export const Sidebar = ({ open, setOpen }) => {
                          Switch account
                        </button>
                      </div>
-                     <div className="sidebar-cls-47"></div>
-                     <div className="sidebar-cls-48">
-                       <button onClick={() => navigate('/login')} className="sidebar-cls-49">
-                         <HiOutlineArrowRightOnRectangle className="sidebar-cls-50" />
-                         Logout
-                       </button>
-                     </div>
+                      <div className="sidebar-cls-47"></div>
+                      <div className="px-3 py-1.5 flex items-center justify-between">
+                        <LanguageSelector variant="light" />
+                      </div>
+                      <div className="sidebar-cls-47"></div>
+                      <div className="sidebar-cls-48">
+                        <button onClick={() => navigate('/login')} className="sidebar-cls-49">
+                          <HiOutlineArrowRightOnRectangle className="sidebar-cls-50" />
+                          Logout
+                        </button>
+                      </div>
                   </motion.div>
                 )}
              </AnimatePresence>
