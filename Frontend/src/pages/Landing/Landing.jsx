@@ -261,7 +261,7 @@ export default function Landing() {
                  <button onClick={() => navigate("/dashboard")} style={{ cursor: "pointer", pointerEvents: "auto" }} className="hero-cta-btn px-8 py-2.5 rounded-full border border-purple-500 text-white text-sm font-medium hover:bg-purple-500/10 transition-colors shadow-[0_0_15px_rgba(168,85,247,0.3)] inline-flex items-center justify-center gap-2 cursor-pointer">
                    Launch Dashboard <ArrowRight className="w-4 h-4" strokeWidth={2.5} />
                  </button>
-                 <button onClick={() => navigate("/dashboard")} style={{ cursor: "pointer", pointerEvents: "auto" }} className="hero-cta-btn px-8 py-2.5 rounded-full border border-white/30 text-white text-sm font-medium hover:bg-white/10 transition-colors inline-flex items-center justify-center gap-2 cursor-pointer">
+                 <button onClick={() => navigate("/upload")} style={{ cursor: "pointer", pointerEvents: "auto" }} className="hero-cta-btn px-8 py-2.5 rounded-full border border-white/30 text-white text-sm font-medium hover:bg-white/10 transition-colors inline-flex items-center justify-center gap-2 cursor-pointer">
                    <PlayCircle className="w-4 h-4" strokeWidth={2.5} /> Try Demo
                  </button>
                </motion.div>
@@ -692,7 +692,7 @@ export default function Landing() {
                 <button onClick={() => navigate("/dashboard")} className="w-auto bg-white text-black font-bold text-sm px-6 py-3 rounded-full hover:bg-gray-100 transition-all shadow-lg hover:scale-105 inline-flex items-center justify-center gap-2 cursor-pointer">
                   Launch Dashboard <ArrowRight className="w-4 h-4" strokeWidth={2.5} />
                 </button>
-                <button onClick={() => navigate("/dashboard")} className="w-auto bg-white/10 border border-white/20 backdrop-blur-md text-white font-bold text-sm px-6 py-3 rounded-full hover:bg-white/20 transition-all inline-flex items-center justify-center gap-2 cursor-pointer">
+                <button onClick={() => navigate("/upload")} className="w-auto bg-white/10 border border-white/20 backdrop-blur-md text-white font-bold text-sm px-6 py-3 rounded-full hover:bg-white/20 transition-all inline-flex items-center justify-center gap-2 cursor-pointer">
                   <PlayCircle className="w-4 h-4" strokeWidth={2.5} /> Try Demo
                 </button>
               </div>
