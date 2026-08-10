@@ -45,7 +45,7 @@
 }
 
 .help-cls-12 {
-  @apply bg-white border border-[#e3e8ee] rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow;
+  @apply bg-white border border-[#e3e8ee] rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between h-full;
 }
 
 .help-cls-13 {

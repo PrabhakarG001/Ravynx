@@ -26,19 +26,19 @@
 }
 
 .analytics-cls-7 {
-  @apply p-8;
+  @apply bg-white border border-[#e3e8ee] rounded-2xl p-6 shadow-sm flex flex-col justify-between h-full;
 }
 
 .analytics-cls-8 {
-  @apply text-base font-semibold text-[#1a1f36] mb-6;
+  @apply text-base font-semibold text-[#1a1f36] mb-6 min-h-[28px] flex items-center;
 }
 
 .analytics-cls-9 {
-  @apply p-8;
+  @apply bg-white border border-[#e3e8ee] rounded-2xl p-6 shadow-sm flex flex-col justify-between h-full;
 }
 
 .analytics-cls-10 {
-  @apply text-base font-semibold text-[#1a1f36] mb-6;
+  @apply text-base font-semibold text-[#1a1f36] mb-6 min-h-[28px] flex items-center;
 }
 
 .analytics-cls-11 {
@@ -46,11 +46,11 @@
 }
 
 .analytics-cls-12 {
-  @apply p-8 flex flex-col;
+  @apply bg-white border border-[#e3e8ee] rounded-2xl p-6 shadow-sm flex flex-col justify-between h-full;
 }
 
 .analytics-cls-13 {
-  @apply text-base font-semibold text-[#1a1f36] mb-6;
+  @apply text-base font-semibold text-[#1a1f36] mb-6 min-h-[28px] flex items-center;
 }
 
 .analytics-cls-14 {
@@ -82,7 +82,7 @@
 }
 
 .analytics-cls-21 {
-  @apply lg:col-span-2 overflow-hidden flex flex-col;
+  @apply bg-white border border-[#e3e8ee] rounded-2xl shadow-sm lg:col-span-2 overflow-hidden flex flex-col justify-between h-full;
 }
 
 .analytics-cls-22 {

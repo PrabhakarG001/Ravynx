@@ -303,15 +303,16 @@ export default function Landing() {
             <div className="w-full max-w-6xl mx-auto px-6 md:px-12 pointer-events-auto">
               <div className="mb-10 text-center md:text-left">
                 <h2 className="text-3xl font-bold text-slate-900 mb-3">Core Capabilities</h2>
-                <p className="text-slate-500 text-base">An advanced suite of AI tools designed to automate your underwriting process and eliminate document fraud at the source.</p>
               </div>
               <div className="features-grid">
-                {features.map(({ icon: Icon, title, desc }, idx) => (<motion.div key={title} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, margin: "-50px" }} whileHover={{ scale: 1.03, y: -5 }} transition={{ type: "spring", stiffness: 300, damping: 20, delay: idx * 0.1 }} className="bg-white border border-slate-200 rounded-xl p-6 shadow-sm transition-shadow">
-                    <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                      <Icon size={18} className="text-primary"/>
+                {features.map(({ icon: Icon, title, desc }, idx) => (<motion.div key={title} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, margin: "-50px" }} whileHover={{ scale: 1.03, y: -5 }} transition={{ type: "spring", stiffness: 300, damping: 20, delay: idx * 0.1 }} className="bg-white border border-slate-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-all flex flex-col justify-between h-full">
+                    <div>
+                      <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center mb-4 shrink-0">
+                        <Icon size={18} className="text-primary"/>
+                      </div>
+                      <h3 className="text-base font-bold text-slate-900 mb-2 leading-snug">{title}</h3>
+                      <p className="text-sm text-slate-600 leading-relaxed">{desc}</p>
                     </div>
-                    <h3 className="text-base font-semibold text-slate-900 mb-2">{title}</h3>
-                    <p className="text-sm text-slate-500 leading-relaxed">{desc}</p>
                   </motion.div>))}
               </div>
             </div>
@@ -340,14 +341,16 @@ export default function Landing() {
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: false, margin: "-20px" }}
               transition={{ type: "spring", stiffness: 280, damping: 22, delay: idx * 0.08 }}
-              className="bg-slate-50/90 border border-slate-200 rounded-2xl p-6 shadow-sm hover:shadow-md transition-all"
+              className="bg-slate-50/90 border border-slate-200 rounded-2xl p-6 shadow-sm hover:shadow-md transition-all flex flex-col justify-between h-full"
             >
-              <div className="w-12 h-12 bg-slate-100 rounded-xl flex items-center justify-center mb-4 border border-slate-200">
-                <Icon size={22} className="text-black" style={{ color: "#000000" }} />
-              </div>
+              <div>
+                <div className="w-12 h-12 bg-slate-100 rounded-xl flex items-center justify-center mb-4 border border-slate-200 shrink-0">
+                  <Icon size={22} className="text-black" style={{ color: "#000000" }} />
+                </div>
 
-              <h3 className="text-lg font-bold text-slate-900 mb-2">{title}</h3>
-              <p className="text-sm text-slate-600 leading-relaxed">{desc}</p>
+                <h3 className="text-lg font-bold text-slate-900 mb-2 leading-snug">{title}</h3>
+                <p className="text-sm text-slate-600 leading-relaxed">{desc}</p>
+              </div>
             </motion.div>
           ))}
         </div>
@@ -363,7 +366,6 @@ export default function Landing() {
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg">Traditional document verification is slow, manual, and prone to sophisticated fraud.</p>
         </motion.div>
 
-
         
         <div className="grid md:grid-cols-2 gap-6 relative">
           {/* Stylish & Professional VS Badge between both cards (Desktop) */}
@@ -375,20 +377,20 @@ export default function Landing() {
           </div>
 
           {/* Problem Image Card */}
-          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, margin: "-50px" }} className="relative h-[600px] rounded-3xl overflow-hidden group">
+          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, margin: "-50px" }} className="relative h-[600px] rounded-3xl overflow-hidden group flex flex-col justify-between">
             <img src="/manual_verification_bg.jpg" alt="Manual Verification" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/30"></div>
             
-            <div className="relative z-10 h-full flex flex-col p-10">
-              <div className="text-center mt-8">
-                <h3 className="text-3xl font-bold text-white mb-4">Manual Verification</h3>
-                <p className="text-white/80 text-lg max-w-md mx-auto">
+            <div className="relative z-10 h-full flex flex-col justify-between p-8 md:p-10">
+              <div className="text-center mt-6">
+                <h3 className="text-3xl font-bold text-white mb-4 leading-tight">Manual Verification</h3>
+                <p className="text-white/80 text-lg max-w-md mx-auto min-h-[56px] flex items-center justify-center">
                   High operational costs, slow turnaround times, and sophisticated forgeries that go undetected by the human eye.
                 </p>
               </div>
               
               <div className="mt-auto mx-auto max-w-sm w-full text-center">
-                  <div className="flex items-center justify-between mb-4 pb-4 border-b border-white/10">
+                  <div className="flex items-center justify-between mb-4 pb-4 border-b border-white/10 min-h-[44px]">
                     <span className="text-white/80 text-sm font-medium">Processing Time</span>
                     <span className="text-red-400 font-bold">24-48 Hours</span>
                   </div>
@@ -412,21 +414,21 @@ export default function Landing() {
           </div>
           
           {/* Solution Image Card */}
-          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, margin: "-50px" }} transition={{ delay: 0.1 }} className="relative h-[600px] rounded-3xl overflow-hidden group">
+          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, margin: "-50px" }} transition={{ delay: 0.1 }} className="relative h-[600px] rounded-3xl overflow-hidden group flex flex-col justify-between">
             <img src="/ai_verification_bg.jpg" alt="Ravynx AI Engine" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
             <div className="absolute inset-0 bg-gradient-to-t from-blue-900/90 via-black/40 to-black/30"></div>
             
-            <div className="relative z-10 h-full flex flex-col p-10">
-              <div className="text-center mt-8">
-                <h3 className="text-3xl font-bold text-white mb-4">Ravynx AI Engine</h3>
-                <p className="text-white/80 text-lg max-w-md mx-auto">
+            <div className="relative z-10 h-full flex flex-col justify-between p-8 md:p-10">
+              <div className="text-center mt-6">
+                <h3 className="text-3xl font-bold text-white mb-4 leading-tight">Ravynx AI Engine</h3>
+                <p className="text-white/80 text-lg max-w-md mx-auto min-h-[56px] flex items-center justify-center">
                   Instant processing, cross-document data reconciliation, and pixel-level tampering detection.
                 </p>
               </div>
               
               <div className="mt-auto mx-auto max-w-sm w-full text-center">
                   <div className="relative z-10">
-                    <div className="flex items-center justify-between mb-4 pb-4 border-b border-blue-400/20">
+                    <div className="flex items-center justify-between mb-4 pb-4 border-b border-blue-400/20 min-h-[44px]">
                       <span className="text-blue-200/80 text-sm font-medium">Processing Time</span>
                       <span className="text-blue-400 font-bold">&lt; 3 Seconds</span>
                     </div>

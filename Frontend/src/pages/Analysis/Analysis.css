@@ -21,7 +21,7 @@
 }
 
 .analysis-cls-6 {
-  @apply bg-card border border-border rounded-2xl shadow-sm p-8 flex flex-col items-center justify-center text-center relative overflow-hidden;
+  @apply bg-card border border-border rounded-2xl shadow-sm p-8 flex flex-col items-center justify-between text-center relative overflow-hidden h-full;
 }
 
 .analysis-cls-7 {
@@ -65,7 +65,7 @@
 }
 
 .analysis-cls-17 {
-  @apply lg:col-span-2 bg-card border border-border rounded-2xl shadow-sm p-8;
+  @apply lg:col-span-2 bg-card border border-border rounded-2xl shadow-sm p-8 flex flex-col justify-between h-full;
 }
 
 .analysis-cls-18 {

@@ -111,14 +111,14 @@
 
 
 .db-stat-card {
-  @apply bg-white border border-[#e2e8f0] rounded-xl p-5 cursor-default;
+  @apply bg-white border border-[#e2e8f0] rounded-xl p-5 cursor-default flex flex-col justify-between h-full min-w-0;
   border-top-width: 3px;
   box-shadow: 0 1px 3px rgba(0,0,0,0.04);
   transition: box-shadow 0.2s, transform 0.2s;
 }
 
 .db-stat-top {
-  @apply flex items-center gap-3 mb-4;
+  @apply flex items-center gap-3 mb-4 min-h-[36px];
 }
 
 .db-stat-icon-wrap {
@@ -130,11 +130,11 @@
 }
 
 .db-stat-label {
-  @apply text-[12px] font-semibold text-gray-400 uppercase tracking-wide;
+  @apply text-[12px] font-semibold text-gray-400 uppercase tracking-wide leading-snug flex-1;
 }
 
 .db-stat-bottom {
-  @apply flex items-end justify-between;
+  @apply flex items-end justify-between mt-auto pt-2;
 }
 
 .db-stat-value {
@@ -142,7 +142,7 @@
 }
 
 .db-stat-change {
-  @apply flex items-center gap-1 text-[12px] font-semibold rounded-full px-2 py-0.5;
+  @apply flex items-center gap-1 text-[12px] font-semibold rounded-full px-2 py-0.5 shrink-0;
 }
 
 .db-stat-change--up {
@@ -171,7 +171,7 @@
 /* Shared card */
 .db-chart-card,
 .db-activity-card {
-  @apply bg-white border border-[#e2e8f0] rounded-2xl p-6;
+  @apply bg-white border border-[#e2e8f0] rounded-2xl p-6 flex flex-col justify-between h-full;
   box-shadow: 0 1px 3px rgba(0,0,0,0.04);
 }
 
