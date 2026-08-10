@@ -329,12 +329,6 @@ export const Login = ({ initialMode }) => {
                         </AnimatePresence>
                     </div>
 
-                    {/* Operational Status Badge */}
-                    <div className="hidden sm:flex items-center gap-1.5 px-2.5 py-1 bg-emerald-50 text-emerald-700 border border-emerald-200/80 rounded-full text-[11px] font-semibold">
-                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                        <span>Systems Operational</span>
-                    </div>
-
                     <button
                         type="button"
                         onClick={() => setPolicyModal('privacy')}
