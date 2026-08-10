@@ -198,9 +198,10 @@ const CardNav = ({
                 {item.links?.map((lnk, i) => {
                   const isActive = activeSection === lnk.href.substring(1);
                   return (
-                    <a key={`${lnk.label}-${i}`} className="nav-card-link" href={lnk.href} aria-label={lnk.ariaLabel} style={{ color: isActive ? '#d946ef' : 'inherit', fontWeight: isActive ? 'bold' : 'normal' }}>
-                      <GoArrowUpRight className="nav-card-link-icon" aria-hidden="true" />
+                    <a key={`${lnk.label}-${i}`} className={`nav-card-link ${isActive ? 'active-nav-link' : ''}`} href={lnk.href} aria-label={lnk.ariaLabel} style={{ color: isActive ? '#d946ef' : 'inherit', fontWeight: isActive ? '700' : 'normal' }}>
+                      <GoArrowUpRight className="nav-card-link-icon" aria-hidden="true" style={{ color: isActive ? '#d946ef' : 'inherit' }} />
                       {lnk.label}
+                      {isActive && <span className="ml-1 text-[#d946ef] font-bold">●</span>}
                     </a>
                   )
                 })}

@@ -19,21 +19,28 @@ export default function Landing() {
     const [activeSection, setActiveSection] = useState("");
     
     useEffect(() => {
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    setActiveSection(entry.target.id);
+        const handleScrollSections = () => {
+            const sectionIds = ["capabilities", "how-it-works", "architecture", "team"];
+            const scrollPosition = window.scrollY + 250;
+
+            let currentSection = "";
+            for (let i = sectionIds.length - 1; i >= 0; i--) {
+                const el = document.getElementById(sectionIds[i]);
+                if (el && el.offsetTop <= scrollPosition) {
+                    currentSection = sectionIds[i];
+                    break;
                 }
-            });
-        }, { threshold: 0.3 }); // Trigger when 30% of the section is visible
+            }
+            if (currentSection) {
+                setActiveSection(currentSection);
+            } else if (window.scrollY < 400) {
+                setActiveSection("capabilities");
+            }
+        };
 
-        const sectionIds = ["capabilities", "how-it-works", "architecture", "team"];
-        sectionIds.forEach((id) => {
-            const element = document.getElementById(id);
-            if (element) observer.observe(element);
-        });
-
-        return () => observer.disconnect();
+        window.addEventListener("scroll", handleScrollSections, { passive: true });
+        handleScrollSections();
+        return () => window.removeEventListener("scroll", handleScrollSections);
     }, []);
 
     const handleFooterClick = (e, title, category) => {

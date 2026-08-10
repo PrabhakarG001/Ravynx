@@ -223,7 +223,7 @@ export const Sidebar = ({ open, setOpen }) => {
                 <div className="sidebar-cls-20">
                   {group.items.map(({ path, icon: Icon, label }) => {
                     const isNotif = path === "#notifications";
-                    const isActive = currentPath.startsWith(path) && !isNotif;
+                    const isActive = !isNotif && (currentPath === path || (path !== "/" && currentPath.startsWith(path)));
                     
                     const handleClick = (e) => {
                       if (isNotif) {
@@ -242,7 +242,7 @@ export const Sidebar = ({ open, setOpen }) => {
                           onClick={handleClick}
                           className={`relative w-full flex items-center px-3 h-9 rounded-md text-[14px] transition-all group
                             ${isActive
-                              ? "bg-[#f2f8ff] text-[#0066cc] font-medium"
+                              ? "bg-blue-50/90 text-[#0066cc] font-bold border-l-4 border-[#0066cc] shadow-xs"
                               : "text-[#3c4257] hover:bg-gray-100 font-normal"}`}
                         >
                           <div className="sidebar-cls-22">
