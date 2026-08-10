@@ -710,13 +710,25 @@ export default function Landing() {
               <p className="text-white/60 text-sm leading-relaxed mb-6 max-w-sm sm:max-w-md px-4 sm:px-0 sm:pr-4">
                 Government-grade AI underwriting and document fraud detection for modern financial institutions.
               </p>
-              <div className="footer-socials w-full">
-                <a href="#" className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/60 hover:text-white hover:bg-white/10 transition-colors">
-                  <FiGithub className="w-5 h-5"/>
-                </a>
-                <a href="#" className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/60 hover:text-[#0A66C2] hover:bg-white/10 transition-colors">
-                  <FiLinkedin className="w-5 h-5"/>
-                </a>
+              <div className="mt-6 max-w-sm">
+                <p className="text-white/80 text-xs font-bold uppercase tracking-wider mb-2.5">
+                  Subscribe to Fraud Intelligence Insights
+                </p>
+                <div className="flex items-center gap-2">
+                  <input
+                    type="email"
+                    placeholder="Enter your work email..."
+                    className="bg-white/5 border border-white/15 rounded-full px-4 py-2 text-sm text-white placeholder:text-white/40 focus:outline-none focus:border-purple-500/80 w-full transition-all"
+                  />
+                  <button onClick={(e) => { e.preventDefault(); alert("Thank you for subscribing to Ravynx Fraud Intelligence!"); }} className="bg-gradient-to-r from-fuchsia-600 to-purple-600 hover:from-fuchsia-500 hover:to-purple-500 text-white font-bold text-xs px-4 py-2 rounded-full transition-all shrink-0 cursor-pointer shadow-[0_0_15px_rgba(168,85,247,0.4)]">
+                    Subscribe
+                  </button>
+                </div>
+                <div className="flex items-center gap-3 mt-3.5 text-[12px] text-white/50 font-medium">
+                  <span className="flex items-center gap-1.5"><HiShieldCheck className="w-4 h-4 text-purple-400"/> ISO 27001 Certified</span>
+                  <span>•</span>
+                  <span className="flex items-center gap-1.5"><HiLockClosed className="w-4 h-4 text-purple-400"/> SOC-2 Ready</span>
+                </div>
               </div>
             </div>
             
