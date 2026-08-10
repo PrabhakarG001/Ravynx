@@ -225,7 +225,7 @@ export default function Landing() {
           
 
           {/* Hero Content (Fades out) */}
-          <motion.div className="absolute inset-0 z-0 h-full w-full flex flex-col items-center justify-start pt-24 md:pt-32 overflow-hidden" style={{ opacity: heroOpacity }}>
+          <motion.div className="absolute inset-0 z-50 h-full w-full flex flex-col items-center justify-start pt-24 md:pt-32 overflow-hidden pointer-events-auto" style={{ opacity: heroOpacity }}>
              {/* Hero background image */}
              <img
                src="/hero_landing.jpg"
@@ -238,7 +238,7 @@ export default function Landing() {
              {/* Background glow accent */}
              <div className="absolute top-[40%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-purple-600/10 rounded-full blur-[150px] pointer-events-none"></div>
 
-             <div className="relative z-20 w-full max-w-4xl mx-auto px-6 flex flex-col items-center text-center mt-4">
+             <div className="relative z-50 w-full max-w-4xl mx-auto px-6 flex flex-col items-center text-center mt-4 pointer-events-auto">
                <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.05 }} className="hero-trust-badge">
                  <span className="hero-trust-dot" />
                  AI-Powered · NBFC-Compliant · Bank-Grade Security
@@ -258,10 +258,26 @@ export default function Landing() {
                </motion.p>
 
                <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }} className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 relative z-[100] pointer-events-auto">
-                 <button onClick={() => navigate("/dashboard")} style={{ cursor: "pointer", pointerEvents: "auto" }} className="hero-cta-btn px-8 py-2.5 rounded-full border border-purple-500 text-white text-sm font-medium hover:bg-purple-500/10 transition-colors shadow-[0_0_15px_rgba(168,85,247,0.3)] inline-flex items-center justify-center gap-2 cursor-pointer">
+                 <button
+                   type="button"
+                   onClick={(e) => {
+                     e.stopPropagation();
+                     navigate("/dashboard");
+                   }}
+                   style={{ cursor: "pointer", pointerEvents: "auto" }}
+                   className="hero-cta-btn px-8 py-2.5 rounded-full border border-purple-500 text-white text-sm font-medium hover:bg-purple-500/10 transition-colors shadow-[0_0_15px_rgba(168,85,247,0.3)] inline-flex items-center justify-center gap-2 cursor-pointer relative z-[100]"
+                 >
                    Launch Dashboard <ArrowRight className="w-4 h-4" strokeWidth={2.5} />
                  </button>
-                 <button onClick={() => navigate("/upload")} style={{ cursor: "pointer", pointerEvents: "auto" }} className="hero-cta-btn px-8 py-2.5 rounded-full border border-white/30 text-white text-sm font-medium hover:bg-white/10 transition-colors inline-flex items-center justify-center gap-2 cursor-pointer">
+                 <button
+                   type="button"
+                   onClick={(e) => {
+                     e.stopPropagation();
+                     navigate("/upload");
+                   }}
+                   style={{ cursor: "pointer", pointerEvents: "auto" }}
+                   className="hero-cta-btn px-8 py-2.5 rounded-full border border-white/30 text-white text-sm font-medium hover:bg-white/10 transition-colors inline-flex items-center justify-center gap-2 cursor-pointer relative z-[100]"
+                 >
                    <PlayCircle className="w-4 h-4" strokeWidth={2.5} /> Try Demo
                  </button>
                </motion.div>
