@@ -799,7 +799,7 @@ export default function Landing() {
               Developed and Design by Team DataMineX
             </div>
             <div className="flex items-center gap-3">
-              <LanguageSelector variant="dark" />
+              <LanguageSelector variant="dark" direction="up" />
             </div>
           </div>
         </div>

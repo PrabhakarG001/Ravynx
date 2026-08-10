@@ -289,7 +289,7 @@ export const Login = ({ initialMode }) => {
 
                 {/* Footer */}
                 <div className="login-footer relative flex items-center justify-between">
-                    <LanguageSelector variant="light" />
+                    <LanguageSelector variant="light" direction="up" />
 
                     <div className="flex items-center gap-4">
                         <button

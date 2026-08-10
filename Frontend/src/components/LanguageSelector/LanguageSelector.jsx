@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { HiGlobeAlt, HiChevronDown } from "react-icons/hi2";
 import { useLanguage } from "../../context/LanguageContext";
 
-export const LanguageSelector = ({ variant = "light", className = "" }) => {
+export const LanguageSelector = ({ variant = "light", direction = "down", className = "" }) => {
   const { language, setLanguage } = useLanguage();
   const [open, setOpen] = useState(false);
   const dropdownRef = useRef(null);
@@ -19,9 +19,10 @@ export const LanguageSelector = ({ variant = "light", className = "" }) => {
   }, []);
 
   const isDark = variant === "dark";
+  const isUp = direction === "up";
 
   return (
-    <div className={`relative inline-block text-left z-50 ${className}`} ref={dropdownRef}>
+    <div className={`relative inline-block text-left z-[100] ${className}`} ref={dropdownRef}>
       <button
         type="button"
         onClick={() => setOpen(!open)}
@@ -34,17 +35,17 @@ export const LanguageSelector = ({ variant = "light", className = "" }) => {
       >
         <HiGlobeAlt className={`w-4 h-4 ${isDark ? "text-sky-400" : "text-blue-600"}`} />
         <span>{language === "hi" ? "🇮🇳 हिंदी" : "🇺🇸 English"}</span>
-        <HiChevronDown className={`w-3 h-3 transition-transform ${open ? "rotate-180" : ""}`} />
+        <HiChevronDown className={`w-3 h-3 transition-transform ${open ? (isUp ? "rotate-360" : "rotate-180") : (isUp ? "rotate-180" : "")}`} />
       </button>
 
       <AnimatePresence>
         {open && (
           <motion.div
-            initial={{ opacity: 0, y: 8, scale: 0.95 }}
+            initial={{ opacity: 0, y: isUp ? 8 : -8, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 8, scale: 0.95 }}
+            exit={{ opacity: 0, y: isUp ? 8 : -8, scale: 0.95 }}
             transition={{ duration: 0.15 }}
-            className="absolute right-0 mt-2 w-40 bg-white border border-slate-200 rounded-xl shadow-xl z-50 overflow-hidden p-1 text-slate-800"
+            className={`absolute right-0 ${isUp ? "bottom-full mb-2" : "top-full mt-2"} w-40 bg-white border border-slate-200 rounded-xl shadow-2xl z-[120] overflow-hidden p-1 text-slate-800`}
           >
             <button
               type="button"
