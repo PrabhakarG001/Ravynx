@@ -108,42 +108,12 @@ export default function Landing() {
         };
     }, []);
     const features = [
-        { 
-          icon: HiShieldCheck, 
-          title: "Neural ELA Forensics Engine", 
-          badge: "Deep AI",
-          desc: "Multi-modal vision networks perform Error Level Analysis (ELA) and EXIF forensics to detect pixel-level tampering, font splicing, and synthetic forgery in milliseconds." 
-        },
-        { 
-          icon: HiDocumentCheck, 
-          title: "Cross-Doc Reconciliation Engine", 
-          badge: "Multi-Format",
-          desc: "Simultaneously ingests and cross-validates disparate financial records—ITR filings, GST returns, land deeds, and bank statements—uncovering hidden discrepancies." 
-        },
-        { 
-          icon: HiChartBar, 
-          title: "Explainable AI (XAI) Risk Radar", 
-          badge: "Zero Black Box",
-          desc: "Proprietary algorithmic engine computes a real-time risk score (0-100) paired with interactive point-by-point audit explanations and visual evidence bounding boxes." 
-        },
-        { 
-          icon: HiClipboardDocumentList, 
-          title: "Sub-Second Underwriting Pipeline", 
-          badge: "< 3s Decision",
-          desc: "Reduces loan decision turnaround from 48 hours to under 3 seconds with automated rule evaluation, real-time database matching, and sanity validation." 
-        },
-        { 
-          icon: HiCpuChip, 
-          title: "Spatial Layout-Aware Vision OCR", 
-          badge: "Multi-Modal",
-          desc: "Custom layout-aware vision transformer tuned to parse noisy scans, multi-column ledgers, watermarks, official stamps, and handwritten signatures with zero data loss." 
-        },
-        { 
-          icon: HiLockClosed, 
-          title: "Zero-Trust Cryptographic Ledger", 
-          badge: "RBI Compliant",
-          desc: "Generates immutable SHA-256 tamper-evident logs for every verification step, ensuring strict regulatory compliance, data isolation, and RBAC governance for NBFCs." 
-        },
+        { icon: HiShieldCheck, title: "Deep-Learning Fraud Engine", desc: "Multi-layered neural networks analyze metadata, and pixel-level tampering to flag synthetic or forged documents." },
+        { icon: HiDocumentCheck, title: "Multi-Format Verification", desc: "Instantly process and verify complex financial documents: GST certificates, ITRs, land registries, and bank statements." },
+        { icon: HiChartBar, title: "Dynamic Risk Scoring", desc: "Proprietary algorithms compute a real-time risk score (0-100) based on anomaly detection and historical underwriting data." },
+        { icon: HiClipboardDocumentList, title: "Automated Underwriting", desc: "Reduce loan decision times from days to seconds by automatically cross-referencing extracted data against secure databases." },
+        { icon: HiCpuChip, title: "Computer Vision OCR", desc: "Advanced layout-aware text extraction that perfectly parses tabular financial data, stamps, and signatures." },
+        { icon: HiLockClosed, title: "Strict Compliance Audit", desc: "Tamper-evident, cryptographically secure logging of every verification step to ensure regulatory compliance for NBFCs." },
     ];
     const team = [
         { name: "Prabhakar Gupta", role: "Frontend Developer", initial: "PG" },
@@ -332,23 +302,16 @@ export default function Landing() {
           <motion.div className="absolute inset-0 z-40 hidden md:flex items-start justify-center pt-20 pointer-events-none" style={{ opacity: pageOpacity }}>
             <div className="w-full max-w-6xl mx-auto px-6 md:px-12 pointer-events-auto">
               <div className="mb-10 text-center md:text-left">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-100 text-purple-700 text-xs font-bold mb-3 border border-purple-200">
-                  <span className="w-2 h-2 rounded-full bg-purple-600 animate-pulse"></span>
-                  AEGIS CORE ENGINE
-                </div>
-                <h2 className="text-3xl font-bold text-slate-900 mb-3">Aegis Core Capabilities</h2>
-                <p className="text-slate-500 text-base max-w-3xl">Powered by multi-modal computer vision and explainable AI models designed to automate institutional underwriting and neutralize document tampering at the source.</p>
+                <h2 className="text-3xl font-bold text-slate-900 mb-3">Core Capabilities</h2>
+                <p className="text-slate-500 text-base">An advanced suite of AI tools designed to automate your underwriting process and eliminate document fraud at the source.</p>
               </div>
               <div className="features-grid">
-                {features.map(({ icon: Icon, title, badge, desc }, idx) => (<motion.div key={title} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, margin: "-50px" }} whileHover={{ scale: 1.03, y: -5 }} transition={{ type: "spring", stiffness: 300, damping: 20, delay: idx * 0.1 }} className="bg-white border border-slate-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-all">
-                    <div className="flex items-center justify-between mb-4">
-                      <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
-                        <Icon size={18} className="text-primary"/>
-                      </div>
-                      {badge && <span className="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-purple-50 text-purple-700 border border-purple-200">{badge}</span>}
+                {features.map(({ icon: Icon, title, desc }, idx) => (<motion.div key={title} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, margin: "-50px" }} whileHover={{ scale: 1.03, y: -5 }} transition={{ type: "spring", stiffness: 300, damping: 20, delay: idx * 0.1 }} className="bg-white border border-slate-200 rounded-xl p-6 shadow-sm transition-shadow">
+                    <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                      <Icon size={18} className="text-primary"/>
                     </div>
-                    <h3 className="text-base font-bold text-slate-900 mb-2">{title}</h3>
-                    <p className="text-sm text-slate-600 leading-relaxed">{desc}</p>
+                    <h3 className="text-base font-semibold text-slate-900 mb-2">{title}</h3>
+                    <p className="text-sm text-slate-500 leading-relaxed">{desc}</p>
                   </motion.div>))}
               </div>
             </div>
@@ -366,15 +329,11 @@ export default function Landing() {
           className="mb-10 text-center"
         >
           <div className="w-12 h-1.5 bg-slate-300 rounded-full mx-auto mb-6" />
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-100 text-purple-700 text-xs font-bold mb-3 border border-purple-200">
-            <span className="w-2 h-2 rounded-full bg-purple-600 animate-pulse"></span>
-            AEGIS CORE ENGINE
-          </div>
-          <h2 className="text-3xl font-bold text-slate-900 mb-3">Aegis Core Capabilities</h2>
-          <p className="text-slate-500 text-base">Powered by multi-modal computer vision and explainable AI models designed to automate institutional underwriting and neutralize document tampering at the source.</p>
+          <h2 className="text-3xl font-bold text-slate-900 mb-3">Core Capabilities</h2>
+          <p className="text-slate-500 text-base">An advanced suite of AI tools designed to automate your underwriting process and eliminate document fraud at the source.</p>
         </motion.div>
         <div className="grid grid-cols-1 gap-6">
-          {features.map(({ icon: Icon, title, badge, desc }, idx) => (
+          {features.map(({ icon: Icon, title, desc }, idx) => (
             <motion.div
               key={title}
               initial={{ opacity: 0, y: 35, scale: 0.96 }}
@@ -383,11 +342,8 @@ export default function Landing() {
               transition={{ type: "spring", stiffness: 280, damping: 22, delay: idx * 0.08 }}
               className="bg-slate-50/90 border border-slate-200 rounded-2xl p-6 shadow-sm hover:shadow-md transition-all"
             >
-              <div className="flex items-center justify-between mb-4">
-                <div className="w-12 h-12 bg-slate-100 rounded-xl flex items-center justify-center border border-slate-200">
-                  <Icon size={22} className="text-black" style={{ color: "#000000" }} />
-                </div>
-                {badge && <span className="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-purple-100 text-purple-700 border border-purple-200">{badge}</span>}
+              <div className="w-12 h-12 bg-slate-100 rounded-xl flex items-center justify-center mb-4 border border-slate-200">
+                <Icon size={22} className="text-black" style={{ color: "#000000" }} />
               </div>
 
               <h3 className="text-lg font-bold text-slate-900 mb-2">{title}</h3>
