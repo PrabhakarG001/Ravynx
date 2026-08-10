@@ -27,7 +27,7 @@ export default function Landing() {
             });
         }, { threshold: 0.3 }); // Trigger when 30% of the section is visible
 
-        const sectionIds = ["aegis-core", "how-it-works", "architecture", "team"];
+        const sectionIds = ["capabilities", "how-it-works", "architecture", "team"];
         sectionIds.forEach((id) => {
             const element = document.getElementById(id);
             if (element) observer.observe(element);
@@ -120,7 +120,7 @@ export default function Landing() {
         { name: "Saksham Varshney", role: "Backend Developer", initial: "SV" },
     ];
     const navLinks = [
-    { name: "Aegis Core", href: "#aegis-core" },
+    { name: "Capabilities", href: "#capabilities" },
     { name: "How it Works", href: "#how-it-works" },
     { name: "Architecture", href: "#architecture" },
     { name: "Team", href: "#team" }
@@ -131,7 +131,7 @@ export default function Landing() {
             bgColor: "#0f172a",
             textColor: "#fff",
             links: [
-                { label: "Aegis Core", href: "#aegis-core", ariaLabel: "Aegis Core" },
+                { label: "Capabilities", href: "#capabilities", ariaLabel: "Capabilities" },
                 { label: "How it Works", href: "#how-it-works", ariaLabel: "How it Works" }
             ]
         },
@@ -220,7 +220,7 @@ export default function Landing() {
 
 
       {/* Scroll Transition Container (Hero + Card Expansion) */}
-      <div ref={containerRef} id="aegis-core" className="relative h-[200vh] bg-black">
+      <div ref={containerRef} id="capabilities" className="relative h-[200vh] bg-black">
         <div className="sticky top-0 h-screen overflow-hidden flex flex-col justify-between">
           
 
@@ -481,7 +481,7 @@ export default function Landing() {
             { icon: HiDocumentText, title: "Upload", desc: "Ingest PDFs, Images" },
             { icon: HiMagnifyingGlass, title: "OCR", desc: "Extract structured data" },
             { icon: HiCpuChip, title: "AI Checks", desc: "Detect anomalies" },
-            { icon: FiGitMerge, title: "Aegis Core", desc: "Cross-validate facts" },
+            { icon: FiGitMerge, title: "Capabilities", desc: "Cross-validate facts" },
             { icon: HiSquares2X2, title: "Report", desc: "Actionable insights" }
         ].map((step, i, arr) => (<React.Fragment key={step.title}>
                 <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, margin: "-50px" }} whileHover={{ scale: 1.05 }} transition={{ type: "spring", stiffness: 300, delay: i * 0.2 }} className="relative z-10 flex flex-col items-center justify-between text-center w-full md:w-48 group h-full">

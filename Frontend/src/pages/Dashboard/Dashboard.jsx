@@ -161,7 +161,7 @@ export const Dashboard = () => {
         <div className="dashboard-hero-content">
           <h1 className="dashboard-hero-title">Automate Document Verification</h1>
           <p className="dashboard-hero-text">
-            Instantly scan documents, flag fraudulent activity, and clear your review queue with the Ravynx Aegis Core. Process your first 500 documents for free.
+            Instantly scan documents, flag fraudulent activity, and clear your review queue with the Ravynx Engine. Process your first 500 documents for free.
           </p>
           <div className="dashboard-cls-5">
             <button className="db-hero-btn">
