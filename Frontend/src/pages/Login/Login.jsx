@@ -1,6 +1,6 @@
 import './Login.css';
-import React, { useState } from "react";
-import { useNavigate } from "react-router";
+import React, { useState, useEffect } from "react";
+import { useNavigate, useLocation } from "react-router";
 import { motion } from "framer-motion";
 import { HiEnvelope, HiChevronDown, HiGlobeAlt, HiShieldCheck, HiDocumentCheck, HiChartBar, HiBars3 } from "react-icons/hi2";
 import { FaGoogle, FaApple } from "react-icons/fa";
@@ -8,10 +8,11 @@ import { Logo } from '../../components/Logo/Logo';
 import { useAuth } from '../../context/AuthContext';
 
 
-export const Login = () => {
+export const Login = ({ initialMode }) => {
     const navigate = useNavigate();
-    const { login } = useAuth();
-    const [isSignUp, setIsSignUp] = useState(false);
+    const location = useLocation();
+    const isSignUpInitial = initialMode === "signup" || location.pathname === "/signup";
+    const [isSignUp, setIsSignUp] = useState(isSignUpInitial);
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [company, setCompany] = useState("");
@@ -19,6 +20,16 @@ export const Login = () => {
     const [countryCode, setCountryCode] = useState("+91");
     const [showDropdown, setShowDropdown] = useState(false);
     const [isSubmitting, setIsSubmitting] = useState(false);
+
+    useEffect(() => {
+        setIsSignUp(initialMode === "signup" || location.pathname === "/signup");
+    }, [initialMode, location.pathname]);
+
+    const handleToggleMode = () => {
+        const nextSignUp = !isSignUp;
+        setIsSignUp(nextSignUp);
+        navigate(nextSignUp ? "/signup" : "/login", { replace: true });
+    };
 
     const handleContinue = async (e) => {
         e.preventDefault();
@@ -262,7 +273,7 @@ export const Login = () => {
                         <motion.button
                             whileHover={{ scale: 1.02 }}
                             whileTap={{ scale: 0.98 }}
-                            onClick={() => setIsSignUp(!isSignUp)}
+                            onClick={handleToggleMode}
                             className="login-create-btn"
                         >
                             {isSignUp ? "Log in" : "Create account"}

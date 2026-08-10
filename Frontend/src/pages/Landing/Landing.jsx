@@ -197,7 +197,7 @@ export default function Landing() {
               Log in
             </button>
             <button
-              onClick={() => navigate("/login")}
+              onClick={() => navigate("/signup")}
               className={`text-[14px] font-bold px-4 py-2 sm:px-5 sm:py-2 rounded-full transition-colors shadow-lg hover:scale-105 ${isLightNavbar ? 'bg-primary text-primary-foreground hover:bg-primary/90' : 'bg-white text-black hover:bg-gray-100'}`}
             >
               Sign up
@@ -218,7 +218,7 @@ export default function Landing() {
           buttonBgColor="#2563eb"
           buttonTextColor="#ffffff"
           onLoginClick={() => navigate("/login")}
-          onSignupClick={() => navigate("/login")}
+          onSignupClick={() => navigate("/signup")}
           scrolled={scrolled}
           isLightNavbar={scrolled}
           activeSection={activeSection}
