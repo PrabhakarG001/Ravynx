@@ -225,7 +225,7 @@ export default function Landing() {
           
 
           {/* Hero Content (Fades out) */}
-          <motion.div className="absolute inset-0 z-50 h-full w-full flex flex-col items-center justify-start pt-24 md:pt-32 overflow-hidden pointer-events-auto" style={{ opacity: heroOpacity }}>
+          <motion.div className="absolute inset-0 z-10 h-full w-full flex flex-col items-center justify-start pt-24 md:pt-32 overflow-hidden pointer-events-auto" style={{ opacity: heroOpacity }}>
              {/* Hero background image */}
              <img
                src="/hero_landing.jpg"
@@ -238,7 +238,7 @@ export default function Landing() {
              {/* Background glow accent */}
              <div className="absolute top-[40%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-purple-600/10 rounded-full blur-[150px] pointer-events-none"></div>
 
-             <div className="relative z-50 w-full max-w-4xl mx-auto px-6 flex flex-col items-center text-center mt-4 pointer-events-auto">
+             <div className="relative z-20 w-full max-w-4xl mx-auto px-6 flex flex-col items-center text-center mt-4 pointer-events-auto">
                <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.05 }} className="hero-trust-badge">
                  <span className="hero-trust-dot" />
                  AI-Powered · NBFC-Compliant · Bank-Grade Security
@@ -257,7 +257,7 @@ export default function Landing() {
                  Built for banks and financial institutions to automate verification, reduce manual effort, and eliminate document tampering risks using advanced AI.
                </motion.p>
 
-               <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }} className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 relative z-[100] pointer-events-auto">
+               <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }} className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 relative z-50 pointer-events-auto">
                  <button
                    type="button"
                    onClick={(e) => {
@@ -265,7 +265,7 @@ export default function Landing() {
                      navigate("/dashboard");
                    }}
                    style={{ cursor: "pointer", pointerEvents: "auto" }}
-                   className="hero-cta-btn px-8 py-2.5 rounded-full border border-purple-500 text-white text-sm font-medium hover:bg-purple-500/10 transition-colors shadow-[0_0_15px_rgba(168,85,247,0.3)] inline-flex items-center justify-center gap-2 cursor-pointer relative z-[100]"
+                   className="hero-cta-btn px-8 py-2.5 rounded-full border border-purple-500 text-white text-sm font-medium hover:bg-purple-500/10 transition-colors shadow-[0_0_15px_rgba(168,85,247,0.3)] inline-flex items-center justify-center gap-2 cursor-pointer relative z-50"
                  >
                    Launch Dashboard <ArrowRight className="w-4 h-4" strokeWidth={2.5} />
                  </button>
@@ -276,7 +276,7 @@ export default function Landing() {
                      navigate("/upload");
                    }}
                    style={{ cursor: "pointer", pointerEvents: "auto" }}
-                   className="hero-cta-btn px-8 py-2.5 rounded-full border border-white/30 text-white text-sm font-medium hover:bg-white/10 transition-colors inline-flex items-center justify-center gap-2 cursor-pointer relative z-[100]"
+                   className="hero-cta-btn px-8 py-2.5 rounded-full border border-white/30 text-white text-sm font-medium hover:bg-white/10 transition-colors inline-flex items-center justify-center gap-2 cursor-pointer relative z-50"
                  >
                    <PlayCircle className="w-4 h-4" strokeWidth={2.5} /> Try Demo
                  </button>
@@ -295,8 +295,8 @@ export default function Landing() {
              </motion.div>
           </motion.div>
 
-          {/* Expanding Card */}
-          <motion.div className="flex pointer-events-auto absolute bottom-0 flex-col overflow-hidden origin-bottom" initial={{ opacity: 0, y: 80 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.4, ease: [0.22, 1, 0.36, 1] }} style={{
+          {/* Expanding White Background Card */}
+          <motion.div className="flex pointer-events-none absolute bottom-0 flex-col overflow-hidden origin-bottom z-20" initial={{ opacity: 0, y: 80 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.4, ease: [0.22, 1, 0.36, 1] }} style={{
             left: cardLeft,
             width: cardWidth,
             height: cardHeight,
@@ -306,22 +306,23 @@ export default function Landing() {
             borderLeftWidth: cardBorderWidth,
             borderRightWidth: cardBorderWidth,
             borderColor: cardBorderColor,
-            backgroundColor: cardBgColor,
+            backgroundColor: "rgba(255, 255, 255, 1)",
             borderStyle: "solid",
-            zIndex: 30
+            zIndex: 20
         }}>
-            {/* Card Content Removed as per user request */}
-
           </motion.div>
 
           {/* Core Capabilities Revealed — DESKTOP STICKY SCROLL ANIMATION */}
-          <motion.div className="absolute inset-0 z-40 hidden md:flex items-start justify-center pt-20 pointer-events-none" style={{ opacity: pageOpacity }}>
+          <motion.div className="absolute inset-0 z-30 hidden md:flex items-start justify-center pt-20 md:pt-24 pointer-events-none" style={{ opacity: pageOpacity }}>
             <div className="w-full max-w-6xl mx-auto px-6 md:px-12 pointer-events-auto">
-              <div className="mb-10 text-center md:text-left">
-                <h2 className="text-3xl font-bold text-slate-900 mb-3">Core Capabilities</h2>
+              <div className="mb-8 text-center md:text-left">
+                <h2 className="text-3xl font-bold text-slate-900 mb-2">Core Capabilities</h2>
+                <p className="text-slate-600 text-base max-w-2xl">
+                  An advanced suite of AI tools designed to automate your underwriting process and eliminate document fraud at the source.
+                </p>
               </div>
               <div className="features-grid">
-                {features.map(({ icon: Icon, title, desc }, idx) => (<motion.div key={title} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, margin: "-50px" }} whileHover={{ scale: 1.03, y: -5 }} transition={{ type: "spring", stiffness: 300, damping: 20, delay: idx * 0.1 }} className="bg-white border border-slate-200 rounded-xl p-6 md:p-8 shadow-sm hover:shadow-md transition-all flex flex-col justify-between h-full text-left w-full">
+                {features.map(({ icon: Icon, title, desc }, idx) => (<motion.div key={title} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, margin: "-50px" }} whileHover={{ scale: 1.03, y: -5 }} transition={{ type: "spring", stiffness: 300, damping: 20, delay: idx * 0.1 }} className="bg-white border border-slate-200/90 rounded-xl p-6 md:p-8 shadow-[0_4px_20px_rgba(0,0,0,0.06)] hover:shadow-lg transition-all flex flex-col justify-between h-full text-left w-full">
                     <div className="flex flex-col h-full justify-between">
                       <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center mb-5 shrink-0">
                         <Icon size={18} className="text-primary"/>
