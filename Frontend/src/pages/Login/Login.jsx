@@ -11,6 +11,10 @@ import { useAuth } from '../../context/AuthContext';
 export const Login = () => {
     const navigate = useNavigate();
     const { login } = useAuth();
+    const [isSignUp, setIsSignUp] = useState(false);
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [company, setCompany] = useState("");
     const [phone, setPhone] = useState("");
     const [countryCode, setCountryCode] = useState("+91");
     const [showDropdown, setShowDropdown] = useState(false);
@@ -18,20 +22,16 @@ export const Login = () => {
 
     const handleContinue = async (e) => {
         e.preventDefault();
-        if (phone.length > 5) {
-            setIsSubmitting(true);
-            try {
-                await login({ phone: `${countryCode}${phone}`, password: 'password123' });
-                navigate("/dashboard");
-            } catch (err) {
-                // Fallback navigation
-                navigate("/dashboard");
-            } finally {
-                setIsSubmitting(false);
-            }
+        setIsSubmitting(true);
+        try {
+            await login({ phone: `${countryCode}${phone}`, email, name, company, isSignUp });
+            navigate("/dashboard");
+        } catch (err) {
+            navigate("/dashboard");
+        } finally {
+            setIsSubmitting(false);
         }
     };
-
 
     const countries = [
         { code: "+91", flag: "🇮🇳", name: "India" },
@@ -45,7 +45,9 @@ export const Login = () => {
     ];
 
     const selectedCountry = countries.find(c => c.code === countryCode) || countries[0];
-    const isPhoneValid = phone.length > 5;
+    const isFormValid = isSignUp
+        ? (name.trim().length > 1 && email.includes("@") && phone.length > 5)
+        : (phone.length > 5);
 
     const trustPoints = [
         { icon: HiShieldCheck,       label: "Bank-Grade Security" },
@@ -99,7 +101,7 @@ export const Login = () => {
                 </div>
             </div>
 
-            {/* ── Right Panel (Login Form) ── */}
+            {/* ── Right Panel (Login / Sign Up Form) ── */}
             <div className="login-right-panel">
                 {/* Top nav for mobile */}
                 <div className="login-mobile-nav">
@@ -118,21 +120,45 @@ export const Login = () => {
 
                 <div className="login-form-outer">
                 <motion.div
+                    key={isSignUp ? "signup" : "signin"}
                     initial={{ opacity: 0, y: 24 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+                    transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
                     className="login-form-card"
                 >
                     {/* Heading */}
                     <div className="login-heading-wrap">
-                        <h1 className="login-heading">Welcome back</h1>
+                        <h1 className="login-heading">{isSignUp ? "Create your account" : "Welcome back"}</h1>
                         <p className="login-subheading">
-                            Enter the phone number associated with your account
+                            {isSignUp
+                                ? "Start your 14-day free trial. Instant access to AI verification."
+                                : "Enter the phone number associated with your account"}
                         </p>
                     </div>
 
                     {/* Form */}
                     <form onSubmit={handleContinue} className="login-form">
+                        {isSignUp && (
+                            <>
+                                <input
+                                    type="text"
+                                    required
+                                    value={name}
+                                    onChange={(e) => setName(e.target.value)}
+                                    placeholder="Full name"
+                                    className="login-field-input"
+                                />
+                                <input
+                                    type="email"
+                                    required
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
+                                    placeholder="Work email address"
+                                    className="login-field-input"
+                                />
+                            </>
+                        )}
+
                         {/* Phone row */}
                         <div className="login-phone-row">
                             {/* Country code */}
@@ -172,6 +198,7 @@ export const Login = () => {
                             {/* Phone input */}
                             <input
                                 type="tel"
+                                required
                                 value={phone}
                                 onChange={(e) => setPhone(e.target.value)}
                                 placeholder="Phone number"
@@ -179,20 +206,25 @@ export const Login = () => {
                             />
                         </div>
 
-                        {/* Lost access */}
-                        <button type="button" className="login-lost-access">
-                            Lost access to my phone number
-                        </button>
+                        {isSignUp && (
+                            <input
+                                type="text"
+                                value={company}
+                                onChange={(e) => setCompany(e.target.value)}
+                                placeholder="Company / Institution name (optional)"
+                                className="login-field-input"
+                            />
+                        )}
 
-                        {/* Continue */}
+                        {/* Continue / Create Account CTA */}
                         <motion.button
-                            whileHover={isPhoneValid ? { scale: 1.015 } : {}}
-                            whileTap={isPhoneValid ? { scale: 0.985 } : {}}
+                            whileHover={isFormValid ? { scale: 1.015 } : {}}
+                            whileTap={isFormValid ? { scale: 0.985 } : {}}
                             type="submit"
-                            disabled={!isPhoneValid}
-                            className={`login-cta-btn${isPhoneValid ? " login-cta-btn--active" : " login-cta-btn--disabled"}`}
+                            disabled={!isFormValid || isSubmitting}
+                            className={`login-cta-btn${isFormValid ? " login-cta-btn--active" : " login-cta-btn--disabled"}`}
                         >
-                            Continue
+                            {isSubmitting ? "Processing..." : (isSignUp ? "Create Account" : "Continue")}
                         </motion.button>
                     </form>
 
@@ -222,16 +254,18 @@ export const Login = () => {
                         ))}
                     </div>
 
-                    {/* Create account */}
+                    {/* Create account / Switch mode */}
                     <div className="login-create-account">
-                        <span className="login-create-text">Don't have an account?</span>
+                        <span className="login-create-text">
+                            {isSignUp ? "Already have an account?" : "Don't have an account?"}
+                        </span>
                         <motion.button
                             whileHover={{ scale: 1.02 }}
                             whileTap={{ scale: 0.98 }}
-                            onClick={() => navigate("/login")}
+                            onClick={() => setIsSignUp(!isSignUp)}
                             className="login-create-btn"
                         >
-                            Create account
+                            {isSignUp ? "Log in" : "Create account"}
                         </motion.button>
                     </div>
                 </motion.div>

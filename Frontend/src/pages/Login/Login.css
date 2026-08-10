@@ -231,14 +231,13 @@
   @apply text-gray-400 text-xs;
 }
 
-/* Phone input */
+/* Phone input & Field inputs */
 .login-phone-input {
   @apply flex-1 h-[46px] bg-white border border-gray-200 rounded-xl px-4 text-[#0f172a] text-[14px] placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all min-w-0;
 }
 
-/* Lost access */
-.login-lost-access {
-  @apply text-blue-600 text-[13px] font-medium hover:text-blue-700 transition-colors mb-5 text-left self-start;
+.login-field-input {
+  @apply w-full h-[46px] bg-white border border-gray-200 rounded-xl px-4 text-[#0f172a] text-[14px] placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all mb-3;
 }
 
 /* CTA button */
