@@ -1,183 +1,134 @@
 <div align="center">
 
-# Ravynx
+# 🦅 Ravynx - Frontend
 
 **AI-Powered Underwriting & Document Fraud Detection Platform**
 
-Built for banks, NBFCs, and financial institutions that demand zero-error document verification.
+Built for banks, NBFCs, and financial institutions demanding zero-error document verification.
 
 [Live Demo](#) · [Report Bug](https://github.com/PrabhakarG001/Ravynx/issues) · [Request Feature](https://github.com/PrabhakarG001/Ravynx/issues)
+
+![React](https://img.shields.io/badge/React-18.3-61DAFB?style=for-the-badge&logo=react)
+![Vite](https://img.shields.io/badge/Vite-6.3-646CFF?style=for-the-badge&logo=vite)
+![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-v4.1-38B2AC?style=for-the-badge&logo=tailwind-css)
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-F7DF1E?style=for-the-badge&logo=javascript)
 
 </div>
 
 ---
 
-## 🚀 What is Ravynx?
+## 🚀 What is Ravynx Frontend?
 
-Ravynx is an intelligent document verification and fraud detection platform designed for the financial sector. It uses AI to instantly analyze financial and legal documents, detect fraud patterns, and generate explainable risk scores — enabling faster, safer lending decisions.
-
-### The Problem
-Traditional document verification is manual, slow, and error-prone. Fraudulent documents slip through human review, costing institutions millions.
-
-### Our Solution
-Ravynx automates the entire underwriting pipeline with:
-- **AI-powered document analysis** that catches what humans miss
-- **Real-time fraud detection** with explainable risk scoring
-- **Zero data retention** architecture for regulatory compliance
+The **Ravynx Frontend** is a modern, high-performance web interface built with React 18, Vite 6, and Tailwind CSS v4. It delivers real-time document analysis, risk scoring visualization, interactive PDF document viewing, and team management dashboards.
 
 ---
 
-## ✨ Key Features
+## 🛠️ Tech Stack & Dependencies
 
-| Feature | Description |
-|---|---|
-| 🔍 **Smart Document Analysis** | AI extracts, validates, and cross-references data from financial documents |
-| 🛡️ **Fraud Detection Engine** | Multi-layer anomaly detection with pattern recognition |
-| 📊 **Explainable Risk Scores** | Transparent scoring with clear reasoning for every decision |
-| 🏛️ **Enterprise Grade Security** | Zero data retention, isolated processing, tamper-evident audit logs |
-| 📈 **Analytics Dashboard** | Real-time insights into processing volumes, fraud rates, and team performance |
-| 👥 **Team Collaboration** | Role-based access with audit trails for compliance |
-| 📋 **Audit Trail** | Complete, tamper-proof history of every document processed |
-
----
-
-## 🛠️ Tech Stack
-
-| Layer | Technology |
-|---|---|
-| **Frontend** | React 18, Vite 6 |
-| **Styling** | Tailwind CSS v4, Custom CSS |
-| **Animations** | Framer Motion, GSAP |
-| **Charts** | Recharts |
-| **UI Components** | Radix UI, Lucide Icons |
-| **Routing** | React Router v7 |
-| **PDF Handling** | PDF.js, React PDF |
+| Layer | Technology / Library | Purpose |
+|---|---|---|
+| **Core Framework** | React 18.3, Vite 6.3 | UI Framework & High-performance bundler |
+| **Routing** | React Router v7 (`react-router`) | Client-side routing & navigation |
+| **Styling & CSS** | Tailwind CSS v4, PostCSS, Emotion (`@emotion/react`, `@emotion/styled`) | Utility-first & component styling |
+| **UI Primitives** | Radix UI (Accordion, Dialog, Dropdown, Tabs, Tooltip, Select, Switch, Slider) | Accessible unstyled UI primitives |
+| **Icons & Design** | Lucide React, MUI Icons (`@mui/icons-material`), React Icons | Comprehensive icon libraries |
+| **Animations** | Motion (Framer Motion 12), GSAP 3, tw-animate-css, Canvas Confetti | Smooth physics animations & micro-interactions |
+| **Charts & Data** | Recharts 2 | Analytics & fraud detection charts |
+| **PDF Handling** | PDF.js (`pdfjs-dist`), React PDF (`react-pdf`), React Dropzone | In-browser PDF viewing & upload handling |
+| **Form & Inputs** | React Hook Form, Input OTP, date-fns | Form validation, date picking, OTP input |
+| **Utilities** | Axios, clsx, tailwind-merge, class-variance-authority (`cva`) | HTTP client, class utility helpers |
 
 ---
 
-## 📁 Project Structure
+## 📁 Frontend Directory Structure
 
 ```
-ravynx/
-├── public/                     # Static assets
-│   ├── assets/                 # Images and media
-│   └── favicon.jpg
+Frontend/
+├── public/                     # Public assets & favicons
 ├── src/
+│   ├── assets/                 # Images & Figma assets
 │   ├── components/
-│   │   ├── CardNav/            # Mobile navigation component
-│   │   ├── Logo/               # Brand logo component
-│   │   ├── cards/              # Reusable card components
-│   │   ├── common/             # Shared UI primitives (Badge, etc.)
-│   │   ├── layout/             # Layout components (Sidebar, Navbar, DashboardLayout)
-│   │   └── ui/                 # UI primitives (Buttons, Inputs, NeuralNetwork)
-│   ├── pages/
-│   │   ├── Analysis/           # Document analysis results
-│   │   ├── Analytics/          # Platform analytics dashboard
-│   │   ├── Audit/              # Audit trail viewer
-│   │   ├── Dashboard/          # Main dashboard
-│   │   ├── Help/               # Help & documentation
+│   │   ├── CardNav/            # Navigation bar components
+│   │   ├── Logo/               # Ravynx logo components
+│   │   ├── cards/              # Metric & dashboard card widgets
+│   │   ├── common/             # Badges, pills, indicators
+│   │   ├── layout/             # Sidebar, Navbar, DashboardLayout
+│   │   └── ui/                 # Buttons, Inputs, Neural Network visualizer
+│   ├── context/                # React Context (Auth, Theme, App states)
+│   ├── pages/                  # Page views & route targets
+│   │   ├── Analysis/           # Document risk analysis page
+│   │   ├── Analytics/          # Analytics & fraud metrics dashboard
+│   │   ├── Audit/              # Audit trail log viewer
+│   │   ├── Dashboard/          # Core summary dashboard
+│   │   ├── Help/               # Help center & guides
 │   │   ├── Landing/            # Marketing landing page
-│   │   ├── Login/              # Authentication
-│   │   ├── Processing/         # Document processing view
-│   │   ├── Profile/            # User profile management
-│   │   ├── Report/             # Report generation
-│   │   ├── Settings/           # App settings
-│   │   ├── Teams/              # Team management
-│   │   ├── Upload/             # Document upload
-│   │   └── Viewer/             # Document viewer
-│   ├── services/               # API service layer
-│   ├── styles/                 # Global styles & theme
-│   │   ├── fonts.css
-│   │   ├── globals.css
-│   │   ├── index.css
-│   │   ├── tailwind.css
-│   │   └── theme.css
-│   ├── utils/                  # Utility functions & mock data
-│   ├── App.jsx                 # Root application component
-│   └── main.jsx                # Entry point
-├── index.html
-├── package.json
-├── postcss.config.mjs
-└── vite.config.js
+│   │   ├── Login/              # Authentication page
+│   │   ├── Processing/         # Active document processing pipeline
+│   │   ├── Profile/            # User settings & profile management
+│   │   ├── Report/             # Report generation view
+│   │   ├── Settings/           # Application & security settings
+│   │   ├── Teams/              # Team member management
+│   │   ├── Upload/             # Drag-and-drop document upload view
+│   │   └── Viewer/             # Interactive document inspector
+│   ├── services/               # API service definitions (`api.js`)
+│   ├── styles/                 # Theme tokens, font imports & global CSS
+│   ├── utils/                  # Helper functions & mock datasets
+│   ├── App.jsx                 # Main routing component
+│   └── main.jsx                # Application entry point
+├── index.html                  # HTML template
+├── package.json                # Dependencies and npm scripts
+├── postcss.config.mjs          # PostCSS configuration
+└── vite.config.js              # Vite config (path aliases `@` -> `src`)
 ```
-
-> Every page has its own folder with a dedicated `.jsx` and `.css` file.
-> Every component follows the same convention.
 
 ---
 
-## ⚡ Quick Start
+## ⚡ Quick Start for Developers
 
 ### Prerequisites
 - **Node.js** >= 18.x
-- **npm** >= 9.x
+- **npm** >= 9.x (or **pnpm** / **yarn**)
 
-### Installation
+### Setup Instructions
 
-```bash
-# Clone the repository
-git clone https://github.com/PrabhakarG001/Ravynx.git
-cd Ravynx
+1. **Navigate to Frontend Directory**
+   ```bash
+   cd Frontend
+   ```
 
-# Install dependencies
-npm install
+2. **Install Dependencies**
+   ```bash
+   npm install
+   ```
 
-# Start development server
-npm run dev
-```
+3. **Configure Environment Variables**
+   Create a `.env` file inside `Frontend/`:
+   ```env
+   VITE_API_URL=http://localhost:5000/api
+   ```
 
-The app will be available at `http://localhost:5173`
+4. **Start Development Server**
+   ```bash
+   npm run dev
+   ```
+   Access the dev server at: `http://localhost:5173`
 
-### Build for Production
-
-```bash
-npm run build
-```
-
----
-
-## 🏗️ Architecture
-
-```
-┌─────────────────────────────────────────┐
-│              Landing Page               │
-│         (Marketing / Onboarding)        │
-└──────────────┬──────────────────────────┘
-               │ Login
-┌──────────────▼──────────────────────────┐
-│           Dashboard Layout              │
-│  ┌──────────┐  ┌──────────────────────┐ │
-│  │ Sidebar  │  │    Page Content      │ │
-│  │          │  │  ┌────────────────┐  │ │
-│  │ • Dash   │  │  │   Upload →     │  │ │
-│  │ • Upload │  │  │   Processing → │  │ │
-│  │ • Viewer │  │  │   Analysis →   │  │ │
-│  │ • Audit  │  │  │   Report       │  │ │
-│  │ • Teams  │  │  └────────────────┘  │ │
-│  └──────────┘  └──────────────────────┘ │
-└─────────────────────────────────────────┘
-```
+5. **Build for Production**
+   ```bash
+   npm run build
+   ```
 
 ---
 
-## 🔮 Future Scope
+## 🤝 Collaborator Guide
 
-- [ ] Backend API integration (Node.js / Python ML pipeline)
-- [ ] Real-time document processing with WebSockets
-- [ ] Multi-language document support
-- [ ] Advanced ML model for handwriting fraud detection
-- [ ] Role-based access control (RBAC) with SSO
-- [ ] Mobile-responsive PWA
-- [ ] Webhook integrations for third-party systems
-
----
-
-## 👥 Team
-
-Built with ❤️ by the Ravynx team for smarter, safer financial document processing.
+- **Branching:** Use `feature/<name>` or `fix/<name>`.
+- **Path Aliases:** Use `@/` to reference `src/` directory.
+- **Component Standard:** Keep component `.jsx` and component-specific styles co-located in dedicated folders within `src/components/` or `src/pages/`.
+- **API Services:** Define all network calls inside `src/services/api.js`.
 
 ---
 
 ## 📄 License
 
-This project is proprietary. All rights reserved.
+Proprietary Software. All rights reserved by **Ravynx Team**.
