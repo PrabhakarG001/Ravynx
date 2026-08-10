@@ -118,9 +118,44 @@ const LanguageContext = createContext();
 export const LanguageProvider = ({ children }) => {
   const [language, setLanguageState] = useState(localStorage.getItem('ravynx_lang') || 'en');
 
+  const applyGoogleTranslate = (lang) => {
+    try {
+      const langCode = lang === 'hi' ? '/en/hi' : '/en/en';
+      const domain = window.location.hostname;
+      
+      document.cookie = `googtrans=${langCode}; path=/; domain=${domain}`;
+      document.cookie = `googtrans=${langCode}; path=/;`;
+      
+      const select = document.querySelector('.goog-te-combo');
+      if (select) {
+        select.value = lang === 'hi' ? 'hi' : 'en';
+        select.dispatchEvent(new Event('change'));
+      } else {
+        // Retry trigger once widget initializes
+        setTimeout(() => {
+          const combo = document.querySelector('.goog-te-combo');
+          if (combo) {
+            combo.value = lang === 'hi' ? 'hi' : 'en';
+            combo.dispatchEvent(new Event('change'));
+          }
+        }, 800);
+      }
+    } catch (e) {
+      console.warn("Google Translate helper:", e);
+    }
+  };
+
+  useEffect(() => {
+    const storedLang = localStorage.getItem('ravynx_lang');
+    if (storedLang === 'hi') {
+      applyGoogleTranslate('hi');
+    }
+  }, []);
+
   const setLanguage = (lang) => {
     setLanguageState(lang);
     localStorage.setItem('ravynx_lang', lang);
+    applyGoogleTranslate(lang);
   };
 
   const t = (key) => {
