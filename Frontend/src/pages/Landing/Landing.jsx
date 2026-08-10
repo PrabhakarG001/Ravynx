@@ -40,7 +40,73 @@ export default function Landing() {
         e.preventDefault();
         setActiveModal({ title, category });
     };
+    const containerRef = useRef(null);
+    const { scrollYProgress } = useScroll({
+        target: containerRef,
+        offset: ["start start", "end end"]
+    });
+    useMotionValueEvent(scrollYProgress, "change", (latest) => {
+        setIsLightNavbar(latest > 0.25);
+    });
+    const { scrollY } = useScroll();
+    useMotionValueEvent(scrollY, "change", (latest) => {
+        const previous = scrollY.getPrevious() ?? 0;
+        const threshold = window.innerHeight * 1.5;
+        if (latest > previous && latest > threshold) {
+            setNavVisible(false);
+        }
+        else if (latest < previous) {
+            setNavVisible(true);
+        }
+    });
+    const backgroundY = useTransform(scrollY, [0, 1000], [0, 200]);
+    // Scroll Transition Hooks (Faster & smoother response on small scroll)
+    const moveProgress = useTransform(scrollYProgress, [0.01, 0.15], [0, 1]);
+    const expandProgress = useTransform(scrollYProgress, [0.08, 0.35], [0, 1]);
+    const heroOpacity = useTransform(scrollYProgress, [0.02, 0.25], [1, 0]);
+    const mobileBgOpacity = useTransform(expandProgress, [0, 1], [0, 1]);
+    const cardLeft = useTransform(() => {
+        const m = moveProgress.get();
+        const e = expandProgress.get();
+        const cardHalfWidth = 160;
+        if (e > 0) {
+            return `calc((50vw - ${cardHalfWidth}px) * ${1 - e})`;
+        }
+        return `calc((max(50vw - 560px, 80px) + 484px) * ${1 - m} + (50vw - 160px) * ${m})`;
+    });
+    const cardWidth = useTransform(() => {
+        return '100vw';
+    });
+    const cardHeight = useTransform(() => {
+        const e = expandProgress.get();
+        return `calc(100vh * ${e})`;
+    });
+    const cardBorderRadius = useTransform(expandProgress, [0, 1], ["0px", "0px"]);
+    const cardBorderWidth = useTransform(expandProgress, [0, 1], ["0px", "0px"]);
+    const cardBorderColor = useTransform(expandProgress, [0, 1], ["rgba(255, 255, 255, 0)", "rgba(255, 255, 255, 0)"]);
+    const cardBgColor = useTransform(expandProgress, [0, 1], ["rgba(255, 255, 255, 1)", "rgba(255, 255, 255, 1)"]);
+    const cardInnerOpacity = useTransform(expandProgress, [0, 0.5], [0, 0]);
+    const pageOpacity = useTransform(expandProgress, [0.15, 0.8], [0, 1]);
+    useEffect(() => {
+        document.documentElement.classList.add('landing-theme');
+        const handleScroll = () => {
+            const isMobile = window.innerWidth <= 768;
+            const threshold = isMobile ? 180 : 350;
+            if (window.scrollY > threshold) {
+                setScrolled(true);
+            } else {
+                setScrolled(false);
+            }
+        };
 
+
+
+        window.addEventListener("scroll", handleScroll);
+        return () => {
+            document.documentElement.classList.remove('landing-theme');
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, []);
     const features = [
         { icon: HiShieldCheck, title: "Deep-Learning Fraud Engine", desc: "Multi-layered neural networks analyze metadata, and pixel-level tampering to flag synthetic or forged documents." },
         { icon: HiDocumentCheck, title: "Multi-Format Verification", desc: "Instantly process and verify complex financial documents: GST certificates, ITRs, land registries, and bank statements." },
@@ -54,12 +120,12 @@ export default function Landing() {
         { name: "Saksham Varshney", role: "Backend Developer", initial: "SV" },
     ];
     const navLinks = [
-        { name: "Capabilities", href: "#capabilities" },
-        { name: "How it Works", href: "#how-it-works" },
-        { name: "Architecture", href: "#architecture" },
-        { name: "Team", href: "#team" }
-    ];
-    const cardNavItems = [
+    { name: "Capabilities", href: "#capabilities" },
+    { name: "How it Works", href: "#how-it-works" },
+    { name: "Architecture", href: "#architecture" },
+    { name: "Team", href: "#team" }
+  ];
+  const cardNavItems = [
         {
             label: "Platform",
             bgColor: "#0f172a",
@@ -88,82 +154,25 @@ export default function Landing() {
             ]
         }
     ];
-    const containerRef = useRef(null);
-    const { scrollYProgress } = useScroll({
-        target: containerRef,
-        offset: ["start start", "end end"]
-    });
-    useMotionValueEvent(scrollYProgress, "change", (latest) => {
-        setIsLightNavbar(latest > 0.25);
-    });
-    const { scrollY } = useScroll();
-    useMotionValueEvent(scrollY, "change", () => {
-        setNavVisible(true);
-    });
-    const backgroundY = useTransform(scrollY, [0, 1000], [0, 200]);
-    // Scroll Transition Hooks (Faster & smoother response on small scroll)
-    const moveProgress = useTransform(scrollYProgress, [0.01, 0.15], [0, 1]);
-    const expandProgress = useTransform(scrollYProgress, [0.08, 0.35], [0, 1]);
-    const heroOpacity = useTransform(scrollYProgress, [0.02, 0.25], [1, 0]);
-    const mobileBgOpacity = useTransform(expandProgress, [0, 1], [0, 1]);
-    const cardLeft = useTransform(() => {
-        const m = moveProgress.get();
-        const e = expandProgress.get();
-        const cardHalfWidth = 160;
-        if (e > 0) {
-            return `calc((50vw - ${cardHalfWidth}px) * ${1 - e})`;
-        }
-        return `calc((max(50vw - 560px, 80px) + 484px) * ${1 - m} + (50vw - 160px) * ${m})`;
-    });
-    const cardWidth = useTransform(() => {
-        return '100vw';
-    });
-    const cardHeight = useTransform(() => {
-        return '100vh';
-    });
-    const cardBorderRadius = useTransform(expandProgress, [0, 1], ["0px", "0px"]);
-    const cardBorderWidth = useTransform(expandProgress, [0, 1], ["0px", "0px"]);
-    const cardBorderColor = useTransform(expandProgress, [0, 1], ["rgba(255, 255, 255, 0)", "rgba(255, 255, 255, 0)"]);
-    const cardBgColor = useTransform(expandProgress, [0, 1], ["rgba(255, 255, 255, 1)", "rgba(255, 255, 255, 1)"]);
-    const cardInnerOpacity = useTransform(expandProgress, [0, 0.5], [0, 0]);
-    const pageOpacity = useTransform(expandProgress, [0.15, 0.8], [0, 1]);
-    useEffect(() => {
-        document.documentElement.classList.add('landing-theme');
-        const handleScroll = () => {
-            const isMobile = window.innerWidth <= 768;
-            const threshold = isMobile ? 180 : 350;
-            if (window.scrollY > threshold) {
-                setScrolled(true);
-            }
-            else {
-                setScrolled(false);
-            }
-        };
-        window.addEventListener('scroll', handleScroll);
-        return () => {
-            document.documentElement.classList.remove('landing-theme');
-            window.removeEventListener('scroll', handleScroll);
-        };
-    }, []);
     return (<div className="min-h-screen bg-background font-['Plus_Jakarta_Sans',sans-serif]">
       {/* Desktop Navbar */}
-      <nav className={`hidden md:block fixed top-0 left-0 w-full z-50 pt-4 pb-4 transition-all duration-300 ${isLightNavbar ? 'bg-white/90 backdrop-blur-md shadow-sm' : scrolled ? 'bg-black/30 backdrop-blur-md' : 'bg-transparent'}`}>
+      <nav className={`hidden md:block fixed top-0 left-0 w-full z-50 pt-4 pb-4 transition-all duration-300 ${navVisible ? 'translate-y-0' : '-translate-y-full'} ${isLightNavbar ? 'bg-white/90 backdrop-blur-md shadow-sm' : scrolled ? 'bg-black/30 backdrop-blur-md' : 'bg-transparent'}`}>
         <motion.div 
 
           initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.8 }}
-          className="w-full max-w-7xl mx-auto px-6 md:px-8 lg:px-12 flex items-center justify-between"
+          className="w-full max-w-7xl mx-auto px-6 md:px-12 lg:px-20 flex items-center justify-between"
         >
           
-          <div className="flex items-center gap-6 lg:gap-12 shrink-0">
-            <div className="cursor-pointer shrink-0" onClick={() => navigate("/")}>
-              <Logo className={`text-[26px] lg:text-[28px] transition-colors ${isLightNavbar ? 'text-foreground' : 'text-white'}`} />
+          <div className="flex items-center lg:gap-14 gap-8">
+            <div className="cursor-pointer" onClick={() => navigate("/")}>
+              <Logo className={`text-[28px] transition-colors ${isLightNavbar ? 'text-foreground' : 'text-white'}`} />
             </div>
             
-            <div className="flex items-center gap-4 lg:gap-8 shrink-0">
+            <div className="hidden md:flex items-center gap-8">
               {navLinks.map(link => {
                 const isActive = activeSection === link.href.substring(1);
                 return (
-                <a key={link.name} href={link.href} className={`group relative font-semibold text-[14px] lg:text-[15px] whitespace-nowrap transition-all duration-300 ${isActive ? 'text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-500 to-purple-600' : (isLightNavbar ? 'text-foreground hover:text-fuchsia-600' : 'text-white/80 hover:text-white')}`}>
+                <a key={link.name} href={link.href} className={`group relative font-semibold text-[15px] transition-all duration-300 ${isActive ? 'text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-500 to-purple-600' : (isLightNavbar ? 'text-foreground hover:text-fuchsia-600' : 'text-white/80 hover:text-white')}`}>
                   <span className={`relative inline-block transition-transform duration-300 ${isActive ? '' : 'group-hover:-translate-y-[2px] group-hover:scale-105'}`}>
                     {link.name}
                   </span>
@@ -173,16 +182,16 @@ export default function Landing() {
             </div>
           </div>
 
-          <div className="flex items-center gap-3 sm:gap-5 shrink-0">
+          <div className="flex items-center gap-4 sm:gap-6 lg:mr-24 md:mr-16 mr-4">
             <button
               onClick={() => navigate("/login")}
-              className={`font-semibold text-[14px] transition-colors hidden sm:block whitespace-nowrap ${isLightNavbar ? 'text-foreground hover:text-black/70' : 'text-white hover:text-white/80'}`}
+              className={`font-semibold text-[14px] transition-colors hidden sm:block ${isLightNavbar ? 'text-foreground hover:text-black/70' : 'text-white hover:text-white/80'}`}
             >
               Log in
             </button>
             <button
               onClick={() => navigate("/login")}
-              className={`text-[14px] font-bold px-4 py-2 sm:px-5 sm:py-2 rounded-full transition-colors shadow-lg hover:scale-105 whitespace-nowrap ${isLightNavbar ? 'bg-primary text-primary-foreground hover:bg-primary/90' : 'bg-white text-black hover:bg-gray-100'}`}
+              className={`text-[14px] font-bold px-4 py-2 sm:px-5 sm:py-2 rounded-full transition-colors shadow-lg hover:scale-105 ${isLightNavbar ? 'bg-primary text-primary-foreground hover:bg-primary/90' : 'bg-white text-black hover:bg-gray-100'}`}
             >
               Sign up
             </button>
