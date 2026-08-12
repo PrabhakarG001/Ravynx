@@ -131,8 +131,8 @@ export default function Landing() {
             name: "Prabhakar Gupta", 
             role: "Frontend Developer", 
             initial: "PG",
-            github: "#",
-            linkedin: "#"
+            github: "https://github.com/PrabhakarG001",
+            linkedin: "https://www.linkedin.com/in/prabhakargupta/"
         },
         { 
             name: "Saksham Varshney", 

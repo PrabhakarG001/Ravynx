@@ -11,7 +11,7 @@ export const Help = () => {
       name: "Prabhakar Sahu",
       role: "Lead Full-Stack Engineer",
       email: "agadityag465@gmail.com",
-      github: "github.com/prabhakar",
+      github: "github.com/PrabhakarG001",
       initials: "PS",
       color: "bg-[#00897b]"
     },
