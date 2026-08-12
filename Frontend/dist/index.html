@@ -11,17 +11,85 @@
       <title>Ravynx</title>
       <meta name="description" content="Ravynx — AI-Powered Underwriting & Document Fraud Detection Platform." />
       <meta name="robots" content="noindex, nofollow" />
-      <style>html, body { height: 100%; margin: 0; } #root { height: 100%; }</style>
+      <style>
+        html, body { height: 100%; margin: 0; padding: 0; } 
+        #root { height: 100%; }
+        
+        /* Completely Suppress Google Translate Top Banner, Iframes & Body Push-down */
+        .skiptranslate,
+        body > .skiptranslate,
+        .goog-te-banner-frame, 
+        .goog-te-banner-frame.skiptranslate,
+        iframe.goog-te-banner-frame,
+        iframe[src*="translate"],
+        iframe[id*="goog"],
+        #goog-gt-tt,
+        .goog-te-balloon-frame,
+        .goog-te-spinner-pos,
+        .VIpgJd-yDtfld-eJuTwc-wDJBVe,
+        .VIpgJd-yDtfld-l4gVh-JfmdFv,
+        .VIpgJd-yDtfld-LgbsSe {
+          display: none !important;
+          visibility: hidden !important;
+          opacity: 0 !important;
+          height: 0px !important;
+          width: 0px !important;
+          max-height: 0px !important;
+          pointer-events: none !important;
+          z-index: -99999 !important;
+        }
+        html, body {
+          top: 0px !important;
+          margin-top: 0px !important;
+          padding-top: 0px !important;
+          position: static !important;
+        }
+        .goog-text-highlight {
+          background-color: transparent !important;
+          box-shadow: none !important;
+        }
+      </style>
       
       <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
       <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
-      <script type="module" crossorigin src="/assets/index-CK2wf-DV.js"></script>
-      <link rel="stylesheet" crossorigin href="/assets/index-Bqzj-_t6.css">
+      <script type="module" crossorigin src="/assets/index-BeY6mt6j.js"></script>
+      <link rel="stylesheet" crossorigin href="/assets/index-BWI2AIfo.css">
     </head>
 
     <body>
       
+      <div id="google_translate_element" style="display:none; position:absolute; z-index:-9999; width:0; height:0;"></div>
+      <script type="text/javascript">
+        function googleTranslateElementInit() {
+          new google.translate.TranslateElement({
+            pageLanguage: 'en',
+            includedLanguages: 'hi,en',
+            autoDisplay: false
+          }, 'google_translate_element');
+        }
+
+        // Proactive DOM observer to eliminate Google Translate banner frames instantly
+        (function() {
+          function purgeBanner() {
+            var frames = document.querySelectorAll('iframe.goog-te-banner-frame, .goog-te-banner-frame, body > .skiptranslate');
+            frames.forEach(function(f) {
+              f.style.setProperty('display', 'none', 'important');
+              f.style.setProperty('visibility', 'hidden', 'important');
+              f.style.setProperty('height', '0px', 'important');
+            });
+            document.body.style.setProperty('top', '0px', 'important');
+            document.body.style.setProperty('margin-top', '0px', 'important');
+            document.documentElement.style.setProperty('top', '0px', 'important');
+            document.documentElement.style.setProperty('margin-top', '0px', 'important');
+          }
+
+          var observer = new MutationObserver(purgeBanner);
+          observer.observe(document.documentElement, { childList: true, subtree: true, attributes: true });
+          setInterval(purgeBanner, 200);
+        })();
+      </script>
+      <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
       <div id="root"></div>
       
     </body>

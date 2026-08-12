@@ -127,8 +127,20 @@ export default function Landing() {
         { icon: HiLockClosed, title: "Strict Compliance Audit", desc: "Tamper-evident, cryptographically secure logging of every verification step to ensure regulatory compliance for NBFCs." },
     ];
     const team = [
-        { name: "Prabhakar Gupta", role: "Frontend Developer", initial: "PG" },
-        { name: "Saksham Varshney", role: "Backend Developer", initial: "SV" },
+        { 
+            name: "Prabhakar Gupta", 
+            role: "Frontend Developer", 
+            initial: "PG",
+            github: "#",
+            linkedin: "#"
+        },
+        { 
+            name: "Saksham Varshney", 
+            role: "Backend Developer", 
+            initial: "SV",
+            github: "https://github.com/cs-sakshamm",
+            linkedin: "https://www.linkedin.com/in/saksham-varshney-699871366?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+        },
     ];
     const navLinks = [
         { name: t("capabilities"), href: "#capabilities" },
@@ -690,7 +702,7 @@ export default function Landing() {
         </motion.div>
         
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-3xl mx-auto">
-          {team.map(({ name, role, initial }, index) => (<motion.div key={name} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, margin: "-50px" }} transition={{ duration: 0.5, delay: index * 0.1 }} className="bg-card border border-border rounded-2xl p-8 text-center shadow-sm hover:shadow-[0_0_40px_rgba(var(--primary),0.15)] hover:-translate-y-3 transition-all duration-300 group relative overflow-hidden flex flex-col items-center justify-between h-full w-full">
+          {team.map(({ name, role, initial, github, linkedin }, index) => (<motion.div key={name} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, margin: "-50px" }} transition={{ duration: 0.5, delay: index * 0.1 }} className="bg-card border border-border rounded-2xl p-8 text-center shadow-sm hover:shadow-[0_0_40px_rgba(var(--primary),0.15)] hover:-translate-y-3 transition-all duration-300 group relative overflow-hidden flex flex-col items-center justify-between h-full w-full">
               <div className="absolute inset-0 bg-gradient-to-b from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
               <div className="w-20 h-20 rounded-full bg-primary/10 text-primary text-2xl font-bold flex items-center justify-center mx-auto mb-6 relative z-10 group-hover:bg-primary group-hover:text-primary-foreground transition-colors shadow-inner shrink-0">
                 {initial}
@@ -699,8 +711,8 @@ export default function Landing() {
               <p className="text-sm text-primary font-semibold mt-1.5 relative z-10 text-center w-full">{role}</p>
               
               <div className="flex items-center justify-center gap-4 mt-6 relative z-10">
-                 <a href="#" className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center text-muted-foreground hover:bg-foreground hover:text-background transition-colors"><FiGithub className="w-4 h-4"/></a>
-                 <a href="#" className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center text-muted-foreground hover:bg-[#0A66C2] hover:text-foreground transition-colors"><FiLinkedin className="w-4 h-4"/></a>
+                 <a href={github || "#"} target={github && github !== "#" ? "_blank" : undefined} rel={github && github !== "#" ? "noopener noreferrer" : undefined} aria-label={`${name}'s GitHub profile`} className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center text-muted-foreground hover:bg-foreground hover:text-background transition-colors"><FiGithub className="w-4 h-4"/></a>
+                 <a href={linkedin || "#"} target={linkedin && linkedin !== "#" ? "_blank" : undefined} rel={linkedin && linkedin !== "#" ? "noopener noreferrer" : undefined} aria-label={`${name}'s LinkedIn profile`} className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center text-muted-foreground hover:bg-[#0A66C2] hover:text-white transition-colors"><FiLinkedin className="w-4 h-4"/></a>
               </div>
             </motion.div>))}
         </div>

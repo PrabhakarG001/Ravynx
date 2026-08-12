@@ -19,7 +19,7 @@ export const Help = () => {
       name: "Saksham Varshney",
       role: "AI & Machine Learning",
       email: "saksham@ravynx.com",
-      github: "github.com/saksham",
+      github: "github.com/cs-sakshamm",
       initials: "SV",
       color: "bg-[#635BFF]"
     }
