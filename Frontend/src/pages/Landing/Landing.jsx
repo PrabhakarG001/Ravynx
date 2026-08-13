@@ -2,7 +2,6 @@ import './Landing.css';
 import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router";
 import { motion, useScroll, useTransform, useMotionValueEvent, AnimatePresence } from "framer-motion";
-import NeuralNetwork from "../../components/ui/NeuralNetwork/NeuralNetwork";
 import { HiShieldCheck, HiDocumentCheck, HiChartBar, HiClipboardDocumentList, HiCpuChip, HiLockClosed, HiArrowRight, HiClock, HiExclamationTriangle, HiCheckCircle, HiCircleStack, HiSquares2X2, HiServerStack, HiPlayCircle, HiEye, HiMagnifyingGlass, HiDocumentText, HiCheck } from "react-icons/hi2";
 import { FiGithub, FiLinkedin, FiGitMerge, FiLoader } from "react-icons/fi";
 import { FaGithub, FaDiscord, FaReddit, FaTwitter } from "react-icons/fa";
